@@ -8,6 +8,7 @@
   .navTab {
     padding: 90px 50px 0 50px;
     width: auto;
+    max-width: 1040px;
   }
 }
 

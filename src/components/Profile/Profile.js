@@ -10,22 +10,6 @@ export const Profile = () => {
     email: "Виталий@yandex.ru",
   });
 
-  // const cbChange = useCallback(
-  //   (event) => {
-  //     const { name, value } = event.target;
-  //     setUserData({
-  //       ...userData,
-  //       [name]: value,
-  //     });
-  //   },
-  //   [userData]
-  // );
-
-  // function logout(e) {
-  //   e.preventDefault();
-  //   console.log("logout из " + userData.name + ", " + userData.email);
-  // }
-
   return (
     <div className="profile">
       <Header mode={"white"} />

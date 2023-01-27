@@ -1,0 +1,137 @@
+.techs {
+  background: rgba(245, 245, 245, 1);
+  margin: 0 auto;
+  max-width: 1140px;
+  padding: 90px 0 100px 0;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+@media (max-width: 1279px) {
+  .techs {
+    padding: 80px 0 90px 0;
+    margin: 0 60x;
+  }
+}
+
+@media (max-width: 768px) {
+  .techs {
+    padding: 80px 30px 90px 30px;
+  }
+}
+
+@media (max-width: 320px) {
+  .techs {
+    padding: 60px 18px 60px 18px;
+  }
+}
+
+.techs__title {
+  height: 58px;
+  max-width: 600px;
+  margin: 0 auto 26px auto;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+}
+
+@media (max-width: 320px) {
+  .techs__title {
+    margin-bottom: 0px;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    text-align: center;
+    letter-spacing: -0.04em;
+  }
+}
+
+.techs__text {
+  height: 40px;
+  max-width: 460px;
+  margin: 0 auto 100px auto;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 1279px) {
+  .techs__text {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 320px) {
+  .techs__text {
+    margin-bottom: 40px;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+    letter-spacing: -0.04em;
+  }
+}
+
+.techs__tech-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 320px) {
+  .techs__tech-list {
+    width: 200px;
+  }
+}
+
+.techs__tech-wrapper {
+  display: inline-block;
+  height: 60px;
+  width: 90px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  margin-right: 0;
+  vertical-align: middle;
+  display: table-cell;
+}
+
+@media (max-width: 320px) {
+  .techs__tech-wrapper {
+    margin-top: 10px;
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+  }
+}
+
+.techs__tech-wrapper:not(:last-child) {
+  margin-right: 10px;
+}
+
+.techs__tech {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  letter-spacing: -0.04em;
+}

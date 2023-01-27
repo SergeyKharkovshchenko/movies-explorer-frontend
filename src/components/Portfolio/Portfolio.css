@@ -1,0 +1,35 @@
+.portfolio {
+  margin: 0 auto 125px auto;
+  max-width: 1140px;
+}
+
+@media (max-width: 1260px) {
+  .portfolio {
+    margin: 0 50px 90px 50px;
+  }
+}
+
+@media (max-width: 320px) {
+  .portfolio {
+    margin: 0 14px 90px 14px;
+  }
+}
+
+.portfolio__title {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 20px;
+  color: #a0a0a0;
+
+  margin: 0 auto 50px 0;
+  height: 20px;
+  width: 250px;
+}
+
+@media (max-width: 320px) {
+  .portfolio__title {
+    margin: 0 auto 40px 0;
+  }
+}

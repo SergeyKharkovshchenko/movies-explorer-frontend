@@ -1,0 +1,35 @@
+.aboutProject {
+  margin: 70px auto 100px auto;
+  max-width: 1140px;
+}
+
+@media (max-width: 1279px) {
+  .aboutProject {
+    width: calc(100vw - 130px);
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutProject {
+    width: calc(100vw - 100px);
+  }
+}
+
+@media (max-width: 440px) {
+  .aboutProject {
+    margin: 60px 18px 60px 18px;
+    width: calc(100vw - 36px);
+  }
+}
+
+.aboutProject__description {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+}
+
+@media (max-width: 440px) {
+  .aboutProject__description {
+    flex-direction: column;
+  }
+}

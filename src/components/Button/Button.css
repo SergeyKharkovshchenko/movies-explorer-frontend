@@ -1,0 +1,28 @@
+.button {
+  height: 32px;
+  width: 100px;
+  border-radius: 3px;
+  text-align: center;
+  margin-right: 0;
+  padding: 0;
+  border: none;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: inherit;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.button .active {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.button__isActive_false {
+  opacity: 0.5;
+}
+
+.button:not(:last-child) {
+  margin-right: 10px;
+}

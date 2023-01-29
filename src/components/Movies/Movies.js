@@ -148,22 +148,28 @@ export const Movies = () => {
   }
 
   return (
-    <div className="movies">
-      <Header mode={"white"} />
-      <SearchForm
-        clickHandler={handleClick}
-        changeHandler={handleChange}
-        switcherHandler={handleSwitcher}
-        isSwitched={isSwitched}
-      />
-      <MoviesCardList
-        cards={cards.slice(dozenNumber - 1, dozenNumber + 11)}
-        onCardLike={handleCardLike}
-      />
-      <div className="movies__morebutton">
-        <Button color={"bigLightgrey"} onClick={handleMore} name="Ещё" />
-      </div>
-      <Footer />
-    </div>
+    <section className="movies">
+      <header>
+        <Header mode={"white"} />
+      </header>
+      <main>
+        <SearchForm
+          clickHandler={handleClick}
+          changeHandler={handleChange}
+          switcherHandler={handleSwitcher}
+          isSwitched={isSwitched}
+        />
+        <MoviesCardList
+          cards={cards.slice(dozenNumber - 1, dozenNumber + 11)}
+          onCardLike={handleCardLike}
+        />
+        <div className="movies__morebutton">
+          <Button color={"bigLightgrey"} onClick={handleMore} name="Ещё" />
+        </div>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </section>
   );
 };

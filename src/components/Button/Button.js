@@ -15,8 +15,10 @@ export const Button = ({ name, color, isActive, onClick }) => {
         return {
           background: "rgba(43, 224, 128, 1)",
           color: "white",
-          width: "396px",
+          maxWidth: "396px",
+          width: "100%",
           height: "45px",
+          margin: "0"
         };
       case "grey":
         return {
@@ -77,7 +79,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
         return {
           background: "rgba(43, 224, 128, 1)",
           color: "white",
-          width: "260px",
+          width: "100%",
           height: "45px",
           marginLeft: "0",
         };
@@ -107,7 +109,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
         return {
           background: "rgba(249, 249, 249, 1)",
           color: "black",
-          width: "320px",
+          width: "calc(100vw - 20px)",
           height: "36px",
           borderRadius: "6px",
         };

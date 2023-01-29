@@ -4,7 +4,7 @@ import { Underline } from "../Underline";
 
 export const Footer = () => {
   return (
-    <div className="footer">
+    <section className="footer">
       <h2 className="footer__title">
         Учебный проект Яндекс.Практикум х BeatFilm.
       </h2>
@@ -28,6 +28,6 @@ export const Footer = () => {
           </a>
         </div>
       </div>
-    </div>
+    </section>
   );
 };

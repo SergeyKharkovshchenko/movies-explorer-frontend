@@ -4,8 +4,9 @@ import { PortfolioLink } from "../PortfolioLink";
 
 export const Portfolio = () => {
   return (
-    <div className="portfolio">
+    <section className="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
+      <ul className="portfolio__list">
       <PortfolioLink
         name={"Статичный сайт"}
         link={"https://sergeykharkovshchenko.github.io/react-mesto-auth/"}
@@ -18,6 +19,7 @@ export const Portfolio = () => {
         name={"Одностраничное приложение"}
         link={"https://sergeykharkovshchenko.github.io/react-mesto-auth/"}
       />
-    </div>
+      </ul>
+    </section>
   );
 };

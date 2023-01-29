@@ -11,8 +11,11 @@ import "./Main.css";
 
 export const Main = () => {
   return (
-    <div className="main">
-      <Header mode={"main"} />
+    <>
+    <header>       
+    <Header mode={"main"} />
+    </header>
+    <main className="main">
       <Promo />
       <NavTab subject={"О проекте"} />
       <AboutProject />
@@ -21,7 +24,10 @@ export const Main = () => {
       <NavTab subject={"Студент"} />
       <AboutMe />
       <Portfolio />
-      <Footer />
-    </div>
+    </main>
+    <footer>
+    <Footer />
+    </footer>
+    </>
   );
 };

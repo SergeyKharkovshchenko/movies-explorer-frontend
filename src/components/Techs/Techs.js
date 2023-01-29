@@ -4,7 +4,7 @@ import { TechItems } from "../TechItems";
 
 export const Techs = () => {
   return (
-    <div className="techs">
+    <section className="techs">
       <h2 className="techs__title">7 технологий</h2>
       <p className="techs__text">
         На курсе веб-разработки мы освоили технологии, которые применили в
@@ -19,6 +19,6 @@ export const Techs = () => {
         <TechItems subject={"Express.js"} />
         <TechItems subject={"mongoDB"} />
       </ul>
-    </div>
+    </section>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./SearchForm.css";
 import { FilterCheckbox } from "../FilterCheckbox";
 import { Underline } from "../Underline";
+import "./SearchForm.css";
 
 export const SearchForm = ({
   clickHandler,
@@ -10,7 +10,7 @@ export const SearchForm = ({
   isSwitched,
 }) => {
   return (
-    <div className="searchForm">
+    <section className="searchForm">
       <form className="searchForm__searchWrapper" onSubmit={clickHandler}>
         <input
           className="searchForm__search"
@@ -18,12 +18,12 @@ export const SearchForm = ({
           onChange={changeHandler}
           type="text"
           placeholder="Фильм"
+          required
           //   ref={}
         />
-
         <button
           type="submit"
-          className="searchForm__submit_type_search"
+          className="searchForm__submit"
           onClick={clickHandler}
           isActive="true"
         >
@@ -35,6 +35,6 @@ export const SearchForm = ({
         handleSwitcher={switcherHandler}
       />
       <Underline mode={"greyStyle"} />
-    </div>
+    </section>
   );
 };

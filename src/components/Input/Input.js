@@ -18,7 +18,7 @@ export const Input = ({
   }
 
   return (
-    <div className="input">
+    <section className="input">
       <div className={`${mode}__input-block`}>
         <p className={`${mode}__label`}>{label}</p>
         <input
@@ -37,6 +37,6 @@ export const Input = ({
       {`${name}InDirty&&bad${name}In` && (
         <span className={`${mode}__error`}>{errorName}</span>
       )}
-    </div>
+    </section>
   );
 };

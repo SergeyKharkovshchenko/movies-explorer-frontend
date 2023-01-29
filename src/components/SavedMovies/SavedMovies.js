@@ -62,24 +62,30 @@ export const SavedMovies = () => {
   }
 
   return (
-    <div className="movies">
-      <Header mode={"white"} />
-      <SearchForm
-        clickHandler={handleClick}
-        changeHandler={handleChange}
-        switcherHandler={handleSwitcher}
-        isSwitched={isSwitched}
-      />
-      <MoviesCardList cards={cards} onCardLike={handleCardLike} />
-      <div className="movies__morebutton">
-        <Button
-          color={"bigLightgrey"}
-          onClick={handleMore}
-          name="More"
-          isActive="true"
+    <section className="movies">
+      <header>
+        <Header mode={"white"} />
+      </header>
+      <main>
+        <SearchForm
+          clickHandler={handleClick}
+          changeHandler={handleChange}
+          switcherHandler={handleSwitcher}
+          isSwitched={isSwitched}
         />
-      </div>
-      <Footer />
-    </div>
+        <MoviesCardList cards={cards} onCardLike={handleCardLike} />
+        <div className="movies__morebutton">
+          <Button
+            color={"bigLightgrey"}
+            onClick={handleMore}
+            name="More"
+            isActive="true"
+          />
+        </div>
+      </main>
+      <footer>
+        <Footer />
+      </footer>
+    </section>
   );
 };

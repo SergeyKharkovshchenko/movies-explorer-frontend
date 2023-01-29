@@ -24,7 +24,7 @@
 @media (max-width: 415px) {
   .popup__form {
     margin: 0 auto;
-    width: 80%;
+    /* width: 80%; */
     text-align: left;
   }
 }
@@ -63,7 +63,7 @@
 
 @media (max-width: 320px) {
   .popup__buttons {
-    margin: 155px 70px 30px 70px;
+    margin: 155px auto 30px auto;
   }
 }
 

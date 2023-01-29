@@ -11,9 +11,11 @@ export const Profile = () => {
   });
 
   return (
-    <div className="profile">
+    <section className="profile">
+    <header>
       <Header mode={"white"} />
-
+    </header>
+    <main>
       <Popup
         mode={"profile"}
         greeting={`Привет, ${userData.name}`}
@@ -24,7 +26,7 @@ export const Profile = () => {
         buttonsText={""}
         linkTo={""}
       />
-   
-    </div>
+   </main>
+    </section>
   );
 };

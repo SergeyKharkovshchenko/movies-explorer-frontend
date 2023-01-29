@@ -25,11 +25,15 @@
 
   margin: 0 auto 50px 0;
   height: 20px;
-  width: 250px;
+  width: 60vw;
 }
 
 @media (max-width: 320px) {
   .portfolio__title {
     margin: 0 auto 40px 0;
   }
+}
+
+.portfolio__list {
+  list-style: none;
 }

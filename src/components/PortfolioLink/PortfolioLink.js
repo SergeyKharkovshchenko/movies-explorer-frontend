@@ -5,12 +5,12 @@ import arrow from "../../images/text__COLOR_font-main.svg";
 
 export const PortfolioLink = ({ name, link }) => {
   return (
-    <>
-      <a href={link} className="portfolioLink" target="_blank" rel="noreferrer">
+    <li className="portfolioLink">
+      <a href={link} className="portfolioLink__linkblock" target="_blank" rel="noreferrer">
         <h2 className="portfolioLink__subtitle">{name}</h2>
         <img src={`${arrow}`} alt="Стрелка" className="portfolioLink__arrow" />
       </a>
       <Underline mode={"greyStyle"} />
-    </>
+    </li>
   );
 };

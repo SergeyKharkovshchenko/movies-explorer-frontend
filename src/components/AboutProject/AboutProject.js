@@ -16,13 +16,13 @@ import {
 
 export const AboutProject = () => {
   return (
-    <div className="aboutProject">
+    <section className="aboutProject">
       <div className="aboutProject__description">
         <AboutProjectDetails title={text1} text={text2} />
         <AboutProjectDetails title={text3} text={text4} />
       </div>
       <AboutProjectData mode="dark" left={text5} right={text6} />
       <AboutProjectData mode="light" left={text7} right={text8} />
-    </div>
+    </section>
   );
 };

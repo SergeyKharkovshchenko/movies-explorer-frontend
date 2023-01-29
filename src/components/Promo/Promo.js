@@ -4,15 +4,15 @@ import "./Promo.css";
 
 export const Promo = () => {
   return (
-    <div className="promo">
-      <p className="promo__title">
+    <section className="promo">
+      <h2 className="promo__title">
         Учебный проект студента факультета Веб-разработки.
-      </p>
+      </h2>
       <img
         src={`${promoImage}`}
         alt="Стильные кружочки"
         className="promo__image"
       />
-    </div>
+    </section>
   );
 };

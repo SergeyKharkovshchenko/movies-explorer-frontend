@@ -29,7 +29,8 @@
 }
 
 .techs__title {
-  height: 58px;
+  min-height: 58px;
+  height: auto;
   max-width: 600px;
   margin: 0 auto 26px auto;
 
@@ -106,6 +107,7 @@
   background: #e8e8e8;
   border-radius: 10px;
   margin-right: 0;
+  margin-bottom: 10px;
   vertical-align: middle;
   display: table-cell;
 }
@@ -113,6 +115,7 @@
 @media (max-width: 320px) {
   .techs__tech-wrapper {
     margin-top: 10px;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;

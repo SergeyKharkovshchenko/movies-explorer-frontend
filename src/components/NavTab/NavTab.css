@@ -26,15 +26,15 @@
   font-size: 22px;
   line-height: 27px;
   letter-spacing: -0.04em;
+
   color: #000000;
-  margin: 0 0 23px 50px;
+  margin: 0 0 23px 0;
   height: 27px;
-  width: auto;
+  width: 70vw;
 }
 
 @media (max-width: 320px) {
   .navTab__title {
-    width: 200px;
 
     font-family: "Inter", "Times", "serif";
     font-style: normal;

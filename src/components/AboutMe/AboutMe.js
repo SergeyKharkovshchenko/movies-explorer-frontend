@@ -4,7 +4,7 @@ import SKFotoImage from "../../images/SKFoto.jpg";
 
 export const AboutMe = () => {
   return (
-    <div className="aboutMe">
+    <section className="aboutMe">
       <div className="aboutMe__left">
         <h2 className="aboutMe__title">Сергей</h2>
         <h3 className="aboutMe__subtitle">Web-разработчик</h3>
@@ -27,6 +27,6 @@ export const AboutMe = () => {
       <div className="aboutMe__right">
         <img src={`${SKFotoImage}`} alt="Фото С.Х." className="aboutMe__foto" />
       </div>
-    </div>
+    </section>
   );
 };

@@ -19,7 +19,7 @@ export const Header = ({ mode }) => {
   };
 
   return (
-    <div className="header" style={mode == "white" ? moviesStyle : mainStyle}>
+    <section className="header" style={mode == "white" ? moviesStyle : mainStyle}>
       <img
         src={`${logoImage}`}
         alt="Логотип - зеленый бублик"
@@ -32,10 +32,10 @@ export const Header = ({ mode }) => {
             // activeClassName="active" className="link"
             to={signup.link}
           >
-            <Button name={signup.name} color={"grey"} />
+            <Button name={signup.name} color={"grey"} isActive={"true"}/>
           </NavLink>
           <NavLink className="link" to={signin.link}>
-            <Button name={signin.name} color={"green"} />
+            <Button name={signin.name} color={"green"} isActive={"true"}/>
           </NavLink>
         </div>
       ) : (
@@ -78,6 +78,6 @@ export const Header = ({ mode }) => {
           </div>
         </>
       )}
-    </div>
+    </section>
   );
 };

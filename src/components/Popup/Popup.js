@@ -95,7 +95,7 @@ export const Popup = ({
   }
 
   return (
-    <div className="popup">
+    <section className="popup">
       {(mode == "signup" || mode == "signin") && (
         <img
           src={`${logoImage}`}
@@ -144,7 +144,7 @@ export const Popup = ({
         )}
       </form>
       {(mode == "signup" || mode == "signin") && (
-        <div className="popup__buttons">
+        <nav className="popup__buttons">
           <Button
             name={greenButton}
             onClick={cbClick}
@@ -157,10 +157,10 @@ export const Popup = ({
               {smallButton}
             </Link>
           </div>
-        </div>
+        </nav>
       )}
       {mode == "profile" && (
-        <div className="profile__buttons">
+        <nav className="profile__buttons">
           <Button
             name={"Редактировать"}
             onClick={cbChangeProfile}
@@ -175,8 +175,8 @@ export const Popup = ({
               isActive="true"
             />
           </Link>
-        </div>
+        </nav>
       )}
-    </div>
+    </section>
   );
 };

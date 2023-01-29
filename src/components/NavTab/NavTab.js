@@ -10,7 +10,7 @@ export const NavTab = ({ subject, background }) => {
   };
   const transpStyle = {};
   return (
-    <div
+    <section
       className="navTab"
       style={
         useMediaQuery({ maxWidth: 321 })
@@ -20,8 +20,8 @@ export const NavTab = ({ subject, background }) => {
           : transpStyle
       }
     >
-      <div className="navTab__title">{subject}</div>
+      <h2 className="navTab__title">{subject}</h2>
       <Underline mode={"blackStyle"} />
-    </div>
+    </section>
   );
 };

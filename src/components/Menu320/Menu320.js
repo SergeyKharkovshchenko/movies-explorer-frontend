@@ -6,7 +6,7 @@ import "./Menu320.css";
 export const Menu320 = () => {
   return (
     <section className="menu320">
-      <div className="menu__burger320">
+      <div className="menu320__burger320">
         <Burger isClosed={true} />
       </div>
       <ShortMenu width320={true} />

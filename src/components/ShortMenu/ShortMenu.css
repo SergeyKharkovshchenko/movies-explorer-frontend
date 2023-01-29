@@ -1,4 +1,8 @@
-.menu__content {
+.shortmenu{
+  margin: 0 auto;
+}
+
+.shortmenu__content {
   position: absolute;
   height: 100vh;
   max-width: 340px;
@@ -10,18 +14,18 @@
 }
 
 @media (max-width: 320px) {
-  .menu__content {
+  .shortmenu__content {
     position: absolute;
     right: 0;
   }
 }
 
-.menu__menu {
+.shortmenu__menu {
   padding: 0;
   margin-top: 144px;
 }
 
-.menu__link-wrapper {
+.shortmenu__link-wrapper {
   text-decoration: none;
   text-align: center;
   list-style: none;
@@ -30,7 +34,7 @@
   margin-bottom: 28px;
 }
 
-.menu__link {
+.shortmenu__link {
   text-decoration: none;
   color: black;
 
@@ -41,17 +45,17 @@
   line-height: 22px;
 }
 
-.menu__link:hover {
+.shortmenu__link:hover {
   text-decoration: underline;
 }
 
-.menu__footer_short {
+.shortmenu__footer_short {
   padding: 0;
   margin: 0 auto;
   margin-top: 440px;
 }
 
-.menu__footer_long {
+.shortmenu__footer_long {
   padding: 0;
   margin: 0 auto;
   margin-top: 620px;

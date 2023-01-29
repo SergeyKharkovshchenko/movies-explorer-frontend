@@ -13,12 +13,12 @@ export const Navigation = () => {
 
   return (
     <section>
-    <div className="overlay">
+    <div className="navigation__overlay">
       <div
-        className={!isOpen ? "menu" : "menu menu__closed"}
+        className={!isOpen ? "navigation" : "navigation menu__closed"}
         onClick={handleClick}
       >
-        <div className="menu__burger">
+        <div className="navigation__burger">
           <Burger />
         </div>
         <ShortMenu width320={false} />

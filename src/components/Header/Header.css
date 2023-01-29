@@ -37,7 +37,7 @@
 }
 
 @media (max-width: 768px) {
-  .link_light {
+  .header__link_light {
     display: none;
   }
 }
@@ -52,7 +52,7 @@
   }
 }
 
-.linkToMovies {
+.header__linkToMovies {
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
@@ -63,14 +63,14 @@
   margin-left: 10px;
 }
 
-.linkToMoviesActive {
+.header__linkToMoviesActive {
   font-weight: 500;
 }
 
-.link {
+.header__link {
   text-decoration: none;
 }
 
-.active {
+.header__active {
   font-weight: 700;
 }

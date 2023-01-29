@@ -103,17 +103,17 @@ export const Popup = ({
           className="popup__logo"
         />
       )}
-      <h2 className={mode == "profile" ? "profile__title" : "popup__title"}>
+      <h2 className={mode == "profile" ? "popup__title_profile" : "popup__title"}>
         {greeting}
       </h2>
 
       <form
-        className={mode == "profile" ? "profile__form" : "popup__form"}
+        className={mode == "profile" ? "popup__form_profile" : "popup__form"}
         onSubmit={cbChange}
       >
         {(mode == "signup" || mode == "profile") && (
           <Input
-            mode={mode == "profile" ? mode : "popup"}
+            mode={mode == "profile" ? 'profile' : "popup"}
             label={"Имя"}
             name={"Name"}
             cbChange={cbChange}
@@ -123,7 +123,7 @@ export const Popup = ({
           />
         )}
         <Input
-          mode={mode == "profile" ? mode : "popup"}
+          mode={mode == "profile" ? 'profile' : "popup"}
           label={"Емейл"}
           name={"Email"}
           cbChange={cbChange}
@@ -133,7 +133,7 @@ export const Popup = ({
         />
         {(mode == "signup" || mode == "signin") && (
           <Input
-            mode={mode == "profile" ? mode : "popup"}
+            mode={mode == "profile" ? 'profile' : "popup"}
             label={"Пароль"}
             name={"Password"}
             cbChange={cbChange}
@@ -160,7 +160,7 @@ export const Popup = ({
         </nav>
       )}
       {mode == "profile" && (
-        <nav className="profile__buttons">
+        <nav className="popup__buttons_profile">
           <Button
             name={"Редактировать"}
             onClick={cbChangeProfile}

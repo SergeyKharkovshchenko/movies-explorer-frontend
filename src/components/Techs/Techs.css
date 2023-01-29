@@ -100,41 +100,4 @@
   }
 }
 
-.techs__tech-wrapper {
-  display: inline-block;
-  height: 60px;
-  width: 90px;
-  background: #e8e8e8;
-  border-radius: 10px;
-  margin-right: 0;
-  margin-bottom: 10px;
-  vertical-align: middle;
-  display: table-cell;
-}
 
-@media (max-width: 320px) {
-  .techs__tech-wrapper {
-    margin-top: 10px;
-
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
-    letter-spacing: -0.04em;
-  }
-}
-
-.techs__tech-wrapper:not(:last-child) {
-  margin-right: 10px;
-}
-
-.techs__tech {
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  letter-spacing: -0.04em;
-}

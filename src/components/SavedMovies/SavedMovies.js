@@ -74,7 +74,7 @@ export const SavedMovies = () => {
           isSwitched={isSwitched}
         />
         <MoviesCardList cards={cards} onCardLike={handleCardLike} />
-        <div className="movies__morebutton">
+        <div className="savedmovies__morebutton">
           <Button
             color={"bigLightgrey"}
             onClick={handleMore}

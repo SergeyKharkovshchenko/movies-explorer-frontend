@@ -18,14 +18,14 @@ export const Input = ({
   }
 
   return (
-    <section className="input">
-      <div className={`${mode}__input-block`}>
-        <p className={`${mode}__label`}>{label}</p>
+    <div className="input">
+      <div className={`input__inputblock_type_${mode}`}>
+        <p className={`input__label_type_${mode}`}>{label}</p>
         <input
           name={name}
           type="text"
           id={`edit-${name}`}
-          className={`${mode}__input ${mode}__${name}`}
+          className={`input__input_type_${mode} input__${name}_type_${mode}`}
           placeholder={`${name}`}
           value={userData || ""}
           onChange={(e) => change(e)}
@@ -33,10 +33,9 @@ export const Input = ({
         />
       </div>
       <Underline />
-
       {`${name}InDirty&&bad${name}In` && (
-        <span className={`${mode}__error`}>{errorName}</span>
+        <span className={`input__error`}>{errorName}</span>
       )}
-    </section>
+    </div>
   );
 };

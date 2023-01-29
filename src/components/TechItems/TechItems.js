@@ -3,8 +3,8 @@ import "./TechItems.css";
 
 export const TechItems = ({ subject }) => {
   return (
-    <li className="techs__tech-wrapper">
-      <p className="techs__tech">{subject}</p>
+    <li className="techitems__tech-wrapper">
+      <p className="techitems__tech">{subject}</p>
     </li>
   );
 };

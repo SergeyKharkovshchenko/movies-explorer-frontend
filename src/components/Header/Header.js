@@ -34,8 +34,7 @@ export const Header = ({ mode }) => {
       {mode == "main" ? (
         <div className="header__nav">
           <NavLink
-            className={(navData) => (navData.isActive ? "active link" : "link")}
-            // activeClassName="active" className="link"
+            className={(navData) => (navData.isActive ? "header__active header__link" : "header__link")}
             to={signup.link}
           >
             <Button name={signup.name} color={"grey"} isActive={"true"}/>
@@ -49,26 +48,23 @@ export const Header = ({ mode }) => {
           <div className="header__nav">
             <NavLink
               className={(navData) =>
-                navData.isActive ? "active link link_light" : "link link_light"
+                navData.isActive ? "header__active header__link header__link_light" : "header__link header__link_light"
               }
-              // activeClassName="active" className="link link_light"
               to={movies.link}
             >
               <Button name={movies.name} isActive={"true"} />
             </NavLink>
             <NavLink
               className={(navData) =>
-                navData.isActive ? "active link link_light" : "link link_light"
+                navData.isActive ? "header__active header__link header__link_light" : "header__link header__link_light"
               }
-              // activeClassName="active" className="link link_light"
               to={savedMovies.link}
             >
               <Button name={savedMovies.name} isActive={"true"} />
             </NavLink>
             <NavLink
-              // activeClassName="active" className="link link_light"
               className={(navData) =>
-                navData.isActive ? "active link link_light" : "link link_light"
+                navData.isActive ? "header__active header__link header__link_light" : "header__link header__link_light"
               }
               to={profile.link}
             >

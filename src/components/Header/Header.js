@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import { Burger } from "../Burger";
 import "./Header.css";
 import {
+  main,
   signup,
   signin,
   profile,
@@ -20,11 +21,16 @@ export const Header = ({ mode }) => {
 
   return (
     <section className="header" style={mode == "white" ? moviesStyle : mainStyle}>
+          <NavLink className="link"
+            to={main.link}
+          >
+
       <img
         src={`${logoImage}`}
         alt="Логотип - зеленый бублик"
         className="header__logo"
       />
+      </NavLink>
       {mode == "main" ? (
         <div className="header__nav">
           <NavLink

@@ -4,13 +4,15 @@
 
 .shortmenu__content {
   position: absolute;
-  height: 100vh;
+  height: calc(100vh - 195px);
   max-width: 340px;
   width: calc(100vw - 20px);
   display: flex;
   flex-direction: column;
   align-content: center;
   margin: 0;
+
+  justify-content: space-between;
 }
 
 @media (max-width: 320px) {
@@ -22,7 +24,6 @@
 
 .shortmenu__menu {
   padding: 0;
-  margin-top: 144px;
 }
 
 .shortmenu__link-wrapper {
@@ -52,11 +53,11 @@
 .shortmenu__footer_short {
   padding: 0;
   margin: 0 auto;
-  margin-top: 440px;
+  margin: 0 auto 90px auto;
+
 }
 
 .shortmenu__footer_long {
   padding: 0;
-  margin: 0 auto;
-  margin-top: 620px;
+  margin: 0 auto 90px auto;
 }

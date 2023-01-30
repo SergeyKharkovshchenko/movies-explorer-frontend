@@ -42,8 +42,14 @@
 }
 @media (max-width: 440px) {
   .aboutProjectDetails_title {
-    width: calc(100vw - 36px);
+    width: calc(100vw - 100px);
     height: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutProjectDetails_title {
+    width: calc(100vw - 36px);
   }
 }
 
@@ -70,7 +76,7 @@
 
 @media (max-width: 440px) {
   .aboutProjectDetails_text {
-    width: calc(100vw - 36px);
+    width: calc(100vw - 100px);
     min-height: 48px;
 
     font-family: "Inter", "Times", "serif";
@@ -78,5 +84,11 @@
     font-weight: 400;
     font-size: 11px;
     line-height: 16px;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutProjectDetails_text {
+    width: calc(100vw - 36px);
   }
 }

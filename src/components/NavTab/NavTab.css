@@ -1,23 +1,31 @@
 .navTab {
-  padding: 110px 0 0 0;
+  padding: 110px 70px 0 70px;
   margin: 0 auto;
   max-width: 1140px;
 }
 
-@media (max-width: 1280px) {
+@media (max-width: 1279px) {
   .navTab {
     padding: 90px 50px 0 50px;
     width: auto;
-    max-width: 1040px;
+    max-width: 1180px;
   }
 }
 
 @media (max-width: 320px) {
   .navTab {
+    padding: 90px 18px 0 18px;
+    width: auto;
+    max-width: 1040px;
+  }
+}
+
+/* @media (max-width: 319px) {
+  .navTab {
     padding: 70px 12px 0 12px;
     width: auto;
   }
-}
+} */
 
 .navTab__title {
   font-family: "Inter";

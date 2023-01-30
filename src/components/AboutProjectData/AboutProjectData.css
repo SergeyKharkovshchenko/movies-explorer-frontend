@@ -24,6 +24,13 @@
 @media (max-width: 440px) {
   .aboutProjectData {
     margin-top: 7px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutProjectData {
+    margin-top: 7px;
     width: calc(100vw - 36px);
     height: 32px;
   }

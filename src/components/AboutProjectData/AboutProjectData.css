@@ -1,0 +1,104 @@
+.aboutProjectData {
+  display: flex;
+  max-width: 1140px;
+  height: 38px;
+  flex-direction: row;
+  margin: 0 auto;
+  text-align: center;
+
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  justify-content: center;
+}
+
+@media (max-width: 1279px) {
+  .aboutProjectData {
+    width: calc(100vw - 100px);
+  }
+}
+
+@media (max-width: 440px) {
+  .aboutProjectData {
+    margin-top: 7px;
+    height: 32px;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutProjectData {
+    margin-top: 7px;
+    width: calc(100vw - 36px);
+    height: 32px;
+  }
+}
+
+.aboutProjectData__side_left-wrapper {
+  width: calc((100vw - 140px) * 0.2);
+  height: 32px;
+  background-color: rgba(43, 224, 128, 1);
+}
+
+@media (max-width: 1279px) {
+  .aboutProjectData__side_left-wrapper {
+    width: calc((100vw - 100px) * 0.2);
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutProjectData__side_left-wrapper {
+    width: calc((100vw - 60px) * 0.2);
+  }
+}
+
+@media (max-width: 440px) {
+  .aboutProjectData__side_left-wrapper {
+    width: calc((100vw - 36px) * 0.4);
+  }
+}
+
+.aboutProjectData__side_right-wrapper {
+  width: calc((100vw - 140px) * 0.8);
+  height: 32px;
+  background-color: rgba(242, 242, 242, 1);
+}
+
+@media (max-width: 1279px) {
+  .aboutProjectData__side_right-wrapper {
+    width: calc((100vw - 100px) * 0.8);
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutProjectData__side_right-wrapper {
+    width: calc((100vw - 60px) * 0.8);
+  }
+}
+
+@media (max-width: 440px) {
+  .aboutProjectData__side_right-wrapper {
+    width: calc((100vw - 36px) * 0.8);
+  }
+}
+
+.aboutProjectData__content {
+  width: 200px;
+  height: 18px;
+  margin: 9px auto 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 1279px) {
+  .aboutProjectData__content {
+    width: auto;
+  }
+}
+
+@media (max-width: 1279px) {
+  .aboutProjectData__content {
+    font-size: 11px;
+  }
+}

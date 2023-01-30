@@ -1,0 +1,178 @@
+.aboutMe {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 66px auto 100px auto;
+  max-width: 1140px;
+}
+
+@media (max-width: 1279px) {
+  .aboutMe {
+    margin: 66px 50px 85px 50px;
+  }
+}
+
+@media (max-width: 730px) {
+  .aboutMe {
+    flex-direction: column-reverse;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutMe {
+    margin: 66px 14px 70px 14px;
+  }
+}
+
+.aboutMe__left {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin-right: 50px;
+}
+
+@media (max-width: 730px) {
+  .aboutMe__left {
+    width: calc(96vw - 100px);
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutMe__left {
+    width: calc(100vw - 28px);
+    margin-right: auto;
+  }
+}
+
+.aboutMe__title {
+  margin: 0 0 18px 0;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  line-height: 58px;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 800px) {
+  .aboutMe__title {
+    margin: 0 0 16px 0;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 40px;
+    line-height: 40px;
+    letter-spacing: -0.04em;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutMe__title {
+    margin: 30px 0 20px 0;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.04em;
+  }
+}
+
+.aboutMe__subtitle {
+  margin: 0 0 26px 0;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+@media (max-width: 768px) {
+  .aboutMe__subtitle {
+    margin: 0 0 20px 0;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+.aboutMe__text {
+  margin: 0 0 100px 0;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 22px;
+}
+
+@media (max-width: 800px) {
+  .aboutMe__text {
+    margin: 0 0 87px 0;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutMe__text {
+    margin: 0 0 40px 0;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 16px;
+  }
+}
+
+.aboutMe__gitlink {
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  text-decoration: none;
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.aboutMe__foto {
+  object-fit: cover;
+  border-radius: 10px;
+  height: 327px;
+  width: 270px;
+}
+
+@media (max-width: 768px) {
+  .aboutMe__foto {
+    height: 307px;
+    width: 255px;
+  }
+}
+
+@media (max-width: 730px) {
+  .aboutMe__foto {
+    width: calc(96vw - 100px);
+    height: auto;
+  }
+}
+
+@media (max-width: 320px) {
+  .aboutMe__foto {
+    width: calc(100vw - 36px);
+    height: 352px;
+  }
+}

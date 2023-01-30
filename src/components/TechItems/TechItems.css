@@ -1,0 +1,50 @@
+.techitems__tech-wrapper {
+  display: inline-block;
+  height: 60px;
+  width: 90px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  margin-right: 0;
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
+@media (max-width: 1279px) {
+  .techitems__tech-wrapper {
+    height: 57px;
+    width: 84px;
+  }
+}
+
+
+@media (max-width: 320px) {
+  .techitems__tech-wrapper {
+    margin-top: 10px;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    letter-spacing: -0.04em;
+  }
+}
+
+.techitems__tech-wrapper:not(:last-child) {
+  margin-right: 10px;
+}
+
+
+
+
+.techitems__tech {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 21px auto;
+}

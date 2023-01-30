@@ -1,0 +1,49 @@
+
+
+
+.portfolioLink__linkblock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 20px auto 19px 0;
+}
+
+.portfolioLink__subtitle {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 50px;
+  letter-spacing: -0.04em;
+
+  color: #000000;
+  margin: 0;
+  height: auto;
+  max-width: 880px;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+}
+
+@media (max-width: 680px) {
+  .portfolioLink__subtitle {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 550px) {
+  .portfolioLink__subtitle {
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+  }
+}
+
+.portfolioLink__arrow {
+  margin: auto 0;
+  object-fit: scale-down;
+}

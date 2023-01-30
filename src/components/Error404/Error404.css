@@ -1,0 +1,76 @@
+.error404 {
+  text-align: center;
+}
+.error404__title {
+  margin: 246px auto 0 auto;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+}
+
+@media (max-width: 1279px) {
+  .error404__title {
+    margin-top: 408px;
+  }
+}
+
+@media (max-width: 320px) {
+  .error404__title {
+    margin-top: 329px;
+    margin-bottom: 10px;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 80px;
+    line-height: 97px;
+  }
+}
+
+.error404__subtitle {
+  margin-top: 0;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+}
+
+@media (max-width: 320px) {
+  .error404__subtitle {
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
+.error404__return {
+  margin-top: 184px;
+  color: #2be080;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media (max-width: 320px) {
+  .error404__return {
+    margin-top: 284px;
+    margin-bottom: 30px;
+
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

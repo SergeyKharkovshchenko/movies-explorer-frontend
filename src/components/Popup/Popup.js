@@ -15,6 +15,7 @@ export const Popup = ({
   smallButton,
   buttonsText,
   linkTo,
+  onSubmit
 }) => {
   const [emailInDirty, setEmailInDirty] = useState();
   const [passInDirty, setPassInDirty] = useState();
@@ -30,7 +31,8 @@ export const Popup = ({
   });
 
   function cbClick() {
-    console.log("click, userData >" + userData.name);
+    console.log("click, userData >" + userData.name, userData.email, userData.password );
+    onSubmit(userData.name, userData.email, userData.password);
   }
 
   const cbChange = useCallback(
@@ -69,6 +71,11 @@ export const Popup = ({
     },
     [userData]
   );
+
+  const handleSubmit = (e) => {
+    console.log('popup.js -> onSubmit');
+    cbSubmit(e);
+  }
 
   const blurHandler = (e) => {
     switch (e.target.name) {
@@ -109,7 +116,8 @@ export const Popup = ({
 
       <form
         className={mode == "profile" ? "popup__form_profile" : "popup__form"}
-        onSubmit={cbChange}
+        onSubmit={cbClick}
+        // onSubmit={(e) => handleSubmit(e)}
       >
         {(mode == "signup" || mode == "profile") && (
           <Input

@@ -9,7 +9,7 @@ export const Portfolio = () => {
       <ul className="portfolio__list">
       <PortfolioLink
         name={"Статичный сайт"}
-        link={"https://sergeykharkovshchenko.github.io/react-mesto-auth/"}
+        link={"/movies"}
       />
       <PortfolioLink
         name={"Адаптивный сайт"}

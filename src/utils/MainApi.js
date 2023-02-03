@@ -11,7 +11,7 @@ const getResponse = res =>
       method: "POST",
       credentials: 'include',
       headers: {
-        'Cross-Origin-Resource-Policy': 'cross-origin', 
+        "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
         "Content-Type": "application/json"
     } ,
@@ -30,7 +30,7 @@ const getResponse = res =>
       credentials: 'include',
       mode: 'no-cors',
       headers: {
-        "Origin": "https://sergey-kh.nomoredomains.club",
+        "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
         "Content-Type": "application/json"
     } ,
@@ -48,7 +48,7 @@ const getResponse = res =>
       credentials: 'include',
       mode: 'no-cors',
       headers: {
-        "Origin": "https://sergey-kh.dilpom.nomoredomains.rocks/",
+        "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
         "Content-Type": "application/json"
     } 
@@ -62,7 +62,7 @@ const getResponse = res =>
       credentials: 'include',
       mode: 'no-cors',
       headers: {
-        "Origin": "https://sergey-kh.dilpom.nomoredomains.rocks/",
+        "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
         "Content-Type": "application/json",
     } ,

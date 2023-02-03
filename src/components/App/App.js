@@ -22,85 +22,85 @@ const [currentUser, setCurrentUser] = useState("");
 const [loading, setLoading] = useState(true);
 
 
-  useEffect(() => {
-    cbCheckToken();
-  }, [loggedIn]);
-
   // useEffect(() => {
-  //   loggedIn && api
-  //     .getUserAndCards()
-  //     .then(([userData, cardData]) => {
-  //       setCards(cardData);
-  //       setCurrentUser(userData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
+  //   cbCheckToken();
   // }, [loggedIn]);
 
-  const cbAuthentificate = useCallback((data, email) => {
-    setLoggedIn(true);
-    setUserEmail(email);
-    console.log("cbAuthentificate, email = "+email);
-    // localStorage.setItem("jwt", data.token);
-  }, []);
+  // // useEffect(() => {
+  // //   loggedIn && api
+  // //     .getUserAndCards()
+  // //     .then(([userData, cardData]) => {
+  // //       setCards(cardData);
+  // //       setCurrentUser(userData);
+  // //     })
+  // //     .catch((err) => {
+  // //       console.log(err);
+  // //     });
+  // // }, [loggedIn]);
 
-  const cbCheckToken = useCallback(async () => {
-    try {
-        setLoading(true);
-        const user = await auth.checkToken();
-        JSON.stringify(user);
-        if (!user) {
-          throw new Error("Invalid user");
-        }
-        setLoggedIn(true);
-        setUserEmail(user.email);
-        const cards = await api.getInitialCards();
-        JSON.stringify(cards);
-              setCards(cards);
-        setCurrentUser(user);
-      } catch (error) {console.log(`Ошибка: ${error}`)}
-           finally {
-        setLoading(false);
-      }
-  }, []);
+  // const cbAuthentificate = useCallback((data, email) => {
+  //   setLoggedIn(true);
+  //   setUserEmail(email);
+  //   console.log("cbAuthentificate, email = "+email);
+  //   // localStorage.setItem("jwt", data.token);
+  // }, []);
 
-  const cbLogin = useCallback(async (email, password) => {
-    try {
-      const data = await auth.login(email, password);
-      if (!data) {
-        throw new Error("Invalid credentials");
-      }
-      if (data) {
-        cbAuthentificate(data, email);
-      }
-    } catch {
-      setInfoTooltipPopupOpen(true);
-      setTooltipMessage("fail");
-    }
-  }, []);
+  // const cbCheckToken = useCallback(async () => {
+  //   try {
+  //       setLoading(true);
+  //       const user = await auth.checkToken();
+  //       JSON.stringify(user);
+  //       if (!user) {
+  //         throw new Error("Invalid user");
+  //       }
+  //       setLoggedIn(true);
+  //       setUserEmail(user.email);
+  //       const cards = await api.getInitialCards();
+  //       JSON.stringify(cards);
+  //             setCards(cards);
+  //       setCurrentUser(user);
+  //     } catch (error) {console.log(`Ошибка: ${error}`)}
+  //          finally {
+  //       setLoading(false);
+  //     }
+  // }, []);
 
-  const cbRegister = useCallback(
+  // const cbLogin = useCallback(async (email, password) => {
+  //   try {
+  //     const data = await auth.login(email, password);
+  //     if (!data) {
+  //       throw new Error("Invalid credentials");
+  //     }
+  //     if (data) {
+  //       cbAuthentificate(data, email);
+  //     }
+  //   } catch {
+  //     setInfoTooltipPopupOpen(true);
+  //     setTooltipMessage("fail");
+  //   }
+  // }, []);
 
-    async (userName, email, password) => {
-      console.log('[App -> cbRegister] -> ' + userName + email + password);
-      try {
-        const data = await auth.register(userName, email, password);
-        if (!data) {
-          throw new Error("Failed to register");
-        }
-        if (data) {
-          // setInfoTooltipPopupOpen(true);
-          // setTooltipMessage("success");
-          cbAuthentificate(data, email);
-        }
-      } catch {
-        // setInfoTooltipPopupOpen(true);
-        // setTooltipMessage("fail");
-      }
-    },
-    [cbAuthentificate]
-  );
+  // const cbRegister = useCallback(
+
+  //   async (userName, email, password) => {
+  //     console.log('[App -> cbRegister] -> ' + userName + email + password);
+  //     try {
+  //       const data = await auth.register(userName, email, password);
+  //       if (!data) {
+  //         throw new Error("Failed to register");
+  //       }
+  //       if (data) {
+  //         // setInfoTooltipPopupOpen(true);
+  //         // setTooltipMessage("success");
+  //         cbAuthentificate(data, email);
+  //       }
+  //     } catch {
+  //       // setInfoTooltipPopupOpen(true);
+  //       // setTooltipMessage("fail");
+  //     }
+  //   },
+  //   [cbAuthentificate]
+  // );
 
   const cbLogout = useCallback( () => {
     auth

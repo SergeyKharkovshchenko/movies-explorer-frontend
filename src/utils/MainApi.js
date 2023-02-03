@@ -28,7 +28,6 @@ const getResponse = res =>
     const res = await fetch(`${baseUrl}signin`, {
       method: "POST",
       credentials: 'include',
-      mode: 'no-cors',
       headers: {
         "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
@@ -46,7 +45,6 @@ const getResponse = res =>
     const res = await fetch(`${baseUrl}logout`, {
       method: "POST",
       credentials: 'include',
-      mode: 'no-cors',
       headers: {
         "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
@@ -60,7 +58,6 @@ const getResponse = res =>
   const res = await fetch(`${baseUrl}users/me`, {
       method: "GET",
       credentials: 'include',
-      mode: 'no-cors',
       headers: {
         "Origin": "http://sergey-kh.dilpom.nomoredomainsclub.ru/",
         "Accept": "application/json",        
@@ -70,4 +67,4 @@ const getResponse = res =>
     return getResponse(res);  
   }
 
-export const baseUrl = "https://api.sergey-kh.dilpom.nomoredomains.rocks/";
+export const baseUrl = "http://api.sergey-kh.dilpom.nomoredomains.rocks/";

@@ -138,12 +138,13 @@ const [loading, setLoading] = useState(true);
           
           <Route path="/signin" element={<Login 
               isLoggedIn={loggedIn} 
-              onLogin={cbLogin}/> } />
+              // onLogin={cbLogin}
+              /> } />
 
           <Route path="/signup" element={<Register               
               isLoggedIn={loggedIn}
-              onRegister={cbRegister}
-              checkToken={cbCheckToken}
+              // onRegister={cbRegister}
+              // checkToken={cbCheckToken}
               />} />
 
           <Route path="/menu" element={<Menu320 />} />

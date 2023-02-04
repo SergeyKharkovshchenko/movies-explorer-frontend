@@ -26,7 +26,7 @@ const cbChange = useCallback(
 const cbSubmit = useCallback ( (e) => {
   // const cbSubmit = useCallback ( (userName, email, pas) => {
   // console.log("Register.js -> cbSubmit");
-  e.preventDefault();
+  // e.preventDefault();
   // console.log("Register.js -> cbSubmit > " + userName +  email + pas);
   // console.log("Register.js -> cbSubmit > " + formData.email + formData.password);
   onRegister(formData.name, formData.email, formData.password);

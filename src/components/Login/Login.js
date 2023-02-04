@@ -23,7 +23,7 @@ export const Login = ({isLoggedIn, onLogin}) => {
   )
 
   const cbSubmit = useCallback (async(event) => {
-    event.preventDefault();
+    // event.preventDefault();
     try{
       await onLogin(userData.email, userData.password);  
     } catch (err) {

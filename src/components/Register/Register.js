@@ -9,7 +9,7 @@ export const Register = ({isLoggedIn, onRegister}) => {
   const [formData, setFormData] = useState ({
     password: '',
     email: '',
-    message: ''
+    name: ''
   })
 
 const cbChange = useCallback(

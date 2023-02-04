@@ -34,7 +34,7 @@ const cbChange = useCallback(
 }, [onRegister, formData])
 
   if (isLoggedIn) {
-    return <Navigate to='/' />
+    return <Navigate to='/movies' />
   }
 
   return (

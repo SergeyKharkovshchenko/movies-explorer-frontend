@@ -33,7 +33,7 @@ export const Login = ({isLoggedIn, onLogin}) => {
   }, [userData, onLogin])
 
 if (isLoggedIn) {
-  return <Navigate to='/' />
+  return <Navigate to='/movies' />
 }
   
   return (

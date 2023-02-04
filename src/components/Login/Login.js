@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Popup } from "../Popup";
 import { signup, signin } from "../../utils/config";
+import { Navigate } from 'react-router-dom';
 import "./Login.css";
 
 export const Login = ({isLoggedIn, onLogin}) => {
@@ -32,7 +33,7 @@ export const Login = ({isLoggedIn, onLogin}) => {
   }, [userData, onLogin])
 
 if (isLoggedIn) {
-  return <Redirect to='/' />
+  return <Navigate to='/' />
 }
   
   return (

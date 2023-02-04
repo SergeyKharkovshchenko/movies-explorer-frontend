@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { Popup } from "../Popup";
 import { signin, signup } from "../../utils/config";
+import { Navigate } from 'react-router-dom';
 import "./Register.css";
 
 export const Register = ({isLoggedIn, onRegister}) => {
@@ -33,7 +34,7 @@ const cbChange = useCallback(
 }, [onRegister, formData])
 
   if (isLoggedIn) {
-    return <Redirect to='/' />
+    return <Navigate to='/' />
   }
 
   return (

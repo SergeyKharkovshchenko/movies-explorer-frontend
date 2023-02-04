@@ -67,4 +67,4 @@ const getResponse = res =>
     return getResponse(res);  
   }
 
-export const baseUrl = "http://api.sergey-kh.dilpom.nomoredomains.rocks/";
+export const baseUrl = "http://api.sergey-kh.dilpom.nomoredomains.rocks";

@@ -9,7 +9,7 @@ export const Register = ({isLoggedIn, onRegister}) => {
   const [formData, setFormData] = useState ({
     password: '',
     email: '',
-    name: ''
+    message: ''
   })
 
 const cbChange = useCallback(
@@ -23,14 +23,14 @@ const cbChange = useCallback(
   [formData],
 )
 
-const cbSubmit = useCallback ( (e) => {
-  // const cbSubmit = useCallback ( (userName, email, pas) => {
+// const cbSubmit = useCallback (event => {
+  const cbSubmit = useCallback ( (userName, email, pas) => {
   // console.log("Register.js -> cbSubmit");
-  // e.preventDefault();
-  // console.log("Register.js -> cbSubmit > " + userName +  email + pas);
+  // event.preventDefault();
+  console.log("Register.js -> cbSubmit > " + userName +  email + pas);
   // console.log("Register.js -> cbSubmit > " + formData.email + formData.password);
-  onRegister(formData.name, formData.email, formData.password);
-  // onRegister(userName, email, pas);
+  // onRegister(formData.name, formData.email, formData.password);
+  onRegister(userName, email, pas);
 }, [onRegister, formData])
 
   if (isLoggedIn) {
@@ -48,7 +48,7 @@ const cbSubmit = useCallback ( (e) => {
         smallButton={signin.name}
         buttonsText={"Уже зарегистрированы?"}
         linkTo={signin.link}
-        onSubmit={cbSubmit}
+        onSubmit={(userName, email, pas) => cbSubmit(userName, email, pas)}
       />
     </section>
   );

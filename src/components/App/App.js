@@ -18,13 +18,13 @@ import "./App.css";
 export const App = () => {
 
 const [loggedIn, setLoggedIn] = useState(false);
+const [userEmail, setUserEmail] = useState("");
 const [currentUser, setCurrentUser] = useState("");
 const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    console.log('1st useEffect');
     cbCheckToken();
-  }, []);
+  }, [loggedIn]);
 
   useEffect(() => {
     loggedIn && auth
@@ -33,22 +33,19 @@ const [loading, setLoading] = useState(true);
         .getUserInfo()
         .then((userData) => {
         // setCards(cardData);
-        JSON.stringify(userData)
-        // console.log('currentUser > ' + JSON.stringify(userData));
         setCurrentUser(userData);
-        console.log('.getUserInfo() > currentUser > ' + currentUser.email);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, [loggedIn, setLoggedIn]);
+  }, [loggedIn]);
 
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
-    console.log('cbAuthentificate > loggedIn (true) > '+ loggedIn);
-  
+    setUserEmail(email);
+
     // localStorage.setItem("jwt", data.token);
-  }, [loggedIn, setLoggedIn]);
+  }, []);
 
   const cbCheckToken = useCallback(async () => {
     try {
@@ -58,26 +55,19 @@ const [loading, setLoading] = useState(true);
         if (!user) {
           throw new Error("Invalid user");
         }
-        console.log("cbCheckToken > user > "+ user);
-
-        setLoggedIn(prevState =>!prevState);
-        console.log("cbCheckToken > loggedIn (true) > "+ loggedIn);
-        
+        setLoggedIn(true);
+        setUserEmail(user.email);
         // const cards = await api.getInitialCards();
         // JSON.stringify(cards);
         //       setCards(cards);
-
         setCurrentUser(user);
-        console.log("cbCheckToken > currentUser > "+ currentUser);
-        
       } catch (error) {console.log(`Ошибка: ${error}`)}
       //      finally {
       //   // setLoading(false);
       // }
-  }, [loggedIn, setLoggedIn]);
+  }, []);
 
-  const cbLogin = useCallback(
-    async (email, password) => {
+  const cbLogin = useCallback(async (email, password) => {
     try {
       const data = await auth.login(email, password);
       if (!data) {
@@ -90,7 +80,7 @@ const [loading, setLoading] = useState(true);
       // setInfoTooltipPopupOpen(true);
       // setTooltipMessage("fail");
     }
-  }, [cbAuthentificate]);
+  }, []);
 
   const cbRegister = useCallback(
     async (userName, email, password) => {
@@ -120,7 +110,7 @@ const [loading, setLoading] = useState(true);
     });
     // localStorage.removeItem("jwt");
     setLoggedIn(false);
-    console.log('setLoggedIn (false)> '+ loggedIn);
+    setUserEmail("");
     setCurrentUser("");
   }, []);
 

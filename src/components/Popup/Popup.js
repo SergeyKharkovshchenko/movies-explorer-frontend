@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 // import { Validation } from '../Validation';
 import { Input } from "../Input";
 import "./Popup.css";
+import { logOut } from "../../utils/MainApi";
 
 export const Popup = ({
   mode,
@@ -15,7 +16,9 @@ export const Popup = ({
   smallButton,
   buttonsText,
   linkTo,
-  onSubmit
+  onSubmit,
+  onChange,
+  logOut
 }) => {
   const [emailInDirty, setEmailInDirty] = useState();
   const [passInDirty, setPassInDirty] = useState();
@@ -95,6 +98,7 @@ export const Popup = ({
   function logout() {
     // e.preventDefault();
     console.log("logout из " + userData.name + ", " + userData.email);
+    logOut();
   }
 
   function cbChangeProfile() {
@@ -117,6 +121,7 @@ export const Popup = ({
       <form
         className={mode == "profile" ? "popup__form_profile" : "popup__form"}
         onSubmit={cbClick}
+        onChange={onChange}
         // onSubmit={(e) => handleSubmit(e)}
       >
         {(mode == "signup" || mode == "profile") && (

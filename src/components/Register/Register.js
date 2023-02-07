@@ -23,14 +23,8 @@ const cbChange = useCallback(
   [formData],
 )
 
-// const cbSubmit = useCallback (event => {
-  const cbSubmit = useCallback ( (userName, email, pas) => {
-  // console.log("Register.js -> cbSubmit");
-  // event.preventDefault();
-  console.log("Register.js -> cbSubmit > " + userName +  email + pas);
-  // console.log("Register.js -> cbSubmit > " + formData.email + formData.password);
-  // onRegister(formData.name, formData.email, formData.password);
-  onRegister(userName, email, pas);
+const cbSubmit = useCallback (event => {
+  onRegister(formData.Name, formData.Email, formData.Password);
 }, [onRegister, formData])
 
   if (isLoggedIn) {
@@ -42,13 +36,14 @@ const cbChange = useCallback(
       <Popup
         mode={"signup"}
         greeting={"Добро пожаловать!"}
-        name={"Виталий"}
+        name={"имя"}
         email={"емейл"}
         greenButton={signup.name}
         smallButton={signin.name}
         buttonsText={"Уже зарегистрированы?"}
         linkTo={signin.link}
-        onSubmit={(userName, email, pas) => cbSubmit(userName, email, pas)}
+        onSubmit={(e) => cbSubmit(e)}
+        onChange={(e)=>cbChange(e)}
       />
     </section>
   );

@@ -14,6 +14,7 @@ export const Login = ({isLoggedIn, onLogin}) => {
   const cbChange = useCallback(
     (event) => {
       const {name, value} = event.target;
+      console.log("name > "+name)
       setUserData ({
         ...userData,
         [name]: value
@@ -25,11 +26,10 @@ export const Login = ({isLoggedIn, onLogin}) => {
   const cbSubmit = useCallback (async(event) => {
     // event.preventDefault();
     try{
-      await onLogin(userData.email, userData.password);  
+      await onLogin(userData.Email, userData.Password);  
     } catch (err) {
       setMessage (err.message || 'Ошибка')
     }
-    
   }, [userData, onLogin])
 
 if (isLoggedIn) {
@@ -41,13 +41,14 @@ if (isLoggedIn) {
       <Popup
         mode={"signin"}
         greeting={"Рады видеть!"}
-        name={"Виталий"}
+        name={"имя"}
         email={"емейл"}
         greenButton={signin.name}
         smallButton={signup.name}
         buttonsText={"Ещё не зарегистрированы?"}
         linkTo={signup.link}
         onSubmit={(e) => cbSubmit(e)}
+        onChange = {(e) => cbChange (e)}
       />
     </div>
   );

@@ -12,60 +12,72 @@ import { Menu320 } from "../Menu320";
 import {ProtectedRoutes} from '../ProtectedRoutes'
 import { useState, useEffect, useCallback } from 'react';
 import * as auth from "../../utils/MainApi";
+import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import "./App.css";
 
 export const App = () => {
 
 const [loggedIn, setLoggedIn] = useState(false);
-const [userEmail, setUserEmail] = useState("");
 const [currentUser, setCurrentUser] = useState("");
 const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    console.log('1st useEffect');
+    cbCheckToken();
+  }, []);
 
   useEffect(() => {
-    cbCheckToken();
-  }, [loggedIn]);
-
-  // useEffect(() => {
-  //   loggedIn && api
-  //     .getUserAndCards()
-  //     .then(([userData, cardData]) => {
-  //       setCards(cardData);
-  //       setCurrentUser(userData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [loggedIn]);
+    loggedIn && auth
+      // .getUserAndCards()
+      // .then(([userData, cardData]) => {
+        .getUserInfo()
+        .then((userData) => {
+        // setCards(cardData);
+        JSON.stringify(userData)
+        // console.log('currentUser > ' + JSON.stringify(userData));
+        setCurrentUser(userData);
+        console.log('.getUserInfo() > currentUser > ' + currentUser.email);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [loggedIn, setLoggedIn]);
 
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
-    setUserEmail(email);
-    console.log("cbAuthentificate, email = "+email);
+    console.log('cbAuthentificate > loggedIn (true) > '+ loggedIn);
+  
     // localStorage.setItem("jwt", data.token);
-  }, []);
+  }, [loggedIn, setLoggedIn]);
 
   const cbCheckToken = useCallback(async () => {
     try {
-        setLoading(true);
+        // setLoading(true);
         const user = await auth.checkToken();
         JSON.stringify(user);
         if (!user) {
           throw new Error("Invalid user");
         }
-        setLoggedIn(true);
-        setUserEmail(user.email);
-        const cards = await api.getInitialCards();
-        JSON.stringify(cards);
-              setCards(cards);
-        setCurrentUser(user);
-      } catch (error) {console.log(`Ошибка: ${error}`)}
-           finally {
-        setLoading(false);
-      }
-  }, []);
+        console.log("cbCheckToken > user > "+ user);
 
-  const cbLogin = useCallback(async (email, password) => {
+        setLoggedIn(prevState =>!prevState);
+        console.log("cbCheckToken > loggedIn (true) > "+ loggedIn);
+        
+        // const cards = await api.getInitialCards();
+        // JSON.stringify(cards);
+        //       setCards(cards);
+
+        setCurrentUser(user);
+        console.log("cbCheckToken > currentUser > "+ currentUser);
+        
+      } catch (error) {console.log(`Ошибка: ${error}`)}
+      //      finally {
+      //   // setLoading(false);
+      // }
+  }, [loggedIn, setLoggedIn]);
+
+  const cbLogin = useCallback(
+    async (email, password) => {
     try {
       const data = await auth.login(email, password);
       if (!data) {
@@ -75,15 +87,13 @@ const [loading, setLoading] = useState(true);
         cbAuthentificate(data, email);
       }
     } catch {
-      setInfoTooltipPopupOpen(true);
-      setTooltipMessage("fail");
+      // setInfoTooltipPopupOpen(true);
+      // setTooltipMessage("fail");
     }
-  }, []);
+  }, [cbAuthentificate]);
 
   const cbRegister = useCallback(
-
     async (userName, email, password) => {
-      console.log('[App -> cbRegister] -> ' + userName + email + password);
       try {
         const data = await auth.register(userName, email, password);
         if (!data) {
@@ -110,11 +120,13 @@ const [loading, setLoading] = useState(true);
     });
     // localStorage.removeItem("jwt");
     setLoggedIn(false);
-    setUserEmail("");
+    console.log('setLoggedIn (false)> '+ loggedIn);
+    setCurrentUser("");
   }, []);
 
   return (
-    // <Provider store={store}>
+    <CurrentUserContext.Provider value={currentUser}>
+    {/* // <Provider store={store}> */}
     <Router>
       <div className="app">
         <Routes>
@@ -125,14 +137,18 @@ const [loading, setLoading] = useState(true);
             <Movies />
             </ProtectedRoutes>
             } />
+
             <Route path="/saved-movies" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
             <SavedMovies />
             </ProtectedRoutes>  
             } />
+
             <Route path="/profile" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
-            <Profile />
+            <Profile 
+            currentUser={currentUser} 
+            logOut={cbLogout}/>
             </ProtectedRoutes>
             } />
           
@@ -144,7 +160,7 @@ const [loading, setLoading] = useState(true);
           <Route path="/signup" element={<Register               
               isLoggedIn={loggedIn}
               onRegister={cbRegister}
-              checkToken={cbCheckToken}
+              // checkToken={cbCheckToken}
               />} />
 
           <Route path="/menu" element={<Menu320 />} />
@@ -152,6 +168,7 @@ const [loading, setLoading] = useState(true);
         </Routes>
       </div>
     </Router>
-    // </Provider>
+    {/* // </Provider> */}
+    </CurrentUserContext.Provider>
   );
 };

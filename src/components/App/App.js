@@ -42,6 +42,7 @@ const [loading, setLoading] = useState(true);
 
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
+    console.log('cbAuthentificate > loggedIn = '+loggedIn);
     setUserEmail(email);
 
     // localStorage.setItem("jwt", data.token);
@@ -56,6 +57,7 @@ const [loading, setLoading] = useState(true);
           throw new Error("Invalid user");
         }
         setLoggedIn(true);
+        console.log('cbCheckToken > loggedIn = '+loggedIn);
         setUserEmail(user.email);
         // const cards = await api.getInitialCards();
         // JSON.stringify(cards);

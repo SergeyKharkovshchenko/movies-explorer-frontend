@@ -6,111 +6,117 @@ import { Preloader } from "../Preloader";
 import { Button } from "../Button";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
+import * as moviesApi from "../../utils/MoviesApi";
 import "./Movies.css";
 
-const moviesDummyArray = [
-  {
-    image: pic,
-    name: "Movie 1",
-    id: 1,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 2",
-    id: 2,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 3",
-    id: 3,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 4",
-    id: 4,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 5",
-    id: 5,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 6",
-    id: 6,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 7",
-    id: 7,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 8",
-    id: 8,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 9",
-    id: 9,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 10",
-    id: 10,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 11",
-    id: 11,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 12",
-    id: 12,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 13",
-    id: 13,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 14",
-    id: 14,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 15",
-    id: 15,
-    duration: "1ч 47м",
-  },
-  {
-    image: pic,
-    name: "Movie 16",
-    id: 16,
-    duration: "1ч 47м",
-  },
-];
+
+// const moviesDummyArray = [
+//   {
+//     image: pic,
+//     name: "Movie 1",
+//     id: 1,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 2",
+//     id: 2,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 3",
+//     id: 3,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 4",
+//     id: 4,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 5",
+//     id: 5,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 6",
+//     id: 6,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 7",
+//     id: 7,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 8",
+//     id: 8,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 9",
+//     id: 9,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 10",
+//     id: 10,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 11",
+//     id: 11,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 12",
+//     id: 12,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 13",
+//     id: 13,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 14",
+//     id: 14,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 15",
+//     id: 15,
+//     duration: "1ч 47м",
+//   },
+//   {
+//     image: pic,
+//     name: "Movie 16",
+//     id: 16,
+//     duration: "1ч 47м",
+//   },
+// ];
 
 export const Movies = () => {
   const [cards, setCards] = useState([]);
   const [isSwitched, setIsSwitched] = useState(false);
   const [dozenNumber, setDozenNumber] = useState(1);
+
+  // const currentUser = useContext(CurrentUserContext);
+  const moviesDummyArray = moviesApi.getInitialCards();
+  
 
   useEffect(() => {
     setCards(moviesDummyArray);

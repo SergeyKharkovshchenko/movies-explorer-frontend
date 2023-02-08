@@ -14,7 +14,6 @@ export const Login = ({isLoggedIn, onLogin}) => {
   const cbChange = useCallback(
     (event) => {
       const {name, value} = event.target;
-      console.log("name > "+name)
       setUserData ({
         ...userData,
         [name]: value
@@ -28,7 +27,8 @@ export const Login = ({isLoggedIn, onLogin}) => {
     try{
       await onLogin(userData.Email, userData.Password);  
     } catch (err) {
-      setMessage (err.message || 'Ошибка')
+      console.log(err);
+      // setMessage (err.message || 'Ошибка')
     }
   }, [userData, onLogin])
 

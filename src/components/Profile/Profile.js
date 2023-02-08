@@ -1,9 +1,11 @@
-import React, { useCallback } from "react";
+import React, { useContext } from "react";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Header } from "../Header";
 import { Popup } from "../Popup";
 
-export const Profile = ({currentUser, logOut}) => {
+export const Profile = ({logOut}) => {
+
+  const currentUser = useContext(CurrentUserContext);
 
   const [userData, setUserData] = React.useState({
     name: currentUser.name,
@@ -19,7 +21,7 @@ export const Profile = ({currentUser, logOut}) => {
     <main>
       <Popup
         mode={"profile"}
-        greeting={`Привет, ${userData.name}`}
+        greeting={`Привет, ${currentUser.name}`}
         name={`${userData.name}`}
         email={`${userData.email}`}
         greenButton={"Редактировать"}

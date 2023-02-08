@@ -34,7 +34,6 @@ export const Popup = ({
   });
 
   function cbClick() {
-    console.log("click, userData >" + userData.name, userData.email, userData.password );
     onSubmit(userData.name, userData.email, userData.password);
   }
 
@@ -76,7 +75,6 @@ export const Popup = ({
   );
 
   const handleSubmit = (e) => {
-    console.log('popup.js -> onSubmit');
     cbSubmit(e);
   }
 
@@ -107,7 +105,7 @@ export const Popup = ({
 
   return (
     <section className="popup">
-      {(mode == "signup" || mode == "signin") && (
+      {(mode == "signup" || mode == "signin" ) && (
         <img
           src={`${logoImage}`}
           alt="Логотип - зеленый бублик"

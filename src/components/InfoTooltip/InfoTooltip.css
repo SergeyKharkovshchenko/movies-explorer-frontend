@@ -1,0 +1,26 @@
+  .tooltip__overlay{
+    display: none;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    height: 100vh;
+    width: 100vw;
+    top: 0;
+    left: 0;
+  }
+  
+  .tooltip_opened {
+    display: block;
+  }
+
+  .tooltip {
+    position: fixed;
+    top: 5%;
+    left: calc((100vw - 420px) / 2);
+    background: white;
+    height: 90%;
+    width: 420px;
+  }
+
+  .tooltip__title{
+    margin-bottom: 100px;
+  }

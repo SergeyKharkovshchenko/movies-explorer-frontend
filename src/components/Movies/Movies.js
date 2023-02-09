@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { SearchForm } from "../SearchForm";
 import { MoviesCardList } from "../MoviesCardList";
 import pic from "../../images/pic__COLOR_pic.png";
@@ -8,7 +8,6 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import * as moviesApi from "../../utils/MoviesApi";
 import "./Movies.css";
-
 
 // const moviesDummyArray = [
 //   {
@@ -23,108 +22,51 @@ import "./Movies.css";
 //     id: 2,
 //     duration: "1ч 47м",
 //   },
-//   {
-//     image: pic,
-//     name: "Movie 3",
-//     id: 3,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 4",
-//     id: 4,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 5",
-//     id: 5,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 6",
-//     id: 6,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 7",
-//     id: 7,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 8",
-//     id: 8,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 9",
-//     id: 9,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 10",
-//     id: 10,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 11",
-//     id: 11,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 12",
-//     id: 12,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 13",
-//     id: 13,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 14",
-//     id: 14,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 15",
-//     id: 15,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 16",
-//     id: 16,
-//     duration: "1ч 47м",
-//   },
 // ];
 
 export const Movies = () => {
   const [cards, setCards] = useState([]);
   const [isSwitched, setIsSwitched] = useState(false);
   const [dozenNumber, setDozenNumber] = useState(1);
-
-  // const currentUser = useContext(CurrentUserContext);
-  const moviesDummyArray = moviesApi.getInitialCards();
+  const [loading, setLoading] = useState(true);
   
+  // const currentUser = useContext(CurrentUserContext);
 
   useEffect(() => {
-    setCards(moviesDummyArray);
-  });
+    cbGetMovies();
+  },[]);
+  
+  const cbGetMovies = useCallback(async () => {
+    try {
+        setLoading(true);
+        const movies = await moviesApi.getInitialMovies();
+        JSON.stringify(movies);
+        if (!movies) {
+          throw new Error("Error");
+        }
+        setCards(movies);
+      } catch (error) {console.log(`Ошибка: ${error}`)}
+           finally {
+        setLoading(false);
+      }
+});
 
-  function handleCardLike(card) {
-    console.log(card.name + " liked");
-  }
+const handleCardLike = useCallback(async (card) => {
+  console.log(card.nameRU + " - liked");
+  try {
+      setLoading(true);
+
+      const res = await moviesApi.handleLike(card);
+      // JSON.stringify(movies);
+      if (!res) {
+        throw new Error("Error");
+      }
+      // setCards(movies);
+    } catch (error) {console.log(`Ошибка: ${error}`)}
+         finally {
+      setLoading(false);
+    }
+});
 
   function handleMore() {
     if (cards.length < 12) {
@@ -153,6 +95,26 @@ export const Movies = () => {
     console.log("isSwitched > " + isSwitched);
   }
 
+  const handleCardRemove = useCallback(async (card) => {
+    console.log(card.nameRU + " - liked");
+    try {
+        setLoading(true);
+        const res = await moviesApi.removeFromSavedMovies(card);
+        // JSON.stringify(movies);
+        if (!res) {
+          throw new Error("Error");
+        }
+        // setCards(movies);
+      } catch (error) {console.log(`Ошибка: ${error}`)}
+           finally {
+        setLoading(false);
+      }
+  });
+
+  if (loading) {
+    return <Preloader />;
+  }
+
   return (
     <section className="movies">
       <header>
@@ -168,9 +130,11 @@ export const Movies = () => {
         <MoviesCardList
           cards={cards.slice(dozenNumber - 1, dozenNumber + 11)}
           onCardLike={handleCardLike}
+          onCardDelete={handleCardRemove}
+          mode='all'
         />
-        <div className="movies__morebutton">
-          <Button color={"bigLightgrey"} onClick={handleMore} name="Ещё" />
+        <div className="movies__morebutton" >
+          <Button color={"bigLightgrey"} onClick={handleMore} name="Ещё" isActive={true}/>
         </div>
       </main>
       <footer>

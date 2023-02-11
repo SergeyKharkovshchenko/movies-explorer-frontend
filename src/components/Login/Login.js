@@ -41,8 +41,8 @@ if (isLoggedIn) {
       <Popup
         mode={"signin"}
         greeting={"Рады видеть!"}
-        name={"имя"}
-        email={"емейл"}
+        // name={"имя"}
+        // email={"емейл"}
         greenButton={signin.name}
         smallButton={signup.name}
         buttonsText={"Ещё не зарегистрированы?"}

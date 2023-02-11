@@ -5,8 +5,6 @@ import "./InfoTooltip.css";
 
 export const InfoTooltip = ({isOpen, message, onClick}) => {
 
-console.log('InfoTooltip Comp + '+isOpen);
-
 const [open, setOpen]=useState({isOpen});
 
 function cbClick() {

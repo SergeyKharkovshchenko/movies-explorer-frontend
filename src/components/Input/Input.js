@@ -11,7 +11,9 @@ export const Input = ({
   blurHandler,
   userData,
   errorName,
+  placeholder
 }) => {
+
   function change(e) {
     e.preventDefault();
     cbChange(name, e.target.value);
@@ -26,10 +28,10 @@ export const Input = ({
           type="text"
           id={`edit-${name}`}
           className={`input__input_type_${mode} input__${name}_type_${mode}`}
-          placeholder={`${name}`}
           value={userData || ""}
           onChange={(e) => change(e)}
           onBlur={(e) => blurHandler(e)}
+          placeholder={placeholder}
         />
       </div>
       <Underline />

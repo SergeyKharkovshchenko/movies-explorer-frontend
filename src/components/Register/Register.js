@@ -36,8 +36,9 @@ const cbSubmit = useCallback (event => {
       <Popup
         mode={"signup"}
         greeting={"Добро пожаловать!"}
-        name={"имя"}
-        email={"емейл"}
+        // name={"имя"}
+        // email={"емейл"}
+        // password={"пароль"}
         greenButton={signup.name}
         smallButton={signin.name}
         buttonsText={"Уже зарегистрированы?"}

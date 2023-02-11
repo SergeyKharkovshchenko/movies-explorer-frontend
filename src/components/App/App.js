@@ -11,17 +11,17 @@ import { Login } from "../Login";
 import { Register } from "../Register";
 import { Error404 } from "../Error404";
 import { Preloader } from '../Preloader';
-import { Menu320 } from '../Menu320'
+import { Navigate } from 'react-router-dom';
 import {ProtectedRoutes} from '../ProtectedRoutes'
 import * as auth from "../../utils/MainApi";
 import * as moviesApi from "../../utils/MoviesApi";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
+import { Menu320 } from "../Menu320";
 import "./App.css";
 
 export const App = () => {
 
 const [loggedIn, setLoggedIn] = useState(false);
-// const [userEmail, setUserEmail] = useState("");
 const [currentUser, setCurrentUser] = useState("");
 const [loading, setLoading] = useState(true);
 const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
@@ -36,32 +36,13 @@ useEffect(() => {
   console.log('useEffect2 loggedIn - ' + loggedIn);
 }, [loggedIn]);
 
-
-  // useEffect(() => {
-  //   loggedIn && auth
-  //     // .getUserAndCards()
-  //     // .then(([userData, cardData]) => {
-  //       .getUserInfo()
-  //       .then((userData) => {
-  //       // setCards(cardData);
-  //       setCurrentUser(userData);
-  //       console.log('useEffect2 userData'+userData);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // }, [loggedIn]);
-
   const cbAuthentificate = useCallback((data, email) => {
     setLoggedIn(true);
-    console.log('cbAuthentificate > loggedIn = '+loggedIn);
-    // setUserEmail(email);
     // localStorage.setItem("jwt", data.token);
   }, []);
 
   const cbCheckToken = useCallback(async () => {
     try {
-        console.log('cbCheckToken');
         setLoading(true);
         const user = await auth.checkToken();
         JSON.stringify(user);
@@ -69,11 +50,6 @@ useEffect(() => {
           throw new Error("Invalid user");
         }
         setLoggedIn(true);
-        console.log('cbCheckToken > loggedIn = ' + loggedIn);
-        // setUserEmail(user.email);
-        // const cards = await api.getInitialCards();
-        // JSON.stringify(cards);
-        //       setCards(cards);
         setCurrentUser(user);
       } catch (error) {console.log(`Ошибка: ${error}`)}
            finally {
@@ -111,8 +87,6 @@ useEffect(() => {
           throw new Error("Не удалось зарегистрироваться");
         }
         if (data) {
-          // setInfoTooltipPopupOpen(true);
-          // setTooltipMessage("success");
           console.log('cbRegister -> cbAuthentificate');
           cbAuthentificate(data, email);
         }
@@ -129,20 +103,20 @@ useEffect(() => {
 
 const closeTooltip = () => {
   setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
-  console.log('closeTooltip -> isInfoTooltipPopupOpen '+isInfoTooltipPopupOpen);
 }
 
   const cbLogout = useCallback( () => {
+    setLoggedIn(false);
+    setCurrentUser("");
+    localStorage.clear('searchKey');
+    localStorage.clear('isSwitched');
+    localStorage.clear('searchResult');
     auth
     .logOut()      
     .catch((err) => {
       console.log(err);
     });
     // localStorage.removeItem("jwt");
-    setLoggedIn(false);
-    console.log('cbLogout > loggedIn = ' + loggedIn);
-    // setUserEmail("");
-    setCurrentUser("");
   }, []);
 
   if (loading) {
@@ -155,13 +129,18 @@ const closeTooltip = () => {
     <Router>
       <div className="app">
         <Routes>
-          <Route path="/" exact element={<Main />} />
+
+            <Route path="/" element={
+            <ProtectedRoutes isLoggedIn={loggedIn}>
+            <Navigate to='/movies' />
+            </ProtectedRoutes>
+            } />
+
+            <Route path="/" exact element={<Main />} />
           
             <Route path="/movies" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
-            <Movies 
-              
-            />
+            <Movies />
             </ProtectedRoutes>
             } />
 
@@ -189,7 +168,7 @@ const closeTooltip = () => {
               // checkToken={cbCheckToken}
               />} />
 
-          {/* <Route path="/menu" element={<Menu320 />} /> */}
+          <Route path="/menu" element={<Menu320 />} />
           <Route path="/404" element={<Error404 />} />
         </Routes>
 
@@ -198,14 +177,10 @@ const closeTooltip = () => {
           // onClose={closeAllPopups}
           message={tooltipMessage}
           onClick={closeTooltip}
-          // successMessage='Successful sign up!'
-          // failMessage='Something went wrong! Please try again.'
         />}
 
       </div>
     </Router>
-
-
 
     {/* // </Provider> */}
     </CurrentUserContext.Provider>

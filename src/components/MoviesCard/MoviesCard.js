@@ -6,9 +6,9 @@ import notLikePic from "../../images/save9d.svg";
 import * as moviesApi from "../../utils/MoviesApi";
 import "./MoviesCard.css";
 
-export const MoviesCard = ({ id, card, onCardLike, mode, onCardDelete }) => {
+export const MoviesCard = ({ key, card, onCardLike, mode, onCardDelete }) => {
 
-  const currentUser = useContext(CurrentUserContext);
+  // const currentUser = useContext(CurrentUserContext);
 
   const [isLiked, setisLiked] = useState(false);
 
@@ -27,17 +27,16 @@ export const MoviesCard = ({ id, card, onCardLike, mode, onCardDelete }) => {
   
   const checkLike = useCallback(async () => {
     try {
-        const movies = await moviesApi.getSavedMovies();
-        JSON.stringify(movies);
-        if (!movies) {
+        const savedMovies = await moviesApi.getSavedMovies();
+        JSON.stringify(savedMovies);
+        if (!savedMovies) {
           throw new Error("Error");
         }
-        if (movies.some((i) => i.nameRU == card.nameRU)) {
-          console.log('liked')
+        if (savedMovies.some((savedMovie) => savedMovie.nameRU == card.nameRU)) {
           setisLiked(true);
         };
       } catch (error) {console.log(`Ошибка: ${error}`)}
-  },[isLiked]);
+  },[]);
 
 
 
@@ -54,21 +53,19 @@ export const MoviesCard = ({ id, card, onCardLike, mode, onCardDelete }) => {
 
   return (
     <section>
-      <li className="moviesCard" id={id}>
+      <li className="moviesCard" id={key}>
         <div className="moviesCard__top">
-          <div className="moviesCard__descripton">
+          <div className="moviesCard__description">
             <h2 className="moviesCard__title">{card.nameRU}</h2>
             <h3 className="moviesCard__subtitle">{handleDuration(card.duration)}</h3>
           </div>
           <button
             className="moviesCard__likeButton"
             type="button"
-            onClick={(e) => {
-              handleCardLike(e);
-            }}
+            onClick={(e) => {handleCardLike(e);}}
           >
             {isLiked ? 
-            <img src={likePic1} />
+              <img src={ mode == "all" ? likePic1 : likePic2 } />
             : 
             <img src={ mode == "all" ? notLikePic : likePic2 } />
             }

@@ -1,24 +1,7 @@
 const getResponse = res => 
   res.ok ? res.json() : Promise.reject(`Ошибка из ответа: ${res.statusText}`);
     
-    // export const getUserInfo = async () => {
-    //   const res = await fetch(`${baseUrl}users/me`, {
-    //     method: "GET",
-    //     credentials: 'include',
-    //     headers: {
-    //       "Origin": "https://sergey-kh.dilpom.nomoredomainsclub.ru",
-    //       "Accept": "application/json",        
-    //       "Content-Type": "application/json",
-    //     },
-    //   })
-    //   return getResponse(res);  
-    // }
-
 export const register = async (userName, email, password) => {
-
-      console.log('[MainApi] userName > ' + userName);
-      console.log('[MainApi] email > ' + email);
-      console.log('[MainApi] password > ' + password);
 
     const res = await fetch(`${baseUrl}signup`, {
       method: "POST",
@@ -36,6 +19,24 @@ export const register = async (userName, email, password) => {
     })
     return getResponse(res);  
   }
+
+  export const handleProfileChange = async (user) => {
+    const res = await fetch(`${baseUrl}users/me`, {
+      method: "PATCH",
+      credentials: 'include',
+      headers: {
+        "Origin": "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+        "Accept": "application/json",        
+        "Content-Type": "application/json"
+    } ,
+      body: JSON.stringify({
+        "name": user.name,
+        "email": user.email
+      }),
+    })
+    return getResponse(res);  
+  }
+
 
   export const login = async (email, password ) => {
     const res = await fetch(`${baseUrl}signin`, {

@@ -7,8 +7,8 @@ import { Header } from "../Header";
 import { Button } from "../Button";
 import { Footer } from "../Footer";
 import * as moviesApi from "../../utils/MoviesApi";
+import * as SearchUtil from "../../utils/SearchUtil";
 import "./SavedMovies.css";
-
 
 // const moviesDummyArray = [
 //   {
@@ -23,16 +23,17 @@ export const SavedMovies = () => {
   const [cards, setCards] = useState([]);
   const [isSwitched, setIsSwitched] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [isReloading, setIsReloading] = useState(true);
 
   useEffect(() => {
     cbGetMovies();
-  },[]);
+  }, [isReloading]);
   
   const cbGetMovies = useCallback(async () => {
     try {
         setLoading(true);
         const movies = await moviesApi.getSavedMovies();
-        JSON.stringify(movies);
+        // JSON.stringify(movies);
         if (!movies) {
           throw new Error("Error");
         }
@@ -43,36 +44,33 @@ export const SavedMovies = () => {
       }
 });
 
-
 const handleCardRemove = useCallback(async (card) => {
-  console.log(card.nameRU + " - liked");
   try {
-      setLoading(true);
+      // setLoading(true);
       const res = await moviesApi.removeFromSavedMovies(card);
-      // JSON.stringify(movies);
       if (!res) {
         throw new Error("Error");
       }
-      // setCards(movies);
+      setIsReloading(!isReloading);
     } catch (error) {console.log(`Ошибка: ${error}`)}
-         finally {
-      setLoading(false);
-    }
+    //      finally {
+    //   setLoading(false);
+    // }
 });
 
-  function handleMore() {
-    console.log("handleMore");
-  }
+  // function handleMore() {
+  //   console.log("handleMore");
+  // }
 
   function handleClick(e) {
     e.preventDefault();
-    console.log("handleClick");
+    setCards(SearchUtil.Search(cards, e.target.inp.value.toLowerCase(),isSwitched));
   }
 
-  function handleChange(e) {
-    e.preventDefault();
-    console.log("handleChange");
-  }
+  // function handleChange(e) {
+  //   e.preventDefault();
+  //   console.log("handleChange");
+  // }
 
   function handleSwitcher(e) {
     e.preventDefault();
@@ -84,7 +82,6 @@ const handleCardRemove = useCallback(async (card) => {
     return <Preloader />;
   }
 
-
   return (
     <section className="movies">
       <header>
@@ -93,11 +90,11 @@ const handleCardRemove = useCallback(async (card) => {
       <main>
         <SearchForm
           clickHandler={handleClick}
-          changeHandler={handleChange}
+          // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
         />
-        <MoviesCardList cards={cards} onCardLike={handleCardRemove} mode='saved'/>
+        <MoviesCardList cards={cards} onCardLike={handleCardRemove} mode='saved' onCardDelete={handleCardRemove}/>
         {/* <div className="savedmovies__morebutton">
           <Button
             color={"bigLightgrey"}

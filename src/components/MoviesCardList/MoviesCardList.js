@@ -12,7 +12,7 @@ export const MoviesCardList = ({ cards, onCardLike, mode, onCardDelete }) => {
             card={card}
             mode= {mode} 
             onCardLike={(card) => { onCardLike(card);}}
-            onCardDelete={onCardDelete}
+            onCardDelete={(card) => { onCardDelete(card);}}
           />
         ))}
       </ul>

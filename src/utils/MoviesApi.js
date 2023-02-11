@@ -60,8 +60,6 @@ const getResponse = res =>
     .then((res) => getResponse(res));
   }
   
-  
-
   export const removeFromSavedMovies = (card)  => {
     return fetch(`${baseUrl2}/movies/${card._id}`, {
             method: "DELETE",
@@ -74,8 +72,6 @@ const getResponse = res =>
     })
     .then((res) => getResponse(res));
   }
-
-
 
 export const baseUrl = "https://api.nomoreparties.co/beatfilm-movies";
 export const baseUrl2 = "https://api.sergey-kh.dilpom.nomoredomains.rocks";

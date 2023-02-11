@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.cbc6a585.css",
-    "main.js": "/static/js/main.81cdfff9.js",
+    "main.css": "/static/css/main.5e14a4fb.css",
+    "main.js": "/static/js/main.e2e1a31e.js",
     "static/media/SKFoto.jpg": "/static/media/SKFoto.58210e2507643838a67e.jpg",
     "static/media/Inter-ExtraBoldItalic.woff?v=3.19": "/static/media/Inter-ExtraBoldItalic.c64589be9c85eb8f4e50.woff",
     "static/media/Inter-SemiBoldItalic.woff?v=3.19": "/static/media/Inter-SemiBoldItalic.1713378196ba9e61d73a.woff",
@@ -47,11 +47,11 @@
     "static/media/save9green.svg": "/static/media/save9green.c8ffa6bbd75aea99c059497d0ccbe2a2.svg",
     "static/media/logo__COLOR_main-1.svg": "/static/media/logo__COLOR_main-1.6e5df113f64f20c61eb7380a57c57d43.svg",
     "static/media/text__COLOR_font-main.svg": "/static/media/text__COLOR_font-main.fb3c35df374fe46ced73f3fb7535227c.svg",
-    "main.cbc6a585.css.map": "/static/css/main.cbc6a585.css.map",
-    "main.81cdfff9.js.map": "/static/js/main.81cdfff9.js.map"
+    "main.5e14a4fb.css.map": "/static/css/main.5e14a4fb.css.map",
+    "main.e2e1a31e.js.map": "/static/js/main.e2e1a31e.js.map"
   },
   "entrypoints": [
-    "static/css/main.cbc6a585.css",
-    "static/js/main.81cdfff9.js"
+    "static/css/main.5e14a4fb.css",
+    "static/js/main.e2e1a31e.js"
   ]
 }

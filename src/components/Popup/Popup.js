@@ -18,7 +18,8 @@ export const Popup = ({
   linkTo,
   onSubmit,
   onChange,
-  logOut
+  logOut,
+  onChangeProfile
 }) => {
   const [emailInDirty, setEmailInDirty] = useState();
   const [passInDirty, setPassInDirty] = useState();
@@ -95,12 +96,11 @@ export const Popup = ({
 
   function logout() {
     // e.preventDefault();
-    console.log("logout из " + userData.name + ", " + userData.email);
     logOut();
   }
 
   function cbChangeProfile() {
-    console.log("Меняем профиль " + userData.name + ", " + userData.email);
+    onChangeProfile(userData);
   }
 
   return (
@@ -131,6 +131,7 @@ export const Popup = ({
             blurHandler={blurHandler}
             userData={userData.name}
             errorName={nameError}
+            placeholder={'Введите имя'}
           />
         )}
         <Input
@@ -141,6 +142,7 @@ export const Popup = ({
           blurHandler={blurHandler}
           userData={userData.email}
           errorName={emailError}
+          placeholder={'Введите емейл'}
         />
         {(mode == "signup" || mode == "signin") && (
           <Input
@@ -151,6 +153,7 @@ export const Popup = ({
             blurHandler={blurHandler}
             userData={userData.password}
             errorName={passwordError}
+            placeholder={'Введите пароль'}
           />
         )}
       </form>

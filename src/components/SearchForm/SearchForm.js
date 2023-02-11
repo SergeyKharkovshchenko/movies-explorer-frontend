@@ -5,26 +5,30 @@ import "./SearchForm.css";
 
 export const SearchForm = ({
   clickHandler,
-  changeHandler,
+  // changeHandler,
   switcherHandler,
   isSwitched,
+  label
 }) => {
   return (
     <section className="searchForm">
-      <form className="searchForm__searchWrapper" onSubmit={clickHandler}>
+      <form 
+      className="searchForm__searchWrapper" 
+      onSubmit={clickHandler}
+      >
         <input
+          name="inp"
           className="searchForm__search"
-          onClick={clickHandler}
-          onChange={changeHandler}
+          // onClick={(e)=>clickHandler(e)}
+          // onChange={(e)=>changeHandler(e)}
           type="text"
-          placeholder="Фильм"
+          placeholder={label||"Фильм"}
           required
-          //   ref={}
         />
         <button
           type="submit"
           className="searchForm__submit"
-          onClick={clickHandler}
+          // onClick={(e)=>clickHandler(e)}
           isActive="true"
         >
           Поиск

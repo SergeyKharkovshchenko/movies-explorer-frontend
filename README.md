@@ -8,7 +8,9 @@ https://github.com/SergeyKharkovshchenko/movies-explorer-frontend/pull/2
 
 https://drive.google.com/drive/folders/1GrBfd_lm4xraeAr_2H7ZoE_NWuDyPKq0?usp=sharing
 
+## Ссылка на деплой
 
+http://sergey-kh.dilpom.nomoredomainsclub.ru/
 
 
 

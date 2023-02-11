@@ -71,7 +71,6 @@ const handleCardRemove = useCallback(async (card) => {
   function handleSwitcher(e) {
     e.preventDefault();
     setIsSwitched(!isSwitched);
-    console.log("isSwitched > " + isSwitched);
   }
 
   if (loading) {

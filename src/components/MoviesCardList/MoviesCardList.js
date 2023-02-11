@@ -6,9 +6,9 @@ export const MoviesCardList = ({ cards, onCardLike, mode, onCardDelete }) => {
   return (
     <section className="moviesCardList">
       <ul className="moviesCardList__cards">
-        {cards.map((card) => (
+        {cards.map((card, i) => (
           <MoviesCard
-            key={card.id}
+            key={i}
             card={card}
             mode= {mode} 
             onCardLike={(card) => { onCardLike(card);}}

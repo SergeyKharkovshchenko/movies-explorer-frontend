@@ -28,7 +28,6 @@ export const Login = ({isLoggedIn, onLogin}) => {
       await onLogin(userData.Email, userData.Password);  
     } catch (err) {
       console.log(err);
-      // setMessage (err.message || 'Ошибка')
     }
   }, [userData, onLogin])
 
@@ -41,8 +40,6 @@ if (isLoggedIn) {
       <Popup
         mode={"signin"}
         greeting={"Рады видеть!"}
-        // name={"имя"}
-        // email={"емейл"}
         greenButton={signin.name}
         smallButton={signup.name}
         buttonsText={"Ещё не зарегистрированы?"}

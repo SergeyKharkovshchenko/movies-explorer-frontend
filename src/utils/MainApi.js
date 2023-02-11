@@ -1,5 +1,5 @@
 const getResponse = res => 
-  res.ok ? res.json() : Promise.reject(`Ошибка из ответа: ${res.statusText}`);
+  res.ok ? res.json() : Promise.reject(`Ошибка: ${res.statusText}`);
     
 export const register = async (userName, email, password) => {
 
@@ -55,7 +55,7 @@ export const register = async (userName, email, password) => {
     return getResponse(res);  
   }
 
-  export const logOut = async () => {
+  export const logOut = async (_id) => {
     const res = await fetch(`${baseUrl}signout`, {
       method: "POST",
       credentials: 'include',
@@ -63,7 +63,10 @@ export const register = async (userName, email, password) => {
         "Origin": "https://sergey-kh.dilpom.nomoredomainsclub.ru",
         "Accept": "application/json",        
         "Content-Type": "application/json"
-    } 
+    } ,
+    body: JSON.stringify({
+      "_id": _id
+    }),
   })
   return getResponse(res);  
 }

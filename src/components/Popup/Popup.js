@@ -156,9 +156,8 @@ export const Popup = ({
             placeholder={'Введите пароль'}
           />
         )}
-      </form>
       {(mode == "signup" || mode == "signin") && (
-        <nav className="popup__buttons">
+        <nav className={`popup__buttons popup__buttons_${mode}`}>
           <Button
             name={greenButton}
             onClick={cbClick}
@@ -191,6 +190,7 @@ export const Popup = ({
           </Link>
         </nav>
       )}
+      </form>
     </section>
   );
 };

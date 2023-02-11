@@ -54,6 +54,6 @@ export const Profile = ({logOut}) => {
       />
    </main>
     </section>
-    // </CurrentUserContext.Provider>    
+    //  </CurrentUserContext.Provider>    
   );
 };

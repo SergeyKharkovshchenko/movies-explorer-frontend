@@ -14,7 +14,6 @@ import { Preloader } from '../Preloader';
 import { Navigate } from 'react-router-dom';
 import {ProtectedRoutes} from '../ProtectedRoutes'
 import * as auth from "../../utils/MainApi";
-import * as moviesApi from "../../utils/MoviesApi";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Menu320 } from "../Menu320";
 import "./App.css";
@@ -28,17 +27,12 @@ const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
 const [tooltipMessage, setTooltipMessage] = useState("");
 
 useEffect(() => {
-  console.log('useEffect1 loggedIn - ' + loggedIn);
   cbCheckToken();
 }, []);
 
-useEffect(() => {
-  console.log('useEffect2 loggedIn - ' + loggedIn);
-}, [loggedIn]);
-
-  const cbAuthentificate = useCallback((data, email) => {
+  const cbAuthentificate = useCallback((user) => {
     setLoggedIn(true);
-    // localStorage.setItem("jwt", data.token);
+    setCurrentUser({name: user.name, _id: user._id, email:user.email})
   }, []);
 
   const cbCheckToken = useCallback(async () => {
@@ -55,23 +49,21 @@ useEffect(() => {
            finally {
         setLoading(false);
       }
-  // }, []);
 });
 
   const cbLogin = useCallback(async (email, password) => {
     try {
       setLoading(true);
-      const data = await auth.login(email, password);
-      if (!data) {
-        throw new Error("Неверный пользователь или пароль");
+      const res = await auth.login(email, password);
+      if (!res) {
+        throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
       }
-      if (data) {
-        console.log('cbLogin -> cbAuthentificate');
-        cbAuthentificate(data, email);
+      if (res) {
+        cbAuthentificate(res);
       }
     } catch (err) {
       setInfoTooltipPopupOpen(true);
-      setTooltipMessage(err.message);
+      setTooltipMessage("Неверный пользователь или пароль");
     }
     finally {
       setLoading(false);
@@ -82,41 +74,38 @@ useEffect(() => {
     async (userName, email, password) => {
       try {
         setLoading(true);
-        const data = await auth.register(userName, email, password);
-        if (!data) {
-          throw new Error("Не удалось зарегистрироваться");
+        const res = await auth.register(userName, email, password);
+        if (!res) {
+          throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
         }
-        if (data) {
-          console.log('cbRegister -> cbAuthentificate');
-          cbAuthentificate(data, email);
+        if (res) {
+          cbAuthentificate(res);
         }
       } catch (err) {
         setInfoTooltipPopupOpen(true);
-        setTooltipMessage(err.message);
+        setTooltipMessage('Не удалось зарегистрироваться, такой емейл уже существует');
       }
       finally {
         setLoading(false);
       }
-    },
-    [cbAuthentificate]
-  );
+    },[]);
 
 const closeTooltip = () => {
   setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
 }
 
   const cbLogout = useCallback( () => {
+    auth
+    .logOut(currentUser._id)      
+    .catch((err) => {
+      console.log(err);
+    });
+    // localStorage.removeItem("jwt");
     setLoggedIn(false);
     setCurrentUser("");
     localStorage.clear('searchKey');
     localStorage.clear('isSwitched');
     localStorage.clear('searchResult');
-    auth
-    .logOut()      
-    .catch((err) => {
-      console.log(err);
-    });
-    // localStorage.removeItem("jwt");
   }, []);
 
   if (loading) {
@@ -136,8 +125,8 @@ const closeTooltip = () => {
             </ProtectedRoutes>
             } />
 
-            <Route path="/" exact element={<Main />} />
-          
+            {/* <Route path="/" exact element={<Main />} /> */}
+
             <Route path="/movies" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
             <Movies />

@@ -108,11 +108,6 @@ const handleCardLike = useCallback(async (card) => {
     setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
   }
 
-  // function handleChange(e) {
-  //   e.preventDefault();
-  //   console.log(e.target.value);
-  // }
-
   function handleSwitcher(e) {
     e.preventDefault();
     setIsSwitched(!isSwitched);

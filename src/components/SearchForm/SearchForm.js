@@ -5,7 +5,6 @@ import "./SearchForm.css";
 
 export const SearchForm = ({
   clickHandler,
-  // changeHandler,
   switcherHandler,
   isSwitched,
   label
@@ -19,8 +18,6 @@ export const SearchForm = ({
         <input
           name="inp"
           className="searchForm__search"
-          // onClick={(e)=>clickHandler(e)}
-          // onChange={(e)=>changeHandler(e)}
           type="text"
           placeholder={label||"Фильм"}
           required
@@ -28,8 +25,6 @@ export const SearchForm = ({
         <button
           type="submit"
           className="searchForm__submit"
-          // onClick={(e)=>clickHandler(e)}
-          isActive="true"
         >
           Поиск
         </button>

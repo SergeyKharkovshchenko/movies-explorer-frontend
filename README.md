@@ -1,11 +1,14 @@
 # Диплом Сергей Харьковщенко
 # фронтенд
-
+# Cсылкa на пул реквест, открытый из ветки level-3 в main.
 
 
 # Ссылка на фигма-макет
 
 https://drive.google.com/drive/folders/1GrBfd_lm4xraeAr_2H7ZoE_NWuDyPKq0?usp=sharing
+
+
+
 
 
 

@@ -140,6 +140,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
       }
       disabled={!isActive}
       onClick={onClick}
+      type='submit'
     >
       {name}
     </button>

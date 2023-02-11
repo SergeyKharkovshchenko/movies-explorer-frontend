@@ -9,7 +9,6 @@ export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
         type="submit"
         className="filterCheckbox__submit"
         onClick={handleSwitcher}
-        isActive="true"
       >
         <div
           className={

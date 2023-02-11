@@ -58,10 +58,6 @@ const handleCardRemove = useCallback(async (card) => {
     // }
 });
 
-  // function handleMore() {
-  //   console.log("handleMore");
-  // }
-
   function handleClick(e) {
     e.preventDefault();
     setCards(SearchUtil.Search(cards, e.target.inp.value.toLowerCase(),isSwitched));
@@ -94,7 +90,7 @@ const handleCardRemove = useCallback(async (card) => {
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
         />
-        <MoviesCardList cards={cards} onCardLike={handleCardRemove} mode='saved' onCardDelete={handleCardRemove}/>
+        <MoviesCardList cards={cards} onCardLike={handleCardRemove} mode='saved' onCardDelete={handleCardRemove} />
         {/* <div className="savedmovies__morebutton">
           <Button
             color={"bigLightgrey"}

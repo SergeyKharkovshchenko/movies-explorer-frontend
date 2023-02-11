@@ -6,7 +6,7 @@ import notLikePic from "../../images/save9d.svg";
 import * as moviesApi from "../../utils/MoviesApi";
 import "./MoviesCard.css";
 
-export const MoviesCard = ({ key, card, onCardLike, mode, onCardDelete }) => {
+export const MoviesCard = ({ card, onCardLike, mode, onCardDelete }) => {
 
   // const currentUser = useContext(CurrentUserContext);
 
@@ -53,7 +53,7 @@ export const MoviesCard = ({ key, card, onCardLike, mode, onCardDelete }) => {
 
   return (
     <section>
-      <li className="moviesCard" id={key}>
+      <li className="moviesCard" >
         <div className="moviesCard__top">
           <div className="moviesCard__description">
             <h2 className="moviesCard__title">{card.nameRU}</h2>

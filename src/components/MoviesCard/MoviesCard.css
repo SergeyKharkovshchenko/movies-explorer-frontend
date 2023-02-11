@@ -63,7 +63,7 @@
   height: 36px;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   overflow: hidden;
   text-overflow: clip;
   max-width: 280px;

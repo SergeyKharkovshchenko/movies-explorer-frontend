@@ -1,11 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import logoImage from "../../images/logo__COLOR_main-1.svg";
 import { Button } from "../Button";
-import { Link } from "react-router-dom";
-// import { Validation } from '../Validation';
+import { Link, NavLink } from "react-router-dom";
 import { Input } from "../Input";
 import "./Popup.css";
 import { logOut } from "../../utils/MainApi";
+
+import {
+  main
+} from "../../utils/config";
 
 export const Popup = ({
   mode,
@@ -21,12 +24,11 @@ export const Popup = ({
   logOut,
   onChangeProfile
 }) => {
-  const [emailInDirty, setEmailInDirty] = useState();
-  const [passInDirty, setPassInDirty] = useState();
-  const [nameInDirty, setNameInDirty] = useState();
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [initialName, setInitialName] = useState(name);
+  const [initialEmail, setInitialEmail] = useState(email);
 
   const [userData, setUserData] = useState({
     name: name,
@@ -34,9 +36,21 @@ export const Popup = ({
     password: "",
   });
 
-  function cbClick() {
+  function cbSubmit(e) {
+    e.preventDefault();
     onSubmit(userData.name, userData.email, userData.password);
   }
+
+  {(mode=='signup')&&useEffect(() => {
+    cbChange('Name','');
+    cbChange('Email','');
+    cbChange('Password','');
+  },[]);
+  (mode=='signin')&&useEffect(() => {
+    cbChange('Email', '11');
+    cbChange('Password','');
+  },[]);
+}
 
   const cbChange = useCallback(
     (name, value) => {
@@ -61,6 +75,7 @@ export const Popup = ({
           } else {
             setEmailError("");
           }
+          break;
         }
         case "password": {
           if (value.length < 5) {
@@ -75,42 +90,27 @@ export const Popup = ({
     [userData]
   );
 
-  const handleSubmit = (e) => {
-    cbSubmit(e);
-  }
-
-  const blurHandler = (e) => {
-    switch (e.target.name) {
-      case "email":
-        setEmailInDirty(true);
-        break;
-      case "password":
-        setPassInDirty(true);
-        break;
-      case "name":
-        setNameInDirty(true);
-        break;
-      default:
-    }
-  };
-
   function logout() {
-    // e.preventDefault();
     logOut();
   }
 
-  function cbChangeProfile() {
+  function cbChangeProfile(e) {
+    e.preventDefault();
     onChangeProfile(userData);
   }
 
   return (
     <section className="popup">
       {(mode == "signup" || mode == "signin" ) && (
+        <NavLink className="link"
+            to={main.link}
+          >
         <img
           src={`${logoImage}`}
           alt="Логотип - зеленый бублик"
           className="popup__logo"
         />
+        </NavLink>
       )}
       <h2 className={mode == "profile" ? "popup__title_profile" : "popup__title"}>
         {greeting}
@@ -118,9 +118,8 @@ export const Popup = ({
 
       <form
         className={mode == "profile" ? "popup__form_profile" : "popup__form"}
-        onSubmit={cbClick}
+        onSubmit={(e)=>cbSubmit(e)}
         onChange={onChange}
-        // onSubmit={(e) => handleSubmit(e)}
       >
         {(mode == "signup" || mode == "profile") && (
           <Input
@@ -128,29 +127,26 @@ export const Popup = ({
             label={"Имя"}
             name={"Name"}
             cbChange={cbChange}
-            blurHandler={blurHandler}
             userData={userData.name}
             errorName={nameError}
             placeholder={'Введите имя'}
           />
         )}
         <Input
-          mode={mode == "profile" ? 'profile' : "popup"}
+          mode={mode == "profile" ? "profile" : "popup"}
           label={"Емейл"}
           name={"Email"}
           cbChange={cbChange}
-          blurHandler={blurHandler}
           userData={userData.email}
           errorName={emailError}
           placeholder={'Введите емейл'}
         />
         {(mode == "signup" || mode == "signin") && (
           <Input
-            mode={mode == "profile" ? 'profile' : "popup"}
+            mode={"popup"}
             label={"Пароль"}
             name={"Password"}
             cbChange={cbChange}
-            blurHandler={blurHandler}
             userData={userData.password}
             errorName={passwordError}
             placeholder={'Введите пароль'}
@@ -160,7 +156,6 @@ export const Popup = ({
         <nav className={`popup__buttons popup__buttons_${mode}`}>
           <Button
             name={greenButton}
-            onClick={cbClick}
             color={"bigGreen"}
             isActive={nameError + emailError + passwordError == ""}
           />
@@ -174,12 +169,15 @@ export const Popup = ({
       )}
       {mode == "profile" && (
         <nav className="popup__buttons_profile">
+          <div>
+          
           <Button
             name={"Редактировать"}
-            onClick={cbChangeProfile}
-            color="white"
-            isActive={nameError + emailError + passwordError == ""}
+            onClick={(e)=>cbChangeProfile(e)}
+            color={"white"}
+            isActive={(nameError + emailError + passwordError == "")&&((userData.name!=initialName)||(userData.email!=initialEmail))}
           />
+          </div>
           <Link to="/movies">
             <Button
               name={"Выйти из аккаунта"}

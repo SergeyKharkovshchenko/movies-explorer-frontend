@@ -17,10 +17,11 @@ export const register = async (userName, email, password) => {
         "password": password
       }),
     })
+    if (res.ok) login (email, password);
     return getResponse(res);  
   }
 
-  export const handleProfileChange = async (user) => {
+  export const handleProfileChange = async (name, email) => {
     const res = await fetch(`${baseUrl}users/me`, {
       method: "PATCH",
       credentials: 'include',
@@ -30,8 +31,8 @@ export const register = async (userName, email, password) => {
         "Content-Type": "application/json"
     } ,
       body: JSON.stringify({
-        "name": user.name,
-        "email": user.email
+        "name": name,
+        "email": email
       }),
     })
     return getResponse(res);  

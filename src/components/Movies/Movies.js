@@ -7,9 +7,21 @@ import { Button } from "../Button";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { InfoTooltip } from "../InfoTooltip";
+import { logOut } from "../../utils/MainApi";
 import * as moviesApi from "../../utils/MoviesApi";
 import * as SearchUtil from "../../utils/SearchUtil";
 import "./Movies.css";
+
+import {
+  windowWidthS,
+  windowWidthL,
+  additionalColsS,
+  additionalColsM,
+  additionalColsL,
+  totalCardsS,
+  totalCardsM,
+  totalCardsL,
+ } from "../../utils/config";
 
 // const moviesDummyArray = [
 //   {
@@ -28,32 +40,38 @@ import "./Movies.css";
 
 export const Movies = () => {
   const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResult'))?JSON.parse(localStorage.getItem('searchResult')):[]);
+  const [allMovies, setAllMovies] = useState([]);
   const [isSwitched, setIsSwitched] = useState(JSON.parse(localStorage.getItem('isSwitched')));
+  const [searchKey , setSearchKey ] = useState(localStorage.getItem('searchKey')?localStorage.getItem('searchKey'):'');
   const [loading, setLoading] = useState(false);
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
   const [additional, setAdditional] = useState(0);
   const [totalNumber, setTotalNumber] = useState(0);
-  const [searchKey , setSearchKey ] = useState(localStorage.getItem('searchKey'));
-  
+  const [savedMovies, setSavedMovies] = useState([]);
+ 
   const updateWidth = () => {
-    if (window.innerWidth<860) {
-      setAdditional(2);
-      setTotalNumber(5)
+    if (window.innerWidth<windowWidthS) {
+      setAdditional(additionalColsS);
+      setTotalNumber(totalCardsS)
     }
-    if (window.innerWidth>860 && window.innerWidth<1280) {
-      setAdditional(2);
-      setTotalNumber(8)
+    if (window.innerWidth>windowWidthS && window.innerWidth<windowWidthL) {
+      setAdditional(additionalColsM);
+      setTotalNumber(totalCardsM)
     }
-    if (window.innerWidth>1280) {
-      setAdditional(3);
-      setTotalNumber(12)
+    if (window.innerWidth>windowWidthL) {
+      setAdditional(additionalColsL);
+      setTotalNumber(totalCardsL)
     }
   };
 
   useEffect(() => {   
   updateWidth();
 },[]);
+
+useEffect(() => {   
+handleClick(searchKey);
+},[isSwitched]);
 
   useEffect(() => {   
     window.addEventListener("resize", updateWidth);
@@ -68,7 +86,13 @@ const handleCardLike = useCallback(async (card) => {
       if (!res) {
         throw new Error("Error");
       }
-    } catch (error) {console.log(`Ошибка: ${error}`)}
+      const saved = await moviesApi.getSavedMovies();
+      JSON.stringify(saved);
+      setSavedMovies(saved)
+    } catch (error) {
+      console.log(`Ошибка: ${error}`)
+      if (error.status == 401) logOut();
+    }
          finally {
       setLoading(false);
     }
@@ -78,26 +102,38 @@ const handleCardLike = useCallback(async (card) => {
       setTotalNumber((totalNumber) => totalNumber + additional);
   }
 
-  const  handleClick = useCallback(async (e) => {
-    e.preventDefault();
+   const  handleClick = useCallback(async (searchWord) => {
     updateWidth();
     try {
       setLoading(true);
-      const movies = await moviesApi.getInitialMovies();
-      JSON.stringify(movies);
-      if (!movies) {
-        throw new Error("Error");
+
+      if (allMovies.length==0) {
+        const movies = await moviesApi.getInitialMovies();
+        if (!movies) {
+          throw new Error("Error");
+        }
+        JSON.stringify(movies);
+        setAllMovies(movies);
+        const searchResult = await SearchUtil.Search(movies, searchWord.toLowerCase(),isSwitched);
+        setCards(searchResult);
+        if (searchResult.length==0) {
+          setInfoTooltipPopupOpen(true);
+          setTooltipMessage("Ничего не найдено");
+        }
+      } else {
+        const searchResult = await SearchUtil.Search(allMovies, searchWord.toLowerCase(),isSwitched);
+        setCards(searchResult);
+        if (searchResult.length==0) {
+          setInfoTooltipPopupOpen(true);
+          setTooltipMessage("Ничего не найдено");
+        }
       }
-    const searchResult = await SearchUtil.Search(movies, e.target.inp.value.toLowerCase(),isSwitched);
-    setCards(searchResult);
-    localStorage.setItem('searchKey', e.target.inp.value.toLowerCase());
-    setSearchKey(e.target.inp.value.toLowerCase());
+      const saved = await moviesApi.getSavedMovies();
+      setSavedMovies(saved)  
+    localStorage.setItem('searchKey', searchWord.toLowerCase());
+    setSearchKey(searchWord.toLowerCase());
     localStorage.setItem('isSwitched', JSON.stringify(isSwitched));
-    localStorage.setItem('searchResult', JSON.stringify(searchResult));
-    if (searchResult.length==0) {
-      setInfoTooltipPopupOpen(true);
-      setTooltipMessage("Ничего не найдено");
-    }
+    localStorage.setItem('searchResult', JSON.stringify(cards));
     } catch (error) {console.log(`Ошибка: ${error}`)}
          finally {
       setLoading(false);
@@ -108,19 +144,21 @@ const handleCardLike = useCallback(async (card) => {
     setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
   }
 
-  function handleSwitcher(e) {
-    e.preventDefault();
+  function handleSwitcher() {
     setIsSwitched(!isSwitched);
+      console.log('handleSwitcher');
   }
 
-  const handleCardRemove = useCallback(async (card) => {
+  const handleCardRemove = useCallback(async (_id) => {
     try {
         setLoading(true);
-        const res = await moviesApi.removeFromSavedMovies(card);
-        // JSON.stringify(movies);
+        const res = await moviesApi.removeFromSavedMovies(_id);
         if (!res) {
           throw new Error("Error");
         }
+        const saved = await moviesApi.getSavedMovies();
+        JSON.stringify(saved);
+        setSavedMovies(saved)
       } catch (error) {console.log(`Ошибка: ${error}`)}
            finally {
         setLoading(false);
@@ -138,16 +176,18 @@ const handleCardLike = useCallback(async (card) => {
       </header>
       <main>
         <SearchForm
-          clickHandler={handleClick}
+          clickHandler={(e)=>handleClick(e.target.inp.value)}
           // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
-          label={searchKey?searchKey:"Фильм"}
+          label={"Фильм"}
+          search={searchKey}
         />
         {(cards.length!=0)&&<MoviesCardList
           cards={cards.slice(0, totalNumber)}
           onCardLike={handleCardLike}
           onCardDelete={handleCardRemove}
+          savedMovies={savedMovies}
           mode='all'
         />
         }

@@ -13,7 +13,8 @@ import { Error404 } from "../Error404";
 import { Preloader } from '../Preloader';
 import { Navigate } from 'react-router-dom';
 import {ProtectedRoutes} from '../ProtectedRoutes'
-import * as auth from "../../utils/MainApi";
+import {ProtectedRoutesMain} from '../ProtectedRoutes copy'
+import * as mainApi from "../../utils/MainApi";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Menu320 } from "../Menu320";
 import "./App.css";
@@ -38,7 +39,7 @@ useEffect(() => {
   const cbCheckToken = useCallback(async () => {
     try {
         setLoading(true);
-        const user = await auth.checkToken();
+        const user = await mainApi.checkToken();
         JSON.stringify(user);
         if (!user) {
           throw new Error("Invalid user");
@@ -53,8 +54,8 @@ useEffect(() => {
 
   const cbLogin = useCallback(async (email, password) => {
     try {
-      setLoading(true);
-      const res = await auth.login(email, password);
+      // setLoading(true);
+      const res = await mainApi.login(email, password);
       if (!res) {
         throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
       }
@@ -65,16 +66,16 @@ useEffect(() => {
       setInfoTooltipPopupOpen(true);
       setTooltipMessage("Неверный пользователь или пароль");
     }
-    finally {
-      setLoading(false);
-    }
+    // finally {
+    //   setLoading(false);
+    // }
   }, []);
 
   const cbRegister = useCallback(
     async (userName, email, password) => {
       try {
-        setLoading(true);
-        const res = await auth.register(userName, email, password);
+        // setLoading(true);
+        const res = await mainApi.register(userName, email, password);
         if (!res) {
           throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
         }
@@ -85,17 +86,33 @@ useEffect(() => {
         setInfoTooltipPopupOpen(true);
         setTooltipMessage('Не удалось зарегистрироваться, такой емейл уже существует');
       }
-      finally {
-        setLoading(false);
-      }
+      // finally {
+      //   setLoading(false);
+      // }
     },[]);
 
-const closeTooltip = () => {
-  setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
-}
+  const cbChangeProfile = useCallback(async (userName, email) => {
+    try {
+        setLoading(true);
+        const res = await mainApi.handleProfileChange(userName, email);
+        if (!res) {
+          throw new Error("Error");
+        }
+        setCurrentUser(res);
+        setInfoTooltipPopupOpen(true);
+        setTooltipMessage("Профиль изменен успешно");
+      } catch (error) {
+        console.log(`Ошибка: ${error}`);
+        setInfoTooltipPopupOpen(true);
+        setTooltipMessage("Произошла ошибка, попробуйте другой емейл");
+      }
+           finally {
+        setLoading(false);
+      }
+  });
 
   const cbLogout = useCallback( () => {
-    auth
+    mainApi
     .logOut(currentUser._id)      
     .catch((err) => {
       console.log(err);
@@ -107,6 +124,10 @@ const closeTooltip = () => {
     localStorage.clear('isSwitched');
     localStorage.clear('searchResult');
   }, []);
+
+  const closeTooltip = () => {
+    setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
+  }  
 
   if (loading) {
     return <Preloader />;
@@ -120,12 +141,10 @@ const closeTooltip = () => {
         <Routes>
 
             <Route path="/" element={
-            <ProtectedRoutes isLoggedIn={loggedIn}>
-            <Navigate to='/movies' />
-            </ProtectedRoutes>
+            <ProtectedRoutesMain isLoggedIn={loggedIn}>
+            <Main isLoggedIn={loggedIn}/>
+            </ProtectedRoutesMain>
             } />
-
-            {/* <Route path="/" exact element={<Main />} /> */}
 
             <Route path="/movies" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
@@ -142,23 +161,33 @@ const closeTooltip = () => {
             <Route path="/profile" element={
             <ProtectedRoutes isLoggedIn={loggedIn}>
             <Profile 
-            logOut={cbLogout}/>
+            logOut={cbLogout}
+            changeProfile={cbChangeProfile}
+            />
             </ProtectedRoutes>
             } />
           
-          <Route path="/signin" element={<Login 
+          <Route path="/signin" element={
+              <Login 
               isLoggedIn={loggedIn} 
               onLogin={cbLogin}
-              /> } />
+              /> } 
+           />
 
-          <Route path="/signup" element={<Register               
+          <Route path="/signup" element={
+          <Register               
               isLoggedIn={loggedIn}
               onRegister={cbRegister}
               // checkToken={cbCheckToken}
               />} />
 
-          <Route path="/menu" element={<Menu320 />} />
-          <Route path="/404" element={<Error404 />} />
+            <Route path="/menu" element={
+            <ProtectedRoutes isLoggedIn={loggedIn}>
+            <Menu320 />
+            </ProtectedRoutes>  
+            } />
+
+          <Route path="*" element={<Error404 />} />
         </Routes>
 
         {isInfoTooltipPopupOpen&&<InfoTooltip

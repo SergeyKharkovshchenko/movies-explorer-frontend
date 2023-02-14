@@ -13,6 +13,7 @@ export const Login = ({isLoggedIn, onLogin}) => {
 
   const cbChange = useCallback(
     (event) => {
+      event.preventDefault();
       const {name, value} = event.target;
       setUserData ({
         ...userData,
@@ -23,7 +24,6 @@ export const Login = ({isLoggedIn, onLogin}) => {
   )
 
   const cbSubmit = useCallback (async(event) => {
-    // event.preventDefault();
     try{
       await onLogin(userData.Email, userData.Password);  
     } catch (err) {

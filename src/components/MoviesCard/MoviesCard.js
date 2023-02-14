@@ -6,12 +6,16 @@ import notLikePic from "../../images/save9d.svg";
 import * as moviesApi from "../../utils/MoviesApi";
 import "./MoviesCard.css";
 
-export const MoviesCard = ({ card, onCardLike, mode, onCardDelete }) => {
-
-  // const currentUser = useContext(CurrentUserContext);
+export const MoviesCard = ({ 
+  card, 
+  savedMovies,
+  onCardLike, 
+  mode, 
+  onCardDelete }) => {
 
   const [isLiked, setisLiked] = useState(false);
-
+  const [id, setId] = useState('');
+  
   function handleDuration (minutes) {
     let mins = minutes%60;
     let hours = Math.floor(minutes/60);
@@ -26,24 +30,17 @@ export const MoviesCard = ({ card, onCardLike, mode, onCardDelete }) => {
   },[isLiked]);
   
   const checkLike = useCallback(async () => {
-    try {
-        const savedMovies = await moviesApi.getSavedMovies();
-        JSON.stringify(savedMovies);
-        if (!savedMovies) {
-          throw new Error("Error");
-        }
-        if (savedMovies.some((savedMovie) => savedMovie.nameRU == card.nameRU)) {
-          setisLiked(true);
-        };
-      } catch (error) {console.log(`Ошибка: ${error}`)}
+        let likedMovie = savedMovies.filter((savedMovie) => (savedMovie.nameRU == card.nameRU)||(savedMovie.nameEN == card.nameEN))
+            if (likedMovie.length!=0){
+              setisLiked(true);
+              setId(likedMovie[0]._id);
+            }
   },[]);
-
-
 
   const handleCardLike = () => {
     if (isLiked) 
     {
-    onCardDelete(card);
+    onCardDelete(id);
     }
     else {
     onCardLike(card);
@@ -65,17 +62,19 @@ export const MoviesCard = ({ card, onCardLike, mode, onCardDelete }) => {
             onClick={(e) => {handleCardLike(e);}}
           >
             {isLiked ? 
-              <img src={ mode == "all" ? likePic1 : likePic2 } />
+            <img src={ mode == "all" ? likePic1 : likePic2 } />
             : 
             <img src={ mode == "all" ? notLikePic : likePic2 } />
             }
           </button>
         </div>
+        <a href={card.trailerLink} className="portfolioLink__linkblock" target="_blank" rel="noreferrer">
         <img
           src={ mode == "all" ? `https://api.nomoreparties.co/${card.image.url}` : card.image }
           className="moviesCard__foto"
           alt={`фото ${card.nameRU}`}
         />
+        </a>
       </li>
     </section>
   );

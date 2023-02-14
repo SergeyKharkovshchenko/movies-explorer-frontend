@@ -5,7 +5,7 @@ import { Popup } from "../Popup";
 import * as mainApi from "../../utils/MainApi";
 import { Preloader } from "../Preloader";
 
-export const Profile = ({logOut}) => {
+export const Profile = ({logOut, changeProfile}) => {
 
   const [loading, setLoading] = useState(false);
   const currentUser = useContext(CurrentUserContext);
@@ -15,20 +15,21 @@ export const Profile = ({logOut}) => {
     email: currentUser.email,
   });
 
-  const cbChangeProfile = useCallback(async (user) => {
-    try {
-        setLoading(true);
-        const res = await mainApi.handleProfileChange(user);
-        if (!res) {
-          throw new Error("Error");
-        }
-        setUserData(res);
-      } catch (error) {console.log(`Ошибка: ${error}`)}
-           finally {
-        setLoading(false);
-      }
-  });
-  
+  const cbChange = useCallback(
+    (event) => {
+      const {name, value} = event.target;
+      setUserData ({
+        ...userData,
+        [name.toLowerCase()]: value
+      });
+    },
+    [userData],
+  )
+
+  const cbChangeProfile = useCallback (event => {
+    changeProfile(userData.name, userData.email);
+  }, [userData])
+
   if (loading) {
     return <Preloader />;
   }
@@ -50,7 +51,8 @@ export const Profile = ({logOut}) => {
         buttonsText={""}
         linkTo={""}
         logOut={logOut}
-        onChangeProfile={(user)=>cbChangeProfile(user)}
+        onChangeProfile={(e)=>cbChangeProfile(e)}
+        onChange = {(e) => cbChange (e)}
       />
    </main>
     </section>

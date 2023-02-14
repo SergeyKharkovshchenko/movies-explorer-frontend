@@ -20,62 +20,101 @@ import "./SavedMovies.css";
 // ];
 
 export const SavedMovies = () => {
-  const [cards, setCards] = useState([]);
-  const [isSwitched, setIsSwitched] = useState(false);
-  const [loading, setLoading] = useState(true);
-  const [isReloading, setIsReloading] = useState(true);
 
-  useEffect(() => {
-    cbGetMovies();
-  }, [isReloading]);
-  
-  const cbGetMovies = useCallback(async () => {
-    try {
-        setLoading(true);
-        const movies = await moviesApi.getSavedMovies();
-        // JSON.stringify(movies);
-        if (!movies) {
-          throw new Error("Error");
-        }
-        setCards(movies);
-      } catch (error) {console.log(`Ошибка: ${error}`)}
-           finally {
-        setLoading(false);
-      }
+const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResultSaved'))?JSON.parse(localStorage.getItem('searchResultSaved')):[]);
+const [allMovies, setAllMovies] = useState([]);
+const [isSwitched, setIsSwitched] = useState(JSON.parse(localStorage.getItem('isSwitchedSaved')));
+const [searchKey , setSearchKey ] = useState(localStorage.getItem('searchKeySaved')?localStorage.getItem('searchKeySaved'):'');
+const [loading, setLoading] = useState(false);
+const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
+const [tooltipMessage, setTooltipMessage] = useState("");
+const [additional, setAdditional] = useState(0);
+const [totalNumber, setTotalNumber] = useState(0);
+const [savedMovies, setSavedMovies] = useState([]);
+
+
+const updateWidth = () => {
+  if (window.innerWidth<860) {
+    setAdditional(2);
+    setTotalNumber(5)
+  }
+  if (window.innerWidth>860 && window.innerWidth<1280) {
+    setAdditional(2);
+    setTotalNumber(8)
+  }
+  if (window.innerWidth>1280) {
+    setAdditional(3);
+    setTotalNumber(12)
+  }
+};
+
+useEffect(() => {   
+updateWidth();
+},[]);
+
+useEffect(() => {   
+handleClick(searchKey);
+},[isSwitched]);
+
+useEffect(() => {   
+  window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);      
 });
+
+
+const  handleClick = useCallback(async (searchWord) => {
+    updateWidth();
+  try {
+    setLoading(true);
+      const movies = await moviesApi.getSavedMovies();
+      if (!movies) {
+        throw new Error("Error");
+      }
+      JSON.stringify(movies);
+      setAllMovies(movies);
+      const searchResult = await SearchUtil.Search(movies, searchWord.toLowerCase(),isSwitched);
+      setCards(searchResult);
+      if (searchResult.length==0) {
+        setInfoTooltipPopupOpen(true);
+        setTooltipMessage("Ничего не найдено");
+      }
+
+  localStorage.setItem('searchKeySaved', searchWord.toLowerCase());
+  setSearchKey(searchWord.toLowerCase());
+  localStorage.setItem('isSwitchedSaved', JSON.stringify(isSwitched));
+  localStorage.setItem('searchResultSaved', JSON.stringify(cards));
+  } catch (error) {console.log(`Ошибка: ${error}`)}
+       finally {
+    setLoading(false);
+  }
+});
+
+const closeTooltip = () => {
+  setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
+}
+
+function handleSwitcher() {
+  setIsSwitched(!isSwitched);
+}
 
 const handleCardRemove = useCallback(async (card) => {
   try {
-      // setLoading(true);
+      setLoading(true);
       const res = await moviesApi.removeFromSavedMovies(card);
+      // JSON.stringify(movies);
+      handleClick(searchKey);
       if (!res) {
         throw new Error("Error");
       }
-      setIsReloading(!isReloading);
     } catch (error) {console.log(`Ошибка: ${error}`)}
-    //      finally {
-    //   setLoading(false);
-    // }
+         finally {
+      setLoading(false);
+    }
 });
 
-  function handleClick(e) {
-    e.preventDefault();
-    setCards(SearchUtil.Search(cards, e.target.inp.value.toLowerCase(),isSwitched));
-  }
-
-  // function handleChange(e) {
-  //   e.preventDefault();
-  //   console.log("handleChange");
-  // }
-
-  function handleSwitcher(e) {
-    e.preventDefault();
-    setIsSwitched(!isSwitched);
-  }
-
-  if (loading) {
-    return <Preloader />;
-  }
+if (loading) {
+  return <Preloader />;
+}
 
   return (
     <section className="movies">
@@ -84,20 +123,22 @@ const handleCardRemove = useCallback(async (card) => {
       </header>
       <main>
         <SearchForm
-          clickHandler={handleClick}
+          clickHandler={(e)=>handleClick(e.target.inp.value)}
           // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
+          label={"Фильм"}
+          search={searchKey}
         />
-        <MoviesCardList cards={cards} onCardLike={handleCardRemove} mode='saved' onCardDelete={handleCardRemove} />
-        {/* <div className="savedmovies__morebutton">
-          <Button
-            color={"bigLightgrey"}
-            onClick={handleMore}
-            name="More"
-            isActive="true"
-          />
-        </div> */}
+
+        <MoviesCardList 
+        cards={cards} 
+        savedMovies={allMovies}
+        onCardLike={handleCardRemove} 
+        mode='saved' 
+        onCardDelete={handleCardRemove} 
+        />
+
       </main>
       <footer>
         <Footer />

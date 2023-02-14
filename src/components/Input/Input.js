@@ -1,6 +1,5 @@
 import React from "react";
 import { Underline } from "../Underline";
-// import { Validation } from '../Validation';
 import "./Input.css";
 
 export const Input = ({
@@ -8,7 +7,6 @@ export const Input = ({
   label,
   name,
   cbChange,
-  blurHandler,
   userData,
   errorName,
   placeholder
@@ -25,17 +23,16 @@ export const Input = ({
         <p className={`input__label_type_${mode}`}>{label}</p>
         <input
           name={name}
-          type="text"
+          type={(name=='Password')?"password":"text"}
           id={`edit-${name}`}
           className={`input__input_type_${mode} input__${name}_type_${mode}`}
           value={userData || ""}
           onChange={(e) => change(e)}
-          onBlur={(e) => blurHandler(e)}
           placeholder={placeholder}
         />
       </div>
       <Underline />
-      {`${name}InDirty&&bad${name}In` && (
+      {`bad${name}In` && (
         <span className={`input__error`}>{errorName}</span>
       )}
     </div>

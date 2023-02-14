@@ -20,6 +20,18 @@ const savedMovies = {
   id: 6,
 };
 
+const windowWidthS=860;
+const windowWidthL=1280;
+const additionalColsS=2;
+const additionalColsM=2;
+const additionalColsL=3;
+const totalCardsS=5;
+const totalCardsM=8;
+const totalCardsL=12;
+
+const shortsDuration = 40;
+
+
 module.exports = {
   text1,
   text2,
@@ -35,4 +47,13 @@ module.exports = {
   profile,
   movies,
   savedMovies,
+  windowWidthS,
+windowWidthL,
+additionalColsS,
+additionalColsM,
+additionalColsL,
+totalCardsS,
+totalCardsM,
+totalCardsL,
+shortsDuration,
 };

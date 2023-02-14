@@ -60,8 +60,8 @@ const getResponse = res =>
     .then((res) => getResponse(res));
   }
   
-  export const removeFromSavedMovies = (card)  => {
-    return fetch(`${baseUrl2}/movies/${card._id}`, {
+  export const removeFromSavedMovies = (_id)  => {
+    return fetch(`${baseUrl2}/movies/${_id}`, {
             method: "DELETE",
             credentials: 'include',
            headers: {

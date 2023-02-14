@@ -46,7 +46,7 @@
 }
 
 .searchForm__search {
-  margin: 25px;
+  margin: 25px 25px 10px 25px;
   height: 16px;
   color: #a0a0a0;
   width: 1000px;
@@ -107,3 +107,27 @@
   box-shadow: 2px 2px 2px 1px rgba(43, 224, 128, 0.4);
   cursor: pointer;
 }
+
+.searchForm__disabled{
+  background: #a0e2bf;
+}
+
+.searchForm__inputblock{
+  display: flex;
+  flex-direction: column;
+}
+
+.searchForm__error{
+  color: red;
+
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 10px;
+  width: 200px;
+  margin: 0 0 0 40px;
+}
+
+
+

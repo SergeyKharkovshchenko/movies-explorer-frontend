@@ -34,6 +34,7 @@
 
   border: none;
   margin-bottom: 10px;
+  width: 100%;
 }
 
 .input__input_type_profile {
@@ -67,7 +68,7 @@
 }
 
 .input__Name_type_profile,
-.input__Email_type_profile {
+.input__Email_type_profile{
   text-align: end;
   border: none;
   width: 350px;
@@ -82,7 +83,7 @@
 
 @media (max-width: 420px) {
   .input__Name_type_profile,
-  .input__Email_type_profile {
+  .input__Email_type_profile{
     width: auto;
   }
 }

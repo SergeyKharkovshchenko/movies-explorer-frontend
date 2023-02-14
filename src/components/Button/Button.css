@@ -20,14 +20,19 @@
   font-size: 20px;
 }
 
-.button__isActive_false {
-  opacity: 0.5;
-}
-
 .button:not(:last-child) {
   margin-right: 10px;
 }
 
 .button:hover {
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+}
+
+.button__isActive_false {
+  opacity: 0.5;
+  cursor: unset;
+}
+
+.button__isActive_false:hover {
+  box-shadow: none;
 }

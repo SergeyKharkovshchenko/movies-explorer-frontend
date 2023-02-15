@@ -176,7 +176,7 @@ export const Popup = ({
           <div>
           
           <Button
-            name={"Редактировать"}
+            name={"Edit"}
             onClick={(e)=>cbChangeProfile(e)}
             color={"white"}
             isActive={(nameError + emailError + passwordError == "")&&((userData.name!=initialName)||(userData.email!=initialEmail))}

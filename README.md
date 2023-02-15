@@ -25,7 +25,7 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 <img src="./src/images/save.jpg">
 - save/delete movies. When changing pages, the current data is displayed. On the "Saved" page, you can only delete
 - when you click on a movie poster in a new tab, it opens the trailer (if any),
-- when you try to go to any protected route, a redirect to the main one occurs,
+- when you try to go to any protected route, a redirect to the main one occurs, 
 - if the user was authorized and closed the tab, he can immediately return to any page of the application at the URL, except for the authorization and registration pages,
 - when you try to go to a non-existent page, a redirect to the "404" page occurs.
 

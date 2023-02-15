@@ -20,11 +20,11 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 - the preloader is spinning while the movie request is being executed 
 - if the cards have already been displayed on the page in the results block, clicking on the checkbox "Short films" leads to the re-filtering of the result
 <img src="./src/images/filter.jpg">
-
+##
 - for optimization, the request to get all movies is executed only once, after which they are saved in local storage 
 - the grid of movies depends on the width of the screen. When you click on the "More" button, as many films as there are currently displayed in one row (3, 2 or 5) will be displayed. 
 <img src="./src/images/save.jpg">
-
+##
 - save/delete movies. When changing pages, the current data is displayed. On the "Saved" page, you can only delete 
 - when you click on a movie poster in a new tab, it opens the trailer (if any) 
 - when you try to go to any protected route, a redirect to the main one occurs 

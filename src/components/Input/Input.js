@@ -9,7 +9,8 @@ export const Input = ({
   cbChange,
   userData,
   errorName,
-  placeholder
+  placeholder,
+  isLoading
 }) => {
 
   function change(e) {
@@ -29,6 +30,7 @@ export const Input = ({
           value={userData || ""}
           onChange={(e) => change(e)}
           placeholder={placeholder}
+          disabled={isLoading}
         />
       </div>
       <Underline />

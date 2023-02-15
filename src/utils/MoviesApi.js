@@ -1,3 +1,8 @@
+import {
+  baseUrlMoviesApi,
+  baseUrlMyApi
+ } from "./config";
+
 const getResponse = res => 
 {
     if (!res.ok) {
@@ -73,5 +78,5 @@ const getResponse = res =>
     .then((res) => getResponse(res));
   }
 
-export const baseUrl = "https://api.nomoreparties.co/beatfilm-movies";
-export const baseUrl2 = "https://api.sergey-kh.dilpom.nomoredomains.rocks";
+export const baseUrl = baseUrlMoviesApi;
+export const baseUrl2 = baseUrlMyApi;

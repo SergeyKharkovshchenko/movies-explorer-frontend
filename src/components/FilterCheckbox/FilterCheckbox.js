@@ -23,7 +23,7 @@ function handleSwitch (e) {
           }
         ></div>
       </button>
-      <h2 className="filterCheckbox__title">Короткометражки</h2>
+      <h2 className="filterCheckbox__title">Shorts</h2>
     </form>
   );
 };

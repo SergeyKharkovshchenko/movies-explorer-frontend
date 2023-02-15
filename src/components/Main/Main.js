@@ -18,11 +18,11 @@ export const Main = ({isLoggedIn}) => {
     </header>
     <main className="main">
       <Promo />
-      <NavTab subject={"О проекте"} />
+      <NavTab subject={"About a project"} />
       <AboutProject />
-      <NavTab subject={"Технологии"} background={"grey"} />
+      <NavTab subject={"Technologies"} background={"grey"} />
       <Techs />
-      <NavTab subject={"Студент"} />
+      <NavTab subject={"Student"} />
       <AboutMe />
       <Portfolio />
     </main>

@@ -11,7 +11,6 @@ import { Login } from "../Login";
 import { Register } from "../Register";
 import { Error404 } from "../Error404";
 import { Preloader } from '../Preloader';
-import { Navigate } from 'react-router-dom';
 import {ProtectedRoutes} from '../ProtectedRoutes'
 import {ProtectedRoutesMain} from '../ProtectedRoutes copy'
 import * as mainApi from "../../utils/MainApi";
@@ -26,6 +25,7 @@ const [currentUser, setCurrentUser] = useState("");
 const [loading, setLoading] = useState(true);
 const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
 const [tooltipMessage, setTooltipMessage] = useState("");
+const [isLoading, setIsLoading] = useState(false);
 
 useEffect(() => {
   cbCheckToken();
@@ -55,40 +55,44 @@ useEffect(() => {
   const cbLogin = useCallback(async (email, password) => {
     try {
       // setLoading(true);
+      setIsLoading(true)
       const res = await mainApi.login(email, password);
       if (!res) {
-        throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
+        throw new Error("Connection Error. Please try again later.");
       }
       if (res) {
         cbAuthentificate(res);
       }
     } catch (err) {
       setInfoTooltipPopupOpen(true);
-      setTooltipMessage("Неверный пользователь или пароль");
+      setTooltipMessage("Wrong user or password");
     }
-    // finally {
-    //   setLoading(false);
-    // }
+    finally {
+      // setLoading(false);
+      setIsLoading(false)
+    }
   }, []);
 
   const cbRegister = useCallback(
     async (userName, email, password) => {
       try {
+        setIsLoading(true)
         // setLoading(true);
         const res = await mainApi.register(userName, email, password);
         if (!res) {
-          throw new Error("Во время запроса произошла ошибка. Возможно, проблема с соединением или сервер недоступен. Подождите немного и попробуйте ещё раз");
+          throw new Error("Connection Error. Please try again later.");
         }
         if (res) {
           cbAuthentificate(res);
         }
       } catch (err) {
         setInfoTooltipPopupOpen(true);
-        setTooltipMessage('Не удалось зарегистрироваться, такой емейл уже существует');
+        setTooltipMessage('Wrong user or password');
       }
-      // finally {
-      //   setLoading(false);
-      // }
+      finally {
+        setIsLoading(false)
+        // setLoading(false);
+      }
     },[]);
 
   const cbChangeProfile = useCallback(async (userName, email) => {
@@ -100,11 +104,11 @@ useEffect(() => {
         }
         setCurrentUser(res);
         setInfoTooltipPopupOpen(true);
-        setTooltipMessage("Профиль изменен успешно");
+        setTooltipMessage("Profile was succesfully changed");
       } catch (error) {
         console.log(`Ошибка: ${error}`);
         setInfoTooltipPopupOpen(true);
-        setTooltipMessage("Произошла ошибка, попробуйте другой емейл");
+        setTooltipMessage("Error. This email might be already in use");
       }
            finally {
         setLoading(false);
@@ -117,7 +121,6 @@ useEffect(() => {
     .catch((err) => {
       console.log(err);
     });
-    // localStorage.removeItem("jwt");
     setLoggedIn(false);
     setCurrentUser("");
     localStorage.clear('searchKey');
@@ -163,6 +166,7 @@ useEffect(() => {
             <Profile 
             logOut={cbLogout}
             changeProfile={cbChangeProfile}
+            isLoading={isLoading}
             />
             </ProtectedRoutes>
             } />
@@ -171,6 +175,7 @@ useEffect(() => {
               <Login 
               isLoggedIn={loggedIn} 
               onLogin={cbLogin}
+              isLoading={isLoading}
               /> } 
            />
 
@@ -178,7 +183,7 @@ useEffect(() => {
           <Register               
               isLoggedIn={loggedIn}
               onRegister={cbRegister}
-              // checkToken={cbCheckToken}
+              isLoading={isLoading}
               />} />
 
             <Route path="/menu" element={

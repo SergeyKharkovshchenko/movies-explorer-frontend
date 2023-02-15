@@ -21,7 +21,7 @@ const [isActive, setIsActive]=useState(true);
 
 useEffect(() => {
   if (!state) {
-    setErrorName("Нужно ввести ключевое слово");
+    setErrorName("Please enter search key");
     setIsActive(false);
   } else {
     setIsActive(true);
@@ -50,7 +50,7 @@ useEffect(() => {
           className={isActive?"searchForm__submit":"searchForm__submit searchForm__disabled"}
           disabled={!isActive}
           >
-          Поиск
+          Search
         </button>
       </form>
       <FilterCheckbox

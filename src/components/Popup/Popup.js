@@ -22,7 +22,8 @@ export const Popup = ({
   onSubmit,
   onChange,
   logOut,
-  onChangeProfile
+  onChangeProfile,
+  isLoading
 }) => {
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -124,32 +125,35 @@ export const Popup = ({
         {(mode == "signup" || mode == "profile") && (
           <Input
             mode={mode == "profile" ? 'profile' : "popup"}
-            label={"Имя"}
+            label={"Name"}
             name={"Name"}
             cbChange={cbChange}
             userData={userData.name}
             errorName={nameError}
-            placeholder={'Введите имя'}
+            placeholder={'Please enter name'}
+            isLoading={isLoading}
           />
         )}
         <Input
           mode={mode == "profile" ? "profile" : "popup"}
-          label={"Емейл"}
+          label={"Email"}
           name={"Email"}
           cbChange={cbChange}
           userData={userData.email}
           errorName={emailError}
-          placeholder={'Введите емейл'}
+          placeholder={'Please enter email'}
+          isLoading={isLoading}
         />
         {(mode == "signup" || mode == "signin") && (
           <Input
             mode={"popup"}
-            label={"Пароль"}
+            label={"Password"}
             name={"Password"}
             cbChange={cbChange}
             userData={userData.password}
             errorName={passwordError}
-            placeholder={'Введите пароль'}
+            placeholder={'Please enter password'}
+            isLoading={isLoading}
           />
         )}
       {(mode == "signup" || mode == "signin") && (
@@ -180,7 +184,7 @@ export const Popup = ({
           </div>
           <Link to="/movies">
             <Button
-              name={"Выйти из аккаунта"}
+              name={"Log out"}
               onClick={logout}
               color={"red"}
               isActive="true"

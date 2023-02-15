@@ -9,7 +9,7 @@ export const PortfolioLink = ({ name, link }) => {
     <li className="portfolioLink">
       <Link to={link} className="portfolioLink__linkblock">
         <h2 className="portfolioLink__subtitle">{name}</h2>
-        <img src={`${arrow}`} alt="Стрелка" className="portfolioLink__arrow" />
+        <img src={`${arrow}`} alt="arrow" className="portfolioLink__arrow" />
       </Link>
       <Underline mode={"greyStyle"} />
     </li>

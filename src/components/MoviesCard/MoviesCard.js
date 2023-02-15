@@ -20,9 +20,9 @@ export const MoviesCard = ({
     let mins = minutes%60;
     let hours = Math.floor(minutes/60);
     if (hours>0) 
-    {return hours + ' ч. ' + mins +' мин.';}
+    {return hours + ' h. ' + mins +' min.';}
     else 
-    {return minutes +' мин.';}
+    {return minutes +' min.';}
   }
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export const MoviesCard = ({
       <li className="moviesCard" >
         <div className="moviesCard__top">
           <div className="moviesCard__description">
-            <h2 className="moviesCard__title">{card.nameRU}</h2>
+            <h2 className="moviesCard__title">{card.nameEN}</h2>
             <h3 className="moviesCard__subtitle">{handleDuration(card.duration)}</h3>
           </div>
           <button
@@ -72,7 +72,7 @@ export const MoviesCard = ({
         <img
           src={ mode == "all" ? `https://api.nomoreparties.co/${card.image.url}` : card.image }
           className="moviesCard__foto"
-          alt={`фото ${card.nameRU}`}
+          alt={`foto ${card.nameEN}`}
         />
         </a>
       </li>

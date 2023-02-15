@@ -6,14 +6,15 @@ export const AboutMe = () => {
   return (
     <section className="aboutMe">
       <div className="aboutMe__left">
-        <h2 className="aboutMe__title">Сергей</h2>
-        <h3 className="aboutMe__subtitle">Web-разработчик</h3>
+        <h2 className="aboutMe__title">Sergey</h2>
+        <h3 className="aboutMe__subtitle">Web-developer</h3>
         <p className="aboutMe__text">
-          Я родился и живу в Саратове, закончил факультет экономики СГУ. У меня
-          есть жена и дочь. Я люблю слушать музыку, а ещё увлекаюсь бегом.
-          Недавно начал кодить. С 2015 года работал в компании «СКБ Контур».
-          После того, как прошёл курс по веб-разработке, начал заниматься
-          фриланс-заказами и ушёл с постоянной работы.
+          I was born im Moscow, graduated Institute for Electronics and Math, 
+          Applied Math. I'm married and have 8 years old boy. I like soul music 
+          and football.
+          After few courses I have changed my Sales carrier to IT. 
+          I have worked in automated QA (load testing), but 
+          switched to Web development.
         </p>
         <a
           href="https://github.com/SergeyKharkovshchenko"

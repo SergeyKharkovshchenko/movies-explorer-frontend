@@ -4,9 +4,9 @@ import { signup, signin } from "../../utils/config";
 import { Navigate } from 'react-router-dom';
 import "./Login.css";
 
-export const Login = ({isLoggedIn, onLogin}) => {
+export const Login = ({isLoggedIn, onLogin, isLoading}) => {
 
-  const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState({
     password: '',
     email: ''
   })
@@ -39,13 +39,14 @@ if (isLoggedIn) {
     <div className="login">
       <Popup
         mode={"signin"}
-        greeting={"Рады видеть!"}
+        greeting={"Glad to see you!"}
         greenButton={signin.name}
         smallButton={signup.name}
-        buttonsText={"Ещё не зарегистрированы?"}
+        buttonsText={"Not registered yet?"}
         linkTo={signup.link}
         onSubmit={(e) => cbSubmit(e)}
         onChange = {(e) => cbChange (e)}
+        isLoading={isLoading}
       />
     </div>
   );

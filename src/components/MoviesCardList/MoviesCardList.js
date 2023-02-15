@@ -15,7 +15,7 @@ export const MoviesCardList = ({
       <ul className="moviesCardList__cards">
         {cards.map((card) => (
           <MoviesCard
-            key={Math.random(100)}
+            key={Math.random(1000000)}
             card={card}
             mode= {mode} 
             savedMovies={savedMovies}

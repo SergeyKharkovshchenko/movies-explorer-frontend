@@ -26,7 +26,7 @@ export const Header = ({ mode, isLoggedIn }) => {
           >
       <img
         src={`${logoImage}`}
-        alt="Логотип - зеленый бублик"
+        alt="Logo - green donut"
         className="header__logo"
       />
       </NavLink>

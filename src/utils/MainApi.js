@@ -1,9 +1,15 @@
+import {
+  baseUrlMyApi
+ } from "./config";
+
+
+
 const getResponse = res => 
-  res.ok ? res.json() : Promise.reject(`Ошибка: ${res.statusText}`);
+  res.ok ? res.json() : Promise.reject(`Error: ${res.statusText}`);
     
 export const register = async (userName, email, password) => {
 
-    const res = await fetch(`${baseUrl}signup`, {
+    const res = await fetch(`${baseUrl}/signup`, {
       method: "POST",
       credentials: 'include',
       headers: {
@@ -22,7 +28,7 @@ export const register = async (userName, email, password) => {
   }
 
   export const handleProfileChange = async (name, email) => {
-    const res = await fetch(`${baseUrl}users/me`, {
+    const res = await fetch(`${baseUrl}/users/me`, {
       method: "PATCH",
       credentials: 'include',
       headers: {
@@ -40,7 +46,7 @@ export const register = async (userName, email, password) => {
 
 
   export const login = async (email, password ) => {
-    const res = await fetch(`${baseUrl}signin`, {
+    const res = await fetch(`${baseUrl}/signin`, {
       method: "POST",
       credentials: 'include',
       headers: {
@@ -57,7 +63,7 @@ export const register = async (userName, email, password) => {
   }
 
   export const logOut = async (_id) => {
-    const res = await fetch(`${baseUrl}signout`, {
+    const res = await fetch(`${baseUrl}/signout`, {
       method: "POST",
       credentials: 'include',
       headers: {
@@ -73,7 +79,7 @@ export const register = async (userName, email, password) => {
 }
 
   export const checkToken = async () => {
-  const res = await fetch(`${baseUrl}users/me`, {
+  const res = await fetch(`${baseUrl}/users/me`, {
       method: "GET",
       credentials: 'include',
       headers: {
@@ -85,4 +91,4 @@ export const register = async (userName, email, password) => {
     return getResponse(res);  
   }
 
-export const baseUrl = "https://api.sergey-kh.dilpom.nomoredomains.rocks/";
+export const baseUrl = baseUrlMyApi;

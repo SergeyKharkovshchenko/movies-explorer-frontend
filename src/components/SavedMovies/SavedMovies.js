@@ -65,7 +65,7 @@ useEffect(() => {
 const  handleClick = useCallback(async (searchWord) => {
     updateWidth();
   try {
-    setLoading(true);
+    // setLoading(true);
       const movies = await moviesApi.getSavedMovies();
       if (!movies) {
         throw new Error("Error");
@@ -76,17 +76,17 @@ const  handleClick = useCallback(async (searchWord) => {
       setCards(searchResult);
       if (searchResult.length==0) {
         setInfoTooltipPopupOpen(true);
-        setTooltipMessage("Ничего не найдено");
+        setTooltipMessage("Nothing was found");
       }
 
   localStorage.setItem('searchKeySaved', searchWord.toLowerCase());
   setSearchKey(searchWord.toLowerCase());
   localStorage.setItem('isSwitchedSaved', JSON.stringify(isSwitched));
   localStorage.setItem('searchResultSaved', JSON.stringify(cards));
-  } catch (error) {console.log(`Ошибка: ${error}`)}
-       finally {
-    setLoading(false);
-  }
+  } catch (error) {console.log(`Error: ${error}`)}
+  //      finally {
+  //   setLoading(false);
+  // }
 });
 
 const closeTooltip = () => {
@@ -99,17 +99,16 @@ function handleSwitcher() {
 
 const handleCardRemove = useCallback(async (card) => {
   try {
-      setLoading(true);
+      // setLoading(true);
       const res = await moviesApi.removeFromSavedMovies(card);
-      // JSON.stringify(movies);
       handleClick(searchKey);
       if (!res) {
         throw new Error("Error");
       }
-    } catch (error) {console.log(`Ошибка: ${error}`)}
-         finally {
-      setLoading(false);
-    }
+    } catch (error) {console.log(`Error: ${error}`)}
+    //      finally {
+    //   setLoading(false);
+    // }
 });
 
 if (loading) {
@@ -124,10 +123,9 @@ if (loading) {
       <main>
         <SearchForm
           clickHandler={(e)=>handleClick(e.target.inp.value)}
-          // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
-          label={"Фильм"}
+          label={"Movie"}
           search={searchKey}
         />
 

@@ -4,7 +4,7 @@ import { signin, signup } from "../../utils/config";
 import { Navigate } from 'react-router-dom';
 import "./Register.css";
 
-export const Register = ({isLoggedIn, onRegister}) => {
+export const Register = ({isLoggedIn, onRegister, isLoading}) => {
 
   const [formData, setFormData] = useState ({
     password: '',
@@ -35,16 +35,14 @@ const cbSubmit = useCallback (event => {
     <section className="register">
       <Popup
         mode={"signup"}
-        greeting={"Добро пожаловать!"}
-        // name={"имя"}
-        // email={"емейл"}
-        // password={"пароль"}
+        greeting={"Welcome!"}
         greenButton={signup.name}
         smallButton={signin.name}
-        buttonsText={"Уже зарегистрированы?"}
+        buttonsText={"Signed up?"}
         linkTo={signin.link}
         onSubmit={(e) => cbSubmit(e)}
         onChange={(e)=>cbChange(e)}
+        isLoading={isLoading}
       />
     </section>
   );

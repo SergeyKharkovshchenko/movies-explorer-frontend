@@ -2,10 +2,9 @@ import React, { useContext, useCallback, useState } from "react";
 import { CurrentUserContext } from '../../contexts/CurrentUserContext';
 import { Header } from "../Header";
 import { Popup } from "../Popup";
-import * as mainApi from "../../utils/MainApi";
 import { Preloader } from "../Preloader";
 
-export const Profile = ({logOut, changeProfile}) => {
+export const Profile = ({logOut, changeProfile, isLoading}) => {
 
   const [loading, setLoading] = useState(false);
   const currentUser = useContext(CurrentUserContext);
@@ -46,13 +45,14 @@ export const Profile = ({logOut, changeProfile}) => {
         greeting={`Привет, ${userData.name}`}
         name={`${userData.name}`}
         email={`${userData.email}`}
-        greenButton={"Редактировать"}
-        smallButton={"Выйти из аккаунта"}
+        greenButton={"Edit"}
+        smallButton={"Log out"}
         buttonsText={""}
         linkTo={""}
         logOut={logOut}
         onChangeProfile={(e)=>cbChangeProfile(e)}
         onChange = {(e) => cbChange (e)}
+        isLoading={isLoading}
       />
    </main>
     </section>

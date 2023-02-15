@@ -80,7 +80,7 @@ handleClick(searchKey);
   
 const handleCardLike = useCallback(async (card) => {
   try {
-      setLoading(true);
+      // setLoading(true);
       const res = await moviesApi.handleLike(card);
       card._id=res._id;
       if (!res) {
@@ -90,12 +90,12 @@ const handleCardLike = useCallback(async (card) => {
       JSON.stringify(saved);
       setSavedMovies(saved)
     } catch (error) {
-      console.log(`Ошибка: ${error}`)
+      console.log(`Error: ${error}`)
       if (error.status == 401) logOut();
     }
-         finally {
-      setLoading(false);
-    }
+    //      finally {
+    //   setLoading(false);
+    // }
 });
 
   function handleMore() {
@@ -151,7 +151,7 @@ const handleCardLike = useCallback(async (card) => {
 
   const handleCardRemove = useCallback(async (_id) => {
     try {
-        setLoading(true);
+        // setLoading(true);
         const res = await moviesApi.removeFromSavedMovies(_id);
         if (!res) {
           throw new Error("Error");
@@ -160,9 +160,9 @@ const handleCardLike = useCallback(async (card) => {
         JSON.stringify(saved);
         setSavedMovies(saved)
       } catch (error) {console.log(`Ошибка: ${error}`)}
-           finally {
-        setLoading(false);
-      }
+      //      finally {
+      //   setLoading(false);
+      // }
   });
 
   if (loading) {
@@ -180,7 +180,7 @@ const handleCardLike = useCallback(async (card) => {
           // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
-          label={"Фильм"}
+          label={"Movie"}
           search={searchKey}
         />
         {(cards.length!=0)&&<MoviesCardList
@@ -194,7 +194,7 @@ const handleCardLike = useCallback(async (card) => {
         {(cards.length>totalNumber)
         &&
         <div className="movies__morebutton" >
-          <Button color={"bigLightgrey"} onClick={handleMore} name="Ещё" isActive={true}/>
+          <Button color={"bigLightgrey"} onClick={handleMore} name="More" isActive={true}/>
         </div>}
       </main>
       <footer>

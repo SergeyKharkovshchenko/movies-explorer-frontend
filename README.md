@@ -2,7 +2,7 @@
 
 ## Decription
 
-Movies Browser — servic, that allows to find a movie y request and to save it in your personal account.
+Movies Browser is a service, that allows to find a movie by request and to save it in your personal account.
 
 ## Functionality
 

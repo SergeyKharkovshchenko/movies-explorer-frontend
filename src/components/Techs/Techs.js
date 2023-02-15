@@ -7,8 +7,8 @@ export const Techs = () => {
     <section className="techs">
       <h2 className="techs__title">7 technologies</h2>
       <p className="techs__text">
-        On Web development courses i have learned technologies, some of 
-        them have been used in this web site.
+        On Web development courses i have learned technologies, some of them
+        have been used in this web site.
       </p>
       <ul className="techs__tech-list">
         <TechItems subject={"HTML"} />

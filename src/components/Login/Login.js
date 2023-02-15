@@ -1,40 +1,42 @@
 import React, { useCallback, useState } from "react";
 import { Popup } from "../Popup";
 import { signup, signin } from "../../utils/config";
-import { Navigate } from 'react-router-dom';
+import { Navigate } from "react-router-dom";
 import "./Login.css";
 
-export const Login = ({isLoggedIn, onLogin, isLoading}) => {
-
-    const [userData, setUserData] = useState({
-    password: '',
-    email: ''
-  })
+export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
+  const [userData, setUserData] = useState({
+    password: "",
+    email: "",
+  });
 
   const cbChange = useCallback(
     (event) => {
       event.preventDefault();
-      const {name, value} = event.target;
-      setUserData ({
+      const { name, value } = event.target;
+      setUserData({
         ...userData,
-        [name]: value
-      })
+        [name]: value,
+      });
     },
-    [userData],
-  )
+    [userData]
+  );
 
-  const cbSubmit = useCallback (async(event) => {
-    try{
-      await onLogin(userData.Email, userData.Password);  
-    } catch (err) {
-      console.log(err);
-    }
-  }, [userData, onLogin])
+  const cbSubmit = useCallback(
+    async (event) => {
+      try {
+        await onLogin(userData.Email, userData.Password);
+      } catch (err) {
+        console.log(err);
+      }
+    },
+    [userData, onLogin]
+  );
 
-if (isLoggedIn) {
-  return <Navigate to='/movies' />
-}
-  
+  if (isLoggedIn) {
+    return <Navigate to="/movies" />;
+  }
+
   return (
     <div className="login">
       <Popup
@@ -45,7 +47,7 @@ if (isLoggedIn) {
         buttonsText={"Not registered yet?"}
         linkTo={signup.link}
         onSubmit={(e) => cbSubmit(e)}
-        onChange = {(e) => cbChange (e)}
+        onChange={(e) => cbChange(e)}
         isLoading={isLoading}
       />
     </div>

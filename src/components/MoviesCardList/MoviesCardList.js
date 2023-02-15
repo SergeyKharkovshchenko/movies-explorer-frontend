@@ -2,14 +2,13 @@ import React from "react";
 import { MoviesCard } from "../MoviesCard";
 import "./MoviesCardList.css";
 
-export const MoviesCardList = ({ 
-  cards, 
+export const MoviesCardList = ({
+  cards,
   savedMovies,
-  onCardLike, 
-  mode, 
-  onCardDelete 
+  onCardLike,
+  mode,
+  onCardDelete,
 }) => {
-    
   return (
     <section className="moviesCardList">
       <ul className="moviesCardList__cards">
@@ -17,10 +16,14 @@ export const MoviesCardList = ({
           <MoviesCard
             key={Math.random(1000000)}
             card={card}
-            mode= {mode} 
+            mode={mode}
             savedMovies={savedMovies}
-            onCardLike={(card) => { onCardLike(card);}}
-            onCardDelete={(card) => { onCardDelete(card);}}
+            onCardLike={(card) => {
+              onCardLike(card);
+            }}
+            onCardDelete={(card) => {
+              onCardDelete(card);
+            }}
           />
         ))}
       </ul>

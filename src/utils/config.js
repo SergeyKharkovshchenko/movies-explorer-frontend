@@ -2,8 +2,7 @@ const text1 = "Diplom has included 5 stages";
 const text2 =
   "Building a plan, working on backend, layout, adding functionality and finishing.";
 const text3 = "Working on it took 4 weeks";
-const text4 =
-  "Every stage ahd soft and hard deadlines.";
+const text4 = "Every stage ahd soft and hard deadlines.";
 const text5 = "1 week";
 const text6 = "3 weeks";
 const text7 = "Back-end";
@@ -20,14 +19,14 @@ const savedMovies = {
   id: 6,
 };
 
-const windowWidthS=860;
-const windowWidthL=1280;
-const additionalColsS=2;
-const additionalColsM=2;
-const additionalColsL=3;
-const totalCardsS=5;
-const totalCardsM=8;
-const totalCardsL=12;
+const windowWidthS = 860;
+const windowWidthL = 1280;
+const additionalColsS = 2;
+const additionalColsM = 2;
+const additionalColsL = 3;
+const totalCardsS = 5;
+const totalCardsM = 8;
+const totalCardsL = 12;
 
 const shortsDuration = 40;
 
@@ -50,14 +49,14 @@ module.exports = {
   movies,
   savedMovies,
   windowWidthS,
-windowWidthL,
-additionalColsS,
-additionalColsM,
-additionalColsL,
-totalCardsS,
-totalCardsM,
-totalCardsL,
-shortsDuration,
-baseUrlMoviesApi,
-baseUrlMyApi
+  windowWidthL,
+  additionalColsS,
+  additionalColsM,
+  additionalColsL,
+  totalCardsS,
+  totalCardsM,
+  totalCardsL,
+  shortsDuration,
+  baseUrlMoviesApi,
+  baseUrlMyApi,
 };

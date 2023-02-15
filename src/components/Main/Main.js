@@ -9,26 +9,25 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import "./Main.css";
 
-export const Main = ({isLoggedIn}) => {
-
+export const Main = ({ isLoggedIn }) => {
   return (
     <>
-    <header>       
-    <Header mode={"main"} isLoggedIn={isLoggedIn}/>
-    </header>
-    <main className="main">
-      <Promo />
-      <NavTab subject={"About a project"} />
-      <AboutProject />
-      <NavTab subject={"Technologies"} background={"grey"} />
-      <Techs />
-      <NavTab subject={"Student"} />
-      <AboutMe />
-      <Portfolio />
-    </main>
-    <footer>
-    <Footer />
-    </footer>
+      <header>
+        <Header mode={"main"} isLoggedIn={isLoggedIn} />
+      </header>
+      <main className="main">
+        <Promo />
+        <NavTab subject={"About a project"} />
+        <AboutProject />
+        <NavTab subject={"Technologies"} background={"grey"} />
+        <Techs />
+        <NavTab subject={"Student"} />
+        <AboutMe />
+        <Portfolio />
+      </main>
+      <footer>
+        <Footer />
+      </footer>
     </>
   );
 };

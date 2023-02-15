@@ -22,7 +22,9 @@ export const ShortMenu = ({ width320 }) => {
         </ul>
         <Link
           to={profile.link}
-          className={width320 ? "shortmenu__footer_short" : "shortmenu__footer_long"}
+          className={
+            width320 ? "shortmenu__footer_short" : "shortmenu__footer_long"
+          }
         >
           <Button name={profile.name} color={"lightgrey"} isActive="true" />
         </Link>

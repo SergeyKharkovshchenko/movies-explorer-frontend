@@ -4,11 +4,8 @@ import { Button } from "../Button";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "../Input";
 import "./Popup.css";
-import { logOut } from "../../utils/MainApi";
 
-import {
-  main
-} from "../../utils/config";
+import { main } from "../../utils/config";
 
 export const Popup = ({
   mode,
@@ -23,7 +20,7 @@ export const Popup = ({
   onChange,
   logOut,
   onChangeProfile,
-  isLoading
+  isLoading,
 }) => {
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
@@ -42,16 +39,19 @@ export const Popup = ({
     onSubmit(userData.name, userData.email, userData.password);
   }
 
-  {(mode=='signup')&&useEffect(() => {
-    cbChange('Name','');
-    cbChange('Email','');
-    cbChange('Password','');
-  },[]);
-  (mode=='signin')&&useEffect(() => {
-    cbChange('Email', '11');
-    cbChange('Password','');
-  },[]);
-}
+  {
+    mode == "signup" &&
+      useEffect(() => {
+        cbChange("Name", "");
+        cbChange("Email", "");
+        cbChange("Password", "");
+      }, []);
+    mode == "signin" &&
+      useEffect(() => {
+        cbChange("Email", "11");
+        cbChange("Password", "");
+      }, []);
+  }
 
   const cbChange = useCallback(
     (name, value) => {
@@ -70,7 +70,8 @@ export const Popup = ({
           break;
         }
         case "email": {
-          const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          const re =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           if (!re.test(String(value).toLowerCase())) {
             setEmailError("Email is incorrect");
           } else {
@@ -102,35 +103,35 @@ export const Popup = ({
 
   return (
     <section className="popup">
-      {(mode == "signup" || mode == "signin" ) && (
-        <NavLink className="link"
-            to={main.link}
-          >
-        <img
-          src={`${logoImage}`}
-          alt="Логотип - зеленый бублик"
-          className="popup__logo"
-        />
+      {(mode == "signup" || mode == "signin") && (
+        <NavLink className="link" to={main.link}>
+          <img
+            src={`${logoImage}`}
+            alt="Логотип - зеленый бублик"
+            className="popup__logo"
+          />
         </NavLink>
       )}
-      <h2 className={mode == "profile" ? "popup__title_profile" : "popup__title"}>
+      <h2
+        className={mode == "profile" ? "popup__title_profile" : "popup__title"}
+      >
         {greeting}
       </h2>
 
       <form
         className={mode == "profile" ? "popup__form_profile" : "popup__form"}
-        onSubmit={(e)=>cbSubmit(e)}
+        onSubmit={(e) => cbSubmit(e)}
         onChange={onChange}
       >
         {(mode == "signup" || mode == "profile") && (
           <Input
-            mode={mode == "profile" ? 'profile' : "popup"}
+            mode={mode == "profile" ? "profile" : "popup"}
             label={"Name"}
             name={"Name"}
             cbChange={cbChange}
             userData={userData.name}
             errorName={nameError}
-            placeholder={'Please enter name'}
+            placeholder={"Please enter name"}
             isLoading={isLoading}
           />
         )}
@@ -141,7 +142,7 @@ export const Popup = ({
           cbChange={cbChange}
           userData={userData.email}
           errorName={emailError}
-          placeholder={'Please enter email'}
+          placeholder={"Please enter email"}
           isLoading={isLoading}
         />
         {(mode == "signup" || mode == "signin") && (
@@ -152,46 +153,49 @@ export const Popup = ({
             cbChange={cbChange}
             userData={userData.password}
             errorName={passwordError}
-            placeholder={'Please enter password'}
+            placeholder={"Please enter password"}
             isLoading={isLoading}
           />
         )}
-      {(mode == "signup" || mode == "signin") && (
-        <nav className={`popup__buttons popup__buttons_${mode}`}>
-          <Button
-            name={greenButton}
-            color={"bigGreen"}
-            isActive={nameError + emailError + passwordError == ""}
-          />
-          <div className="popup__lowerLine">
-            <p className="popup__buttonsComment">{buttonsText}</p>
-            <Link to={linkTo} className="popup__smallButton">
-              {smallButton}
-            </Link>
-          </div>
-        </nav>
-      )}
-      {mode == "profile" && (
-        <nav className="popup__buttons_profile">
-          <div>
-          
-          <Button
-            name={"Edit"}
-            onClick={(e)=>cbChangeProfile(e)}
-            color={"white"}
-            isActive={(nameError + emailError + passwordError == "")&&((userData.name!=initialName)||(userData.email!=initialEmail))}
-          />
-          </div>
-          <Link to="/movies">
+        {(mode == "signup" || mode == "signin") && (
+          <nav className={`popup__buttons popup__buttons_${mode}`}>
             <Button
-              name={"Log out"}
-              onClick={logout}
-              color={"red"}
-              isActive="true"
+              name={greenButton}
+              color={"bigGreen"}
+              isActive={nameError + emailError + passwordError == ""}
             />
-          </Link>
-        </nav>
-      )}
+            <div className="popup__lowerLine">
+              <p className="popup__buttonsComment">{buttonsText}</p>
+              <Link to={linkTo} className="popup__smallButton">
+                {smallButton}
+              </Link>
+            </div>
+          </nav>
+        )}
+        {mode == "profile" && (
+          <nav className="popup__buttons_profile">
+            <div>
+              <Button
+                name={"Edit"}
+                onClick={(e) => cbChangeProfile(e)}
+                color={"white"}
+                isActive={
+                  nameError + emailError + passwordError == "" &&
+                  (userData.name != initialName ||
+                    userData.email != initialEmail)
+                }
+              />
+            </div>
+            <Link to="/movies">
+              <Button
+                name={"Log out"}
+                onClick={logout}
+                color={"red"}
+                isActive="true"
+              />
+            </Link>
+          </nav>
+        )}
       </form>
     </section>
   );

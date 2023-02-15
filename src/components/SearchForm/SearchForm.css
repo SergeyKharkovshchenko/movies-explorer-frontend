@@ -62,7 +62,6 @@
 @media (max-width: 1279px) {
   .searchForm__search {
     width: 60vw;
-    margin: auto 20px;
   }
 }
 
@@ -75,7 +74,7 @@
 @media (max-width: 440px) {
   .searchForm__search {
     width: calc(100% - 80px - 40px);
-    margin: auto 10px;
+    margin: 20px 10px 5px 10px;
   }
 }
 

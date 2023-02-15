@@ -5,9 +5,7 @@ import { Underline } from "../Underline";
 export const Footer = () => {
   return (
     <section className="footer">
-      <h2 className="footer__title">
-        Yandex.Praktikum х BeatFilm.
-      </h2>
+      <h2 className="footer__title">Yandex.Praktikum х BeatFilm.</h2>
       <Underline mode={"greyStyle"} />
       <div className="footer__nav">
         <p className="footer__copyright">© 2023</p>

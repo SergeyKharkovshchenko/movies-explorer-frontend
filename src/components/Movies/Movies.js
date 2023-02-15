@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 import { SearchForm } from "../SearchForm";
 import { MoviesCardList } from "../MoviesCardList";
-import pic from "../../images/pic__COLOR_pic.png";
 import { Preloader } from "../Preloader";
 import { Button } from "../Button";
 import { Header } from "../Header";
@@ -22,21 +21,6 @@ import {
   totalCardsM,
   totalCardsL,
  } from "../../utils/config";
-
-// const moviesDummyArray = [
-//   {
-//     image: pic,
-//     name: "Movie 1",
-//     id: 1,
-//     duration: "1ч 47м",
-//   },
-//   {
-//     image: pic,
-//     name: "Movie 2",
-//     id: 2,
-//     duration: "1ч 47м",
-//   },
-// ];
 
 export const Movies = () => {
   const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResult'))?JSON.parse(localStorage.getItem('searchResult')):[]);
@@ -80,7 +64,6 @@ handleClick(searchKey);
   
 const handleCardLike = useCallback(async (card) => {
   try {
-      // setLoading(true);
       const res = await moviesApi.handleLike(card);
       card._id=res._id;
       if (!res) {
@@ -93,13 +76,21 @@ const handleCardLike = useCallback(async (card) => {
       console.log(`Error: ${error}`)
       if (error.status == 401) logOut();
     }
-    //      finally {
-    //   setLoading(false);
-    // }
 });
 
   function handleMore() {
       setTotalNumber((totalNumber) => totalNumber + additional);
+  }
+
+  function refreshSearchResult(movie,searchWord,isSwitched ){
+
+    const searchResult = SearchUtil.Search(movie, searchWord.toLowerCase(),isSwitched);
+    setCards(searchResult);
+    if (searchResult.length==0) {
+      setInfoTooltipPopupOpen(true);
+      setTooltipMessage("Ничего не найдено");
+    }
+
   }
 
    const  handleClick = useCallback(async (searchWord) => {
@@ -114,19 +105,9 @@ const handleCardLike = useCallback(async (card) => {
         }
         JSON.stringify(movies);
         setAllMovies(movies);
-        const searchResult = await SearchUtil.Search(movies, searchWord.toLowerCase(),isSwitched);
-        setCards(searchResult);
-        if (searchResult.length==0) {
-          setInfoTooltipPopupOpen(true);
-          setTooltipMessage("Ничего не найдено");
-        }
+        refreshSearchResult(movies, searchWord,isSwitched)
       } else {
-        const searchResult = await SearchUtil.Search(allMovies, searchWord.toLowerCase(),isSwitched);
-        setCards(searchResult);
-        if (searchResult.length==0) {
-          setInfoTooltipPopupOpen(true);
-          setTooltipMessage("Ничего не найдено");
-        }
+        refreshSearchResult(allMovies, searchWord, isSwitched)
       }
       const saved = await moviesApi.getSavedMovies();
       setSavedMovies(saved)  
@@ -146,12 +127,10 @@ const handleCardLike = useCallback(async (card) => {
 
   function handleSwitcher() {
     setIsSwitched(!isSwitched);
-      console.log('handleSwitcher');
   }
 
   const handleCardRemove = useCallback(async (_id) => {
     try {
-        // setLoading(true);
         const res = await moviesApi.removeFromSavedMovies(_id);
         if (!res) {
           throw new Error("Error");
@@ -159,10 +138,7 @@ const handleCardLike = useCallback(async (card) => {
         const saved = await moviesApi.getSavedMovies();
         JSON.stringify(saved);
         setSavedMovies(saved)
-      } catch (error) {console.log(`Ошибка: ${error}`)}
-      //      finally {
-      //   setLoading(false);
-      // }
+      } catch (error) {console.log(`Error: ${error}`)}
   });
 
   if (loading) {
@@ -177,7 +153,6 @@ const handleCardLike = useCallback(async (card) => {
       <main>
         <SearchForm
           clickHandler={(e)=>handleClick(e.target.inp.value)}
-          // changeHandler={handleChange}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
           label={"Movie"}
@@ -202,7 +177,6 @@ const handleCardLike = useCallback(async (card) => {
       </footer>
       {isInfoTooltipPopupOpen&&<InfoTooltip
           isOpen={isInfoTooltipPopupOpen}
-          // onClose={closeAllPopups}
           message={tooltipMessage}
           onClick={closeTooltip}
         />}

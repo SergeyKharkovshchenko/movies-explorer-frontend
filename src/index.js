@@ -7,8 +7,8 @@ import { App } from "./components/App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <BrowserRouter basename="/movies-explorer-frontend/">
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
   //  </BrowserRouter>
 );

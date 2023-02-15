@@ -1,12 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 import "./FilterCheckbox.css";
 
 export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
-
-function handleSwitch (e) {
-  e.preventDefault();
-  handleSwitcher();
-}
+  function handleSwitch(e) {
+    e.preventDefault();
+    handleSwitcher();
+  }
 
   return (
     <form className="filterCheckbox">
@@ -17,7 +16,7 @@ function handleSwitch (e) {
       >
         <div
           className={
-            (isSwitched==true)
+            isSwitched == true
               ? "filterCheckbox__submitCircleOn filterCheckbox__submitCircle"
               : "filterCheckbox__submitCircle"
           }

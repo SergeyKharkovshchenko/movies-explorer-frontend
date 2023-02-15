@@ -13,17 +13,17 @@ export const Navigation = () => {
 
   return (
     <section>
-    <div className="navigation__overlay">
-      <div
-        className={!isOpen ? "navigation" : "navigation menu__closed"}
-        onClick={handleClick}
-      >
-        <div className="navigation__burger">
-          <Burger />
+      <div className="navigation__overlay">
+        <div
+          className={!isOpen ? "navigation" : "navigation menu__closed"}
+          onClick={handleClick}
+        >
+          <div className="navigation__burger">
+            <Burger />
+          </div>
+          <ShortMenu width320={false} />
         </div>
-        <ShortMenu width320={false} />
       </div>
-    </div>
     </section>
   );
 };

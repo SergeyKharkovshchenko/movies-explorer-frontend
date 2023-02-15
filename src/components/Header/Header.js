@@ -13,7 +13,7 @@ import {
   savedMovies,
 } from "../../utils/config";
 
-export const Header = ({ mode }) => {
+export const Header = ({ mode, isLoggedIn }) => {
   const mainStyle = {};
   const moviesStyle = {
     background: "rgba(255, 255, 255, 1)",
@@ -24,14 +24,13 @@ export const Header = ({ mode }) => {
           <NavLink className="link"
             to={main.link}
           >
-
       <img
         src={`${logoImage}`}
-        alt="Логотип - зеленый бублик"
+        alt="Logo - green donut"
         className="header__logo"
       />
       </NavLink>
-      {mode == "main" ? (
+      {(mode == "main") && (!isLoggedIn) ? (
         <div className="header__nav">
           <NavLink
             className={(navData) => (navData.isActive ? "header__active header__link" : "header__link")}
@@ -52,7 +51,7 @@ export const Header = ({ mode }) => {
               }
               to={movies.link}
             >
-              <Button name={movies.name} isActive={"true"} />
+              <Button name={movies.name} isActive={"true"} color={isLoggedIn?"grey":''}/>
             </NavLink>
             <NavLink
               className={(navData) =>
@@ -60,7 +59,7 @@ export const Header = ({ mode }) => {
               }
               to={savedMovies.link}
             >
-              <Button name={savedMovies.name} isActive={"true"} />
+              <Button name={savedMovies.name} isActive={"true"} color={isLoggedIn?"bigGrey":''}/>
             </NavLink>
             <NavLink
               className={(navData) =>

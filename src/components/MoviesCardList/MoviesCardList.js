@@ -1,18 +1,26 @@
 import React from "react";
-import "./MoviesCardList.css";
 import { MoviesCard } from "../MoviesCard";
+import "./MoviesCardList.css";
 
-export const MoviesCardList = ({ cards, onCardLike }) => {
+export const MoviesCardList = ({ 
+  cards, 
+  savedMovies,
+  onCardLike, 
+  mode, 
+  onCardDelete 
+}) => {
+    
   return (
     <section className="moviesCardList">
       <ul className="moviesCardList__cards">
         {cards.map((card) => (
           <MoviesCard
-            key={card.id}
+            key={Math.random(1000000)}
             card={card}
-            onCardLike={(card) => {
-              onCardLike(card);
-            }}
+            mode= {mode} 
+            savedMovies={savedMovies}
+            onCardLike={(card) => { onCardLike(card);}}
+            onCardDelete={(card) => { onCardDelete(card);}}
           />
         ))}
       </ul>

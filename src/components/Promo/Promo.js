@@ -6,11 +6,11 @@ export const Promo = () => {
   return (
     <section className="promo">
       <h2 className="promo__title">
-        Учебный проект студента факультета Веб-разработки.
+        Web development student example project.
       </h2>
       <img
         src={`${promoImage}`}
-        alt="Стильные кружочки"
+        alt="stylish rings"
         className="promo__image"
       />
     </section>

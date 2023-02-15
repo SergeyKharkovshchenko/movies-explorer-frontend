@@ -1,10 +1,14 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import logoImage from "../../images/logo__COLOR_main-1.svg";
 import { Button } from "../Button";
-import { Link } from "react-router-dom";
-// import { Validation } from '../Validation';
+import { Link, NavLink } from "react-router-dom";
 import { Input } from "../Input";
 import "./Popup.css";
+import { logOut } from "../../utils/MainApi";
+
+import {
+  main
+} from "../../utils/config";
 
 export const Popup = ({
   mode,
@@ -15,13 +19,17 @@ export const Popup = ({
   smallButton,
   buttonsText,
   linkTo,
+  onSubmit,
+  onChange,
+  logOut,
+  onChangeProfile,
+  isLoading
 }) => {
-  const [emailInDirty, setEmailInDirty] = useState();
-  const [passInDirty, setPassInDirty] = useState();
-  const [nameInDirty, setNameInDirty] = useState();
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
+  const [initialName, setInitialName] = useState(name);
+  const [initialEmail, setInitialEmail] = useState(email);
 
   const [userData, setUserData] = useState({
     name: name,
@@ -29,9 +37,21 @@ export const Popup = ({
     password: "",
   });
 
-  function cbClick() {
-    console.log("click, userData >" + userData.name);
+  function cbSubmit(e) {
+    e.preventDefault();
+    onSubmit(userData.name, userData.email, userData.password);
   }
+
+  {(mode=='signup')&&useEffect(() => {
+    cbChange('Name','');
+    cbChange('Email','');
+    cbChange('Password','');
+  },[]);
+  (mode=='signin')&&useEffect(() => {
+    cbChange('Email', '11');
+    cbChange('Password','');
+  },[]);
+}
 
   const cbChange = useCallback(
     (name, value) => {
@@ -56,6 +76,7 @@ export const Popup = ({
           } else {
             setEmailError("");
           }
+          break;
         }
         case "password": {
           if (value.length < 5) {
@@ -70,38 +91,27 @@ export const Popup = ({
     [userData]
   );
 
-  const blurHandler = (e) => {
-    switch (e.target.name) {
-      case "email":
-        setEmailInDirty(true);
-        break;
-      case "password":
-        setPassInDirty(true);
-        break;
-      case "name":
-        setNameInDirty(true);
-        break;
-      default:
-    }
-  };
-
   function logout() {
-    // e.preventDefault();
-    console.log("logout из " + userData.name + ", " + userData.email);
+    logOut();
   }
 
-  function cbChangeProfile() {
-    console.log("Меняем профиль " + userData.name + ", " + userData.email);
+  function cbChangeProfile(e) {
+    e.preventDefault();
+    onChangeProfile(userData);
   }
 
   return (
     <section className="popup">
-      {(mode == "signup" || mode == "signin") && (
+      {(mode == "signup" || mode == "signin" ) && (
+        <NavLink className="link"
+            to={main.link}
+          >
         <img
           src={`${logoImage}`}
           alt="Логотип - зеленый бублик"
           className="popup__logo"
         />
+        </NavLink>
       )}
       <h2 className={mode == "profile" ? "popup__title_profile" : "popup__title"}>
         {greeting}
@@ -109,45 +119,47 @@ export const Popup = ({
 
       <form
         className={mode == "profile" ? "popup__form_profile" : "popup__form"}
-        onSubmit={cbChange}
+        onSubmit={(e)=>cbSubmit(e)}
+        onChange={onChange}
       >
         {(mode == "signup" || mode == "profile") && (
           <Input
             mode={mode == "profile" ? 'profile' : "popup"}
-            label={"Имя"}
+            label={"Name"}
             name={"Name"}
             cbChange={cbChange}
-            blurHandler={blurHandler}
             userData={userData.name}
             errorName={nameError}
+            placeholder={'Please enter name'}
+            isLoading={isLoading}
           />
         )}
         <Input
-          mode={mode == "profile" ? 'profile' : "popup"}
-          label={"Емейл"}
+          mode={mode == "profile" ? "profile" : "popup"}
+          label={"Email"}
           name={"Email"}
           cbChange={cbChange}
-          blurHandler={blurHandler}
           userData={userData.email}
           errorName={emailError}
+          placeholder={'Please enter email'}
+          isLoading={isLoading}
         />
         {(mode == "signup" || mode == "signin") && (
           <Input
-            mode={mode == "profile" ? 'profile' : "popup"}
-            label={"Пароль"}
+            mode={"popup"}
+            label={"Password"}
             name={"Password"}
             cbChange={cbChange}
-            blurHandler={blurHandler}
             userData={userData.password}
             errorName={passwordError}
+            placeholder={'Please enter password'}
+            isLoading={isLoading}
           />
         )}
-      </form>
       {(mode == "signup" || mode == "signin") && (
-        <nav className="popup__buttons">
+        <nav className={`popup__buttons popup__buttons_${mode}`}>
           <Button
             name={greenButton}
-            onClick={cbClick}
             color={"bigGreen"}
             isActive={nameError + emailError + passwordError == ""}
           />
@@ -161,15 +173,18 @@ export const Popup = ({
       )}
       {mode == "profile" && (
         <nav className="popup__buttons_profile">
+          <div>
+          
           <Button
             name={"Редактировать"}
-            onClick={cbChangeProfile}
-            color="white"
-            isActive={nameError + emailError + passwordError == ""}
+            onClick={(e)=>cbChangeProfile(e)}
+            color={"white"}
+            isActive={(nameError + emailError + passwordError == "")&&((userData.name!=initialName)||(userData.email!=initialEmail))}
           />
+          </div>
           <Link to="/movies">
             <Button
-              name={"Выйти из аккаунта"}
+              name={"Log out"}
               onClick={logout}
               color={"red"}
               isActive="true"
@@ -177,6 +192,7 @@ export const Popup = ({
           </Link>
         </nav>
       )}
+      </form>
     </section>
   );
 };

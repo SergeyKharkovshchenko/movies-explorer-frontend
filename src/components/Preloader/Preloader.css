@@ -50,6 +50,7 @@
 }
 
 .preloader__container {
+  top: 200px;
   width: 100px;
   height: 100px;
   position: relative;

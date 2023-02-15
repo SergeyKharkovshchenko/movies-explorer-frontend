@@ -5,10 +5,10 @@ import { TechItems } from "../TechItems";
 export const Techs = () => {
   return (
     <section className="techs">
-      <h2 className="techs__title">7 технологий</h2>
+      <h2 className="techs__title">7 technologies</h2>
       <p className="techs__text">
-        На курсе веб-разработки мы освоили технологии, которые применили в
-        дипломном проекте.
+        On Web development courses i have learned technologies, some of 
+        them have been used in this web site.
       </p>
       <ul className="techs__tech-list">
         <TechItems subject={"HTML"} />

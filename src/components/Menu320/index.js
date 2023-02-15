@@ -1,1 +1,1 @@
-export * from './Menu320'
+export * from './Menu320.js'

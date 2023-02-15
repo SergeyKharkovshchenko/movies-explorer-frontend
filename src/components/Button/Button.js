@@ -26,6 +26,13 @@ export const Button = ({ name, color, isActive, onClick }) => {
           color: "white",
           marginRight: "20px",
         };
+      case "bigGrey":
+          return {
+            background: "rgba(92, 92, 92, 1)",
+            color: "white",
+            marginRight: "20px",
+            width:"auto",
+          };
       case "red":
         return {
           color: "red",
@@ -140,6 +147,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
       }
       disabled={!isActive}
       onClick={onClick}
+      type='submit'
     >
       {name}
     </button>

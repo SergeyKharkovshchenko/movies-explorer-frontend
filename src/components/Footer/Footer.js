@@ -6,7 +6,7 @@ export const Footer = () => {
   return (
     <section className="footer">
       <h2 className="footer__title">
-        Учебный проект Яндекс.Практикум х BeatFilm.
+        Yandex.Praktikum х BeatFilm.
       </h2>
       <Underline mode={"greyStyle"} />
       <div className="footer__nav">
@@ -17,7 +17,7 @@ export const Footer = () => {
             target="_blank"
             className="footer__link"
           >
-            Яндекс.Практикум
+            Yandex.Praktikum
           </a>
           <a
             href="https://github.com/SergeyKharkovshchenko"

@@ -31,14 +31,14 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 
 ## Technologies
 
-- React,
-- React Router,
-- Hooks (useState, useEffect, useContext),
-- custom hooks (validation, screen width checking),
-- local storage and cookies,
-- asynch API,
-- HOC-components,
-- BEM,
+- React
+- React Router
+- Hooks (useState, useEffect, useContext)
+- custom hooks (validation, screen width checking)
+- local storage and cookies
+- asynch API
+- HOC-components
+- BEM
 - Git handling
 - authorization
 -  responsive/adaptive

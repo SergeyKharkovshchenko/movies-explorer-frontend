@@ -63,7 +63,7 @@ export const Popup = ({
       switch (name) {
         case "name": {
           if (value.length < 6) {
-            setNameError("Ошибка. Имя должно быть больше 5 букв.");
+            setNameError("Name should be more then 5 letter.");
           } else {
             setNameError("");
           }
@@ -72,7 +72,7 @@ export const Popup = ({
         case "email": {
           const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           if (!re.test(String(value).toLowerCase())) {
-            setEmailError("Е-мейл указан неверно");
+            setEmailError("Email is incorrect");
           } else {
             setEmailError("");
           }
@@ -80,7 +80,7 @@ export const Popup = ({
         }
         case "password": {
           if (value.length < 5) {
-            setPasswordError("Ошибка. Пароль должен быть больше 5 букв.");
+            setPasswordError("Password should me more then 5 signs.");
           } else {
             setPasswordError("");
           }

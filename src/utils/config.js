@@ -31,7 +31,8 @@ const totalCardsL = 12;
 const shortsDuration = 40;
 
 const baseUrlMoviesApi = "https://api.nomoreparties.co/beatfilm-movies";
-const baseUrlMyApi = "https://api.sergey-kh.dilpom.nomoredomains.rocks";
+// const baseUrlMyApi = "https://api.sergey-kh.dilpom.nomoredomains.rocks";
+const baseUrlMyApi = "https://fierce-cap-worm.cyclic.app";
 const baseUrlMyFrontend = "https://movies-explorer-frontend-ivory.vercel.app";
 
 

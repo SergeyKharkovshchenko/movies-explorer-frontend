@@ -1,14 +1,17 @@
-import { baseUrlMyApi } from "./config";
+import { 
+  baseUrlMyApi,
+  baseUrlMyFrontend 
+} from "./config";
 
 const getResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error: ${res.statusText}`);
 
 export const register = async (userName, email, password) => {
-  const res = await fetch(`${baseUrl}/signup`, {
+  const res = await fetch(`${ baseUrlMyApi }/signup`, {
     method: "POST",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -23,11 +26,11 @@ export const register = async (userName, email, password) => {
 };
 
 export const handleProfileChange = async (name, email) => {
-  const res = await fetch(`${baseUrl}/users/me`, {
+  const res = await fetch(`${baseUrlMyApi}/users/me`, {
     method: "PATCH",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -40,11 +43,11 @@ export const handleProfileChange = async (name, email) => {
 };
 
 export const login = async (email, password) => {
-  const res = await fetch(`${baseUrl}/signin`, {
+  const res = await fetch(`${baseUrlMyApi}/signin`, {
     method: "POST",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -57,11 +60,11 @@ export const login = async (email, password) => {
 };
 
 export const logOut = async (_id) => {
-  const res = await fetch(`${baseUrl}/signout`, {
+  const res = await fetch(`${baseUrlMyApi}/signout`, {
     method: "POST",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -73,11 +76,11 @@ export const logOut = async (_id) => {
 };
 
 export const checkToken = async () => {
-  const res = await fetch(`${baseUrl}/users/me`, {
+  const res = await fetch(`${baseUrlMyApi}/users/me`, {
     method: "GET",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -85,4 +88,5 @@ export const checkToken = async () => {
   return getResponse(res);
 };
 
-export const baseUrl = baseUrlMyApi;
+// export const baseUrl = baseUrlMyApi;
+

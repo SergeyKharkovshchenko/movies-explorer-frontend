@@ -1,4 +1,8 @@
-import { baseUrlMoviesApi, baseUrlMyApi } from "./config";
+import { 
+  baseUrlMoviesApi, 
+  baseUrlMyApi,
+  baseUrlMyFrontend 
+} from "./config";
 
 const getResponse = (res) => {
   if (!res.ok) {
@@ -8,10 +12,10 @@ const getResponse = (res) => {
 };
 
 export const getInitialMovies = () => {
-  return fetch(`${baseUrl}/`, {
+  return fetch(`${baseUrlMoviesApi}/`, {
     method: "GET",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -19,11 +23,11 @@ export const getInitialMovies = () => {
 };
 
 export const getSavedMovies = () => {
-  return fetch(`${baseUrl2}/movies`, {
+  return fetch(`${baseUrlMyApi}/movies`, {
     method: "GET",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -31,11 +35,11 @@ export const getSavedMovies = () => {
 };
 
 export const handleLike = (card) => {
-  return fetch(`${baseUrl2}/movies`, {
+  return fetch(`${baseUrlMyApi}/movies`, {
     method: "POST",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
@@ -59,16 +63,16 @@ export const handleLike = (card) => {
 };
 
 export const removeFromSavedMovies = (_id) => {
-  return fetch(`${baseUrl2}/movies/${_id}`, {
+  return fetch(`${baseUrlMyApi}/movies/${_id}`, {
     method: "DELETE",
     credentials: "include",
     headers: {
-      Origin: "https://sergey-kh.dilpom.nomoredomainsclub.ru",
+      Origin: `${baseUrlMyFrontend}`,
       Accept: "application/json",
       "Content-Type": "application/json",
     },
   }).then((res) => getResponse(res));
 };
 
-export const baseUrl = baseUrlMoviesApi;
-export const baseUrl2 = baseUrlMyApi;
+// export const baseUrl = baseUrlMoviesApi;
+// export const baseUrl2 = baseUrlMyApi;

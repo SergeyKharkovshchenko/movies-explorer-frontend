@@ -32,6 +32,8 @@ const shortsDuration = 40;
 
 const baseUrlMoviesApi = "https://api.nomoreparties.co/beatfilm-movies";
 const baseUrlMyApi = "https://api.sergey-kh.dilpom.nomoredomains.rocks";
+const baseUrlMyFrontend = "https://movies-explorer-frontend-ivory.vercel.app";
+
 
 module.exports = {
   text1,
@@ -59,4 +61,5 @@ module.exports = {
   shortsDuration,
   baseUrlMoviesApi,
   baseUrlMyApi,
+  baseUrlMyFrontend,
 };

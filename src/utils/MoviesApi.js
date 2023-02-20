@@ -52,7 +52,7 @@ export const handleLike = (card) => {
       image: "https://api.nomoreparties.co" + card.image.url,
       trailerLink: card.trailerLink,
       thumbnail:
-        `${baseUrl}` +
+        `${baseUrlMoviesApi}` +
         card.image.formats.thumbnail.hash +
         card.image.formats.thumbnail.ext,
       movieId: card.id,

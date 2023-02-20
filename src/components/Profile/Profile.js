@@ -44,7 +44,7 @@ export const Profile = ({ logOut, changeProfile, isLoading }) => {
       <main>
         <Popup
           mode={"profile"}
-          greeting={`His, ${userData.name}`}
+          greeting={`Hi, ${userData.name}`}
           name={`${userData.name}`}
           email={`${userData.email}`}
           greenButton={"Edit"}

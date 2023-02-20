@@ -7,7 +7,7 @@ const getResponse = (res) =>
   res.ok ? res.json() : Promise.reject(`Error: ${res.statusText}`);
 
 export const register = async (userName, email, password) => {
-  const res = await fetch(`${ baseUrlMyApi }/signup`, {
+  const res = await fetch(`${baseUrlMyApi}/signup`, {
     method: "POST",
     credentials: "include",
     headers: {

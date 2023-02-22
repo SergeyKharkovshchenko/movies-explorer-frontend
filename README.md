@@ -82,6 +82,6 @@ https://github.com/SergeyKharkovshchenko/movies-explorer-api
 
 
 ## Link to a web site:
-http://sergey-kh.dilpom.nomoredomainsclub.ru/
+https://movies-explorer-frontend-ivory.vercel.app/
 
 

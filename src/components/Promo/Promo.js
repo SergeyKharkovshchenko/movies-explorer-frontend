@@ -5,7 +5,7 @@ import "./Promo.css";
 export const Promo = () => {
   return (
     <section className="promo">
-      <h2 className="promo__title">Web development student example project.</h2>
+      <h2 className="promo__title">Web development example project.</h2>
       <img src={`${promoImage}`} alt="stylish rings" className="promo__image" />
     </section>
   );

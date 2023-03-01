@@ -1,12 +1,12 @@
 import React from "react";
-import "./AboutMe.css";
+import './AboutMe.css';
 import SKFotoImage from "../../images/SKFoto.jpg";
 
 export const AboutMe = () => {
   return (
     <section className="aboutMe">
       <div className="aboutMe__left">
-        <h2 className="aboutMe__title">Sergey</h2>
+        <h2 className="aboutMe__title" data-testid='aboutMe__title'>Sergey</h2>
         <h3 className="aboutMe__subtitle">Web-developer</h3>
         <p className="aboutMe__text">
           I was born im Moscow, graduated Institute for Electronics and Math,

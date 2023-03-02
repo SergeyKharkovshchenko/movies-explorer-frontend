@@ -1,4 +1,4 @@
-const text1 = "Diplom has included 5 stages";
+const text1 = "Creating this example has included 5 stages";
 const text2 =
   "Building a plan, working on backend, layout, adding functionality and finishing.";
 const text3 = "Working on it took 4 weeks";

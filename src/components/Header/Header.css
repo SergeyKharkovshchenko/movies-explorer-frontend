@@ -32,6 +32,34 @@
   height: 38px;
 }
 
+.header__left {
+  background-color: transparent;
+  height: 38px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.header__lang {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+  margin: 0 0 0 10px;
+  background-color: transparent;
+  width: auto;
+}
+
 .header__nav {
   margin: 0;
   display: -webkit-box;

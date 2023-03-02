@@ -1,0 +1,27 @@
+{ "english" : "EN",
+  "russian" : "РУ",
+  "text1" : "Creating this example has included 5 stages",
+  "text2" :
+   "Building a plan, working on backend, layout, adding functionality and finishing.",
+  "text3" : "Working on it took 4 weeks",
+  "text4" : "Every stage ahd soft and hard deadlines.",
+  "text5" : "1 week",
+  "text6" : "3 weeks",
+  "text7" : "Back-end",
+  "text8" : "Front-end",
+  "text9" : "Web development project example.",
+   "Yandex.Praktikum" : "Yandex.Praktikum",
+   "Movies": "Movies",
+   "Movie": "Movie",
+   "Saved movies": "Saved movies",
+   "Account": "Account",
+   "Shorts" : "Shorts",
+   "Please enter search key": "Please enter search key",
+   "Search" : "Search",
+   "More" : "More",
+   "I was born im Moscow": "I was born im Moscow, graduated Institute for Electronics and Math, Applied Math. I'm married and have 8 years old boy. I like soul music and football. After few courses I have changed my Sales carrier to IT. I have worked in automated QA (load testing), but switched to Web development.",
+   "Sergey" : "Sergey",
+   "Web-developer": "Web-developer",
+   "Portfolio": "Portfolio"
+} 
+

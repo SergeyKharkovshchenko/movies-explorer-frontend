@@ -2,14 +2,17 @@ import React, { useState, useEffect } from "react";
 import { FilterCheckbox } from "../FilterCheckbox";
 import { Underline } from "../Underline";
 import "./SearchForm.css";
+import { useTranslation } from "react-i18next";
 
 export const SearchForm = ({
   clickHandler,
   switcherHandler,
   isSwitched,
-  label,
   search,
 }) => {
+
+  const { t } = useTranslation();
+
   const [state, setState] = useState(search);
   const [errorName, setErrorName] = useState("");
   const [isActive, setIsActive] = useState(true);
@@ -20,7 +23,7 @@ export const SearchForm = ({
 
   useEffect(() => {
     if (!state) {
-      setErrorName("Please enter search key");
+      setErrorName(t('Please enter search key'));
       setIsActive(false);
     } else {
       setIsActive(true);
@@ -35,7 +38,7 @@ export const SearchForm = ({
             name="inp"
             className="searchForm__search"
             type="text"
-            placeholder={label}
+            placeholder={t('Movie')}
             value={state}
             onChange={(e) => onChange(e)}
           />
@@ -52,7 +55,7 @@ export const SearchForm = ({
           }
           disabled={!isActive}
         >
-          Search
+          {t('Search')}
         </button>
       </form>
       <FilterCheckbox

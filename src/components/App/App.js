@@ -17,6 +17,9 @@ import * as mainApi from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Menu320 } from "../Menu320";
 import "./App.css";
+import { useTranslation } from "react-i18next";
+import { useLocalStorage } from "../../utils/use_localstorage";
+import i18n from "../../utils/i18n";
 
 export const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);
@@ -25,6 +28,20 @@ export const App = () => {
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+
+  const { t } = useTranslation();
+  const [language, setLanguage] = useLocalStorage('language', 'en');
+  // const handleLanguageChange = () => {
+    function handleLanguageChange () {
+    if (language === 'en') {
+        i18n.changeLanguage('ru');
+        setLanguage('ru');
+    } else if (language === 'ru') {
+        i18n.changeLanguage('en');
+        setLanguage('en');
+    }
+};
+
 
   useEffect(() => {
     cbCheckToken();
@@ -130,6 +147,8 @@ export const App = () => {
     return <Preloader />;
   }
 
+
+
   return (
     <CurrentUserContext.Provider value={currentUser}>
       {/* // <Provider store={store}> */}
@@ -140,7 +159,11 @@ export const App = () => {
               path="/"
               element={
                 <ProtectedRoutesMain isLoggedIn={loggedIn}>
-                  <Main isLoggedIn={loggedIn} />
+                  <Main 
+                  isLoggedIn={loggedIn} 
+                  handleLanguageChange={handleLanguageChange}
+                  t={t}  
+                  />
                 </ProtectedRoutesMain>
               }
             />

@@ -30,9 +30,24 @@
   height: 38px;
 }
 
+.header__left{
+  background-color: transparent;
+  height: 38px;
+  border: none;
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  }
+
+.header__lang{
+  @include font_ML;
+  margin: 0 0 0 10px;
+  background-color: transparent;
+  width: auto;
+}
+
 .header__nav {
   margin: 0;
-
   display: flex;
   flex-direction: row;
   justify-content: space-between;

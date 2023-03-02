@@ -1,7 +1,9 @@
 import React from "react";
 import "./AboutProjectData.css";
 
+
 export const AboutProjectData = ({ left, right, mode }) => {
+  
   const lightStyle = {
     color: "rgba(160, 160, 160, 1)",
     background: "white",

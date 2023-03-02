@@ -1,7 +1,11 @@
 import React from "react";
 import "./FilterCheckbox.css";
+import { useTranslation } from "react-i18next";
 
 export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
+
+  const { t } = useTranslation();
+
   function handleSwitch(e) {
     e.preventDefault();
     handleSwitcher();
@@ -22,7 +26,7 @@ export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
           }
         ></div>
       </button>
-      <h2 className="filterCheckbox__title">Shorts</h2>
+      <h2 className="filterCheckbox__title">{t('Shorts')}</h2>
     </form>
   );
 };

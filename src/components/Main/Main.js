@@ -9,11 +9,16 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import "./Main.css";
 
-export const Main = ({ isLoggedIn }) => {
+export const Main = ({ isLoggedIn, handleLanguageChange, t }) => {
   return (
     <>
       <header>
-        <Header mode={"main"} isLoggedIn={isLoggedIn} />
+        <Header 
+        mode={"main"} 
+        isLoggedIn={isLoggedIn} 
+        handleLanguageChange={handleLanguageChange}  
+        t={t}
+        />
       </header>
       <main className="main">
         <Promo />

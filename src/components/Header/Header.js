@@ -12,18 +12,37 @@ import {
   movies,
   savedMovies,
 } from "../../utils/config";
+import { useTranslation } from "react-i18next";
+import { useLocalStorage } from "../../utils/use_localstorage";
+import i18n from "../../utils/i18n";
 
-export const Header = ({ mode, isLoggedIn }) => {
+export const Header = ({ mode, isLoggedIn
+  // , handleLanguageChange, t 
+}) => {
   const mainStyle = {};
   const moviesStyle = {
     background: "rgba(255, 255, 255, 1)",
   };
+
+  const { t } = useTranslation();
+  const [language, setLanguage] = useLocalStorage('language', 'en');
+  const handleLanguageChange = () => {
+    if (language === 'en') {
+        i18n.changeLanguage('ru');
+        setLanguage('ru');
+    } else if (language === 'ru') {
+        i18n.changeLanguage('en');
+        setLanguage('en');
+    }
+};
+
 
   return (
     <section
       className="header"
       style={mode == "white" ? moviesStyle : mainStyle}
     >
+      <div className='header__left'>
       <NavLink className="link" to={main.link}>
         <img
           src={`${logoImage}`}
@@ -31,6 +50,20 @@ export const Header = ({ mode, isLoggedIn }) => {
           className="header__logo"
         />
       </NavLink>
+      <div className='header__lang'>
+      {mode == "main" ? (
+        <Button name={language === 'ru' ? t('english'):t('russian')} 
+        color={"bigGrey"} isActive={"true"} onClick={handleLanguageChange} />
+
+      ):(
+        <Button name={language === 'ru' ? t('english'):t('russian')} 
+        color={"white"} isActive={"true"} onClick={handleLanguageChange} />
+      )
+      }
+      </div>
+      </div>
+      
+
       {mode == "main" && !isLoggedIn ? (
         <div className="header__nav">
           <NavLink
@@ -57,7 +90,8 @@ export const Header = ({ mode, isLoggedIn }) => {
               to={movies.link}
             >
               <Button
-                name={movies.name}
+                // name={movies.name}
+                name={t(`${movies.name}`)} 
                 isActive={"true"}
                 color={isLoggedIn ? "grey" : ""}
               />
@@ -71,7 +105,7 @@ export const Header = ({ mode, isLoggedIn }) => {
               to={savedMovies.link}
             >
               <Button
-                name={savedMovies.name}
+                name={t(`${savedMovies.name}`)}
                 isActive={"true"}
                 color={isLoggedIn ? "bigGrey" : ""}
               />
@@ -85,7 +119,7 @@ export const Header = ({ mode, isLoggedIn }) => {
               to={profile.link}
             >
               <Button
-                name={profile.name}
+                name={t(`${profile.name}`)}
                 isActive={"true"}
                 color={"lightgrey"}
               />

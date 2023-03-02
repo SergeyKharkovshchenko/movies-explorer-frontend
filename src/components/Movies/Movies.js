@@ -10,6 +10,7 @@ import { logOut } from "../../utils/MainApi";
 import * as moviesApi from "../../utils/MoviesApi";
 import * as SearchUtil from "../../utils/SearchUtil";
 import "./Movies.css";
+import { useTranslation } from "react-i18next";
 
 import {
   windowWidthS,
@@ -23,6 +24,9 @@ import {
  } from "../../utils/config";
 
 export const Movies = () => {
+
+  const { t } = useTranslation();
+
   const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResult'))?JSON.parse(localStorage.getItem('searchResult')):[]);
   const [allMovies, setAllMovies] = useState([]);
   const [isSwitched, setIsSwitched] = useState(JSON.parse(localStorage.getItem('isSwitched')));
@@ -155,7 +159,6 @@ const handleCardLike = useCallback(async (card) => {
           clickHandler={(e)=>handleClick(e.target.inp.value)}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
-          label={"Movie"}
           search={searchKey}
         />
         {(cards.length!=0)&&<MoviesCardList
@@ -169,7 +172,7 @@ const handleCardLike = useCallback(async (card) => {
         {(cards.length>totalNumber)
         &&
         <div className="movies__morebutton" >
-          <Button color={"bigLightgrey"} onClick={handleMore} name="More" isActive={true}/>
+          <Button color={"bigLightgrey"} onClick={handleMore} name={t('More')} isActive={true}/>
         </div>}
       </main>
       <footer>

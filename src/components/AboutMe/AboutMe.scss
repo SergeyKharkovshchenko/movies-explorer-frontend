@@ -1,14 +1,9 @@
+@import "../../scss/_vars";
+
 .aboutMe {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
   margin: 66px auto 100px auto;
   max-width: 1140px;
 }
@@ -18,27 +13,22 @@
     margin: 66px 50px 85px 50px;
   }
 }
+
 @media (max-width: 730px) {
   .aboutMe {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: reverse;
-        -ms-flex-direction: column-reverse;
-            flex-direction: column-reverse;
+    flex-direction: column-reverse;
   }
 }
+
 @media (max-width: 320px) {
   .aboutMe {
     margin: 66px 14px 70px 14px;
   }
 }
+
 .aboutMe__left {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   max-width: 600px;
   margin-right: 50px;
 }
@@ -48,25 +38,23 @@
     width: calc(96vw - 100px);
   }
 }
+
 @media (max-width: 320px) {
   .aboutMe__left {
     width: calc(100vw - 28px);
     margin-right: auto;
   }
 }
+
 .aboutMe__title {
   margin: 0 0 18px 0;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 50px;
-  line-height: 58px;
-  letter-spacing: -0.04em;
+  @include font_L;
 }
 
 @media (max-width: 800px) {
   .aboutMe__title {
     margin: 0 0 16px 0;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
@@ -75,9 +63,11 @@
     letter-spacing: -0.04em;
   }
 }
+
 @media (max-width: 320px) {
   .aboutMe__title {
     margin: 30px 0 20px 0;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
@@ -86,8 +76,10 @@
     letter-spacing: -0.04em;
   }
 }
+
 .aboutMe__subtitle {
   margin: 0 0 26px 0;
+
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 500;
@@ -98,6 +90,7 @@
 @media (max-width: 768px) {
   .aboutMe__subtitle {
     margin: 0 0 20px 0;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 500;
@@ -105,8 +98,10 @@
     line-height: 18px;
   }
 }
+
 .aboutMe__text {
   margin: 0 0 100px 0;
+
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
@@ -117,6 +112,7 @@
 @media (max-width: 800px) {
   .aboutMe__text {
     margin: 0 0 87px 0;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
@@ -124,9 +120,11 @@
     line-height: 18px;
   }
 }
+
 @media (max-width: 320px) {
   .aboutMe__text {
     margin: 0 0 40px 0;
+
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
@@ -134,10 +132,11 @@
     line-height: 16px;
   }
 }
+
 .aboutMe__gitlink {
-  -o-text-overflow: ellipsis;
-     text-overflow: ellipsis;
+  text-overflow: ellipsis;
   overflow: hidden;
+
   text-decoration: none;
   font-family: "Inter", "Times", "serif";
   font-style: normal;
@@ -147,8 +146,7 @@
 }
 
 .aboutMe__foto {
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
   border-radius: 10px;
   height: 327px;
   width: 270px;
@@ -160,12 +158,14 @@
     width: 255px;
   }
 }
+
 @media (max-width: 730px) {
   .aboutMe__foto {
     width: calc(96vw - 100px);
     height: auto;
   }
 }
+
 @media (max-width: 320px) {
   .aboutMe__foto {
     width: calc(100vw - 36px);

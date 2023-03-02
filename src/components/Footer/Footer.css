@@ -13,7 +13,6 @@
     margin-top: 47px;
   }
 }
-
 @media (max-width: 320px) {
   .footer {
     background: white;
@@ -21,29 +20,35 @@
     margin-top: 47px;
   }
 }
-
 .footer__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 @media (max-width: 320px) {
   .footer__nav {
-    flex-direction: column-reverse;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
   }
 }
-
 .footer__title {
   margin-bottom: 20px;
-
+  text-align: center;
+  color: #a0a0a0;
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
-  text-align: center;
-  color: #a0a0a0;
+  line-height: 18px;
 }
 
 @media (max-width: 320px) {
@@ -51,44 +56,48 @@
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
-    line-height: 15px;
+    font-size: 11px;
+    line-height: 16px;
   }
 }
-
 .footer__copyright {
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
+  line-height: 18px;
   color: #000000;
-
   margin-top: 18px;
 }
 
 @media (max-width: 320px) {
   .footer__links {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     height: 55px;
-    align-content: space-between;
+    -ms-flex-line-pack: justify;
+        align-content: space-between;
     margin-top: 30px;
   }
 }
-
 .footer__link {
   text-decoration: none;
   margin: 0 0 auto 20px;
-
+  text-align: right;
+  color: #000000;
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 13px;
-  line-height: 16px;
-  text-align: right;
-  color: #000000;
+  line-height: 18px;
 }
 
 @media (max-width: 320px) {

@@ -1,3 +1,5 @@
+@import "../../scss/_vars";
+
 .button {
   height: 32px;
   width: 100px;
@@ -7,11 +9,8 @@
   padding: 0;
   border: none;
   cursor: pointer;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+
+  @include font_M;
   font-weight: inherit;
 }
 
@@ -25,8 +24,7 @@
 }
 
 .button:hover {
-  -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
-          box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
 }
 
 .button__isActive_false {
@@ -35,6 +33,5 @@
 }
 
 .button__isActive_false:hover {
-  -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
 }

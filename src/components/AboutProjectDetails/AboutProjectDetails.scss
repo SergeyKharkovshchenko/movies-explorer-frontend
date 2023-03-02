@@ -1,15 +1,11 @@
+@import "../../scss/_vars";
+
 .aboutProjectDetails {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   margin-bottom: 110px;
   width: 1140px;
-  height: -webkit-fit-content;
-  height: -moz-fit-content;
+
   height: fit-content;
   margin-bottom: 80px;
 }
@@ -19,22 +15,19 @@
     width: auto;
   }
 }
+
 @media (max-width: 768px) {
   .aboutProjectDetails {
     margin-bottom: 40px;
   }
 }
+
 .aboutProjectDetails_title {
   width: 550px;
   height: auto;
   margin-bottom: 26px;
   margin-top: 0;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 24px;
-  letter-spacing: -0.04em;
+  @include font_ML;
 }
 
 @media (max-width: 1279px) {
@@ -49,21 +42,19 @@
     height: auto;
   }
 }
+
 @media (max-width: 320px) {
   .aboutProjectDetails_title {
     width: calc(100vw - 36px);
   }
 }
+
 .aboutProjectDetails_text {
   width: 550px;
   height: auto;
   margin: 0;
   padding: 0;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  @include font_M;
 }
 
 @media (max-width: 1279px) {
@@ -73,17 +64,15 @@
     max-height: 140px;
   }
 }
+
 @media (max-width: 440px) {
   .aboutProjectDetails_text {
     width: calc(100vw - 100px);
     min-height: 48px;
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
+    @include font_XS;
   }
 }
+
 @media (max-width: 320px) {
   .aboutProjectDetails_text {
     width: calc(100vw - 36px);

@@ -1,3 +1,5 @@
+@import '../../scss/_vars';
+
 .navTab {
   padding: 110px 70px 0 70px;
   margin: 0 auto;
@@ -11,6 +13,7 @@
     max-width: 1180px;
   }
 }
+
 @media (max-width: 320px) {
   .navTab {
     padding: 90px 18px 0 18px;
@@ -18,13 +21,9 @@
     max-width: 1040px;
   }
 }
+
 .navTab__title {
-  font-family: "Inter";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 22px;
-  line-height: 27px;
-  letter-spacing: -0.04em;
+  @include font_SL;
   color: #000000;
   margin: 0 0 23px 0;
   height: 27px;
@@ -33,11 +32,6 @@
 
 @media (max-width: 320px) {
   .navTab__title {
-    font-family: "Inter";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
-    letter-spacing: -0.04em;
+  @include font_SML;
   }
 }

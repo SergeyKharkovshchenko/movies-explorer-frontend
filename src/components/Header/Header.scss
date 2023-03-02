@@ -1,19 +1,15 @@
+@import '../../scss/_vars';
+
 .header {
   margin: 0 auto;
   padding: 18px 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  background: #5c5c5c;
+  flex-direction: row;
+  justify-content: space-between;
+  background: $color_grey;
   max-width: 1140px;
   height: 74px;
+
   font-weight: 500;
 }
 
@@ -22,11 +18,13 @@
     padding: 18px 30px;
   }
 }
+
 @media (max-width: 320px) {
   .header {
     padding: 18px 14px;
   }
 }
+
 .header__logo {
   margin: 0;
   height: 38px;
@@ -34,16 +32,10 @@
 
 .header__nav {
   margin: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
+
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media (max-width: 768px) {
@@ -51,6 +43,7 @@
     display: none;
   }
 }
+
 .header__burger {
   display: none;
 }
@@ -60,12 +53,9 @@
     display: block;
   }
 }
+
 .header__linkToMovies {
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 18px;
+  @include font_M;
   color: black;
   margin-left: 10px;
 }

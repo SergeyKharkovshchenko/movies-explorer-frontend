@@ -1,0 +1,50 @@
+@import "../../scss/_vars";
+
+.error404 {
+  text-align: center;
+}
+
+.error404__title {
+  margin: 246px auto 0 auto;
+  @include XXL;
+}
+
+@media (max-width: 1279px) {
+  .error404__title {
+    margin-top: 408px;
+  }
+}
+
+@media (max-width: 320px) {
+  .error404__title {
+    margin-top: 329px;
+    margin-bottom: 10px;
+    @include XL;
+  }
+}
+
+.error404__subtitle {
+  margin-top: 0;
+  text-align: center;
+  @include font_M_bold;
+}
+
+@media (max-width: 320px) {
+  .error404__subtitle {
+    @include font_S;
+  }
+}
+
+.error404__return {
+  margin-top: 184px;
+  color: #2be080;
+  @include font_M;
+}
+
+@media (max-width: 320px) {
+  .error404__return {
+    margin-top: 284px;
+    margin-bottom: 30px;
+    @include font_S;
+  }
+}

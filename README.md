@@ -46,6 +46,7 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 - responsive/adaptive
 - example of Jest tests in AboutMe component
 - JWT handling (in backend part)
+- SASS/SCSS
 
 ## Instruction
 

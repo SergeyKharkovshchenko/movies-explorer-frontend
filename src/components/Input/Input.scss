@@ -1,0 +1,92 @@
+@import '../../scss/_vars';
+
+.input {
+  max-width: 80vw;
+  margin: 0 auto;
+}
+
+.input__label_type_popup {
+  @include font_XXS;
+  color: #a0a0a0;
+  margin-bottom: 5px;
+  margin-top: 3px;
+}
+
+@media (max-width: 415px) {
+  .input__label_type_popup {
+    margin-left: 0;
+  }
+}
+
+.input__inputblock_type_popup {
+  margin-top: 0;
+}
+
+.input__input_type_popup {
+  @include font_M_bold;
+  border: none;
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.input__input_type_profile {
+  margin-top: 10px;
+  margin-bottom: 1px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 410px;
+  height: 25px;
+  padding: 0;
+}
+
+@media (max-width: 440px) {
+  .input__input_type_profile {
+    width: auto;
+    margin: 15px 30px 5px 30px;
+    height: 16px;
+  }
+}
+
+.input__label_type_profile {
+  align-self: center;
+  width: 50px;
+  @include font_XS_bold;
+}
+
+.input__Name_type_profile,
+.input__Email_type_profile{
+  text-align: end;
+  border: none;
+  width: 350px;
+  margin: auto 0;
+  @include font_XS_bold;
+  font-weight: 400;
+
+}
+
+@media (max-width: 420px) {
+  .input__Name_type_profile,
+  .input__Email_type_profile{
+    width: auto;
+  }
+}
+
+.input__error {
+  color: red;
+  width: 30px;
+  @include font_XXXS; 
+}
+
+@media (max-width: 440px) {
+  .input__error {
+    width: 200px;
+    margin-left: 30px;
+  }
+}
+
+.input__inputblock_type_profile {
+  margin-top: 0;
+  display: flex;
+  justify-content: space-between;
+}

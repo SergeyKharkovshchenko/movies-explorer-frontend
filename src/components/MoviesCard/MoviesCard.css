@@ -1,6 +1,7 @@
 .moviesCard {
   background: #fdfdfd;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+  -webkit-box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
+          box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.08);
   width: 364px;
   height: 271px;
 }
@@ -11,21 +12,18 @@
     height: 258px;
   }
 }
-
 @media (max-width: 767px) {
   .moviesCard {
     width: 339px;
     height: 236px;
   }
 }
-
 @media (max-width: 440px) {
   .moviesCard {
     width: 300px;
     height: 236px;
   }
 }
-
 .moviesCard__foto {
   width: 364px;
   height: 203px;
@@ -37,37 +35,52 @@
     height: 190px;
   }
 }
-
 @media (max-width: 440px) {
   .moviesCard__foto {
     width: 300px;
     height: 168px;
   }
 }
-
 .moviesCard__top {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0 19px;
   height: 64px;
 }
 
 .moviesCard__description {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
 
 .moviesCard__title {
   margin: 0;
   height: 36px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   overflow: hidden;
-  text-overflow: clip;
+  -o-text-overflow: clip;
+     text-overflow: clip;
   max-width: 280px;
-
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 500;
@@ -78,10 +91,10 @@
 .moviesCard__subtitle {
   font-family: "Inter", "Times", "serif";
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 11px;
   line-height: 13px;
-
+  font-weight: 400;
   margin: auto auto auto 0;
   color: #a0a0a0;
 }

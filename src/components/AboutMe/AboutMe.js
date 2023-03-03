@@ -10,8 +10,8 @@ export const AboutMe = () => {
   return (
     <section className="aboutMe">
       <div className="aboutMe__left">
-        <h2 className="aboutMe__title" data-testid='aboutMe__title'>Sergey</h2>
-        <h3 className="aboutMe__subtitle">Web-developer</h3>
+        <h2 className="aboutMe__title" data-testid='aboutMe__title'>{t('Sergey')}</h2>
+        <h3 className="aboutMe__subtitle">{t('Web-developer')}</h3>
         <p className="aboutMe__text">
           {t('I was born im Moscow')}
         </p>

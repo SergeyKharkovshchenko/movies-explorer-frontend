@@ -1,5 +1,6 @@
 import React from "react";
 import { Underline } from "../Underline";
+import { useTranslation } from "react-i18next";
 import "./Input.css";
 
 export const Input = ({
@@ -13,6 +14,8 @@ export const Input = ({
   isLoading
 }) => {
 
+  const { t } = useTranslation();
+
   function change(e) {
     e.preventDefault();
     cbChange(name, e.target.value);
@@ -21,7 +24,7 @@ export const Input = ({
   return (
     <div className="input">
       <div className={`input__inputblock_type_${mode}`}>
-        <p className={`input__label_type_${mode}`}>{label}</p>
+        <p className={`input__label_type_${mode}`}>{t(`${label}`)}</p>
         <input
           name={name}
           type={(name=='Password')?"password":"text"}
@@ -29,7 +32,7 @@ export const Input = ({
           className={`input__input_type_${mode} input__${name}_type_${mode}`}
           value={userData || ""}
           onChange={(e) => change(e)}
-          placeholder={placeholder}
+          placeholder={t(`${placeholder}`)}
           disabled={isLoading}
         />
       </div>

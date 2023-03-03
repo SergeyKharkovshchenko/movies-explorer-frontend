@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { FilterCheckbox } from "../FilterCheckbox";
 import { Underline } from "../Underline";
-import "./SearchForm.css";
 import { useTranslation } from "react-i18next";
+import "./SearchForm.css";
 
 export const SearchForm = ({
   clickHandler,
@@ -23,7 +23,7 @@ export const SearchForm = ({
 
   useEffect(() => {
     if (!state) {
-      setErrorName(t('Please enter search key'));
+      setErrorName('Please enter search key');
       setIsActive(false);
     } else {
       setIsActive(true);
@@ -43,7 +43,7 @@ export const SearchForm = ({
             onChange={(e) => onChange(e)}
           />
           {!isActive && (
-            <span className={`searchForm__error`}>{errorName}</span>
+            <span className={`searchForm__error`}>{t(errorName)}</span>
           )}
         </div>
         <button

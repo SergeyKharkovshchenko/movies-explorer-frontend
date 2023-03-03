@@ -3,8 +3,12 @@ import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 import { Header } from "../Header";
 import { Popup } from "../Popup";
 import { Preloader } from "../Preloader";
+import { useTranslation } from "react-i18next";
 
 export const Profile = ({ logOut, changeProfile, isLoading }) => {
+
+  const { t } = useTranslation();
+
   const [loading, setLoading] = useState(false);
   const currentUser = useContext(CurrentUserContext);
 
@@ -44,7 +48,7 @@ export const Profile = ({ logOut, changeProfile, isLoading }) => {
       <main>
         <Popup
           mode={"profile"}
-          greeting={`Hi, ${userData.name}`}
+          greeting={t('Hi') + ", " + userData.name}
           name={`${userData.name}`}
           email={`${userData.email}`}
           greenButton={"Edit"}

@@ -95,7 +95,15 @@ $color_med_grey: #a0a0a0;
     line-height: 27px;
     letter-spacing: -0.04em;  
   }
-  
+
+  @mixin font_MLL {
+    font-family: "Inter", "Times", "serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 36px;
+    letter-spacing: -0.04em;
+  }
 
 @mixin font_L {
   font-family: "Inter", "Times", "serif";

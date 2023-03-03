@@ -1,15 +1,21 @@
 import React from "react";
 import "./Portfolio.css";
 import { PortfolioLink } from "../PortfolioLink";
+import { useTranslation } from "react-i18next";
 
 export const Portfolio = () => {
+
+  const { t } = useTranslation();
+  
   return (
     <section className="portfolio">
-      <h2 className="portfolio__title">Portfolio</h2>
+      <h2 className="portfolio__title">{t('Portfolio')}</h2>
       <ul className="portfolio__list">
-        <PortfolioLink name={"Movies site"} link={"/movies"} />
+        <PortfolioLink 
+        name={t('Movies site')} 
+        link={"/movies"} />
         <PortfolioLink
-          name={"Cards site"}
+          name={t('Cards site')}
           link={"https://sergeykharkovshchenko.github.io/react-mesto-auth/"}
         />
         {/* <PortfolioLink

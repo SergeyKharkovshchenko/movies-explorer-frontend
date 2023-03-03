@@ -8,8 +8,12 @@ import { Portfolio } from "../Portfolio";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import "./Main.css";
+import { useTranslation } from "react-i18next";
 
-export const Main = ({ isLoggedIn, handleLanguageChange, t }) => {
+export const Main = ({ isLoggedIn, handleLanguageChange }) => {
+
+  const { t } = useTranslation();
+
   return (
     <>
       <header>
@@ -17,16 +21,15 @@ export const Main = ({ isLoggedIn, handleLanguageChange, t }) => {
         mode={"main"} 
         isLoggedIn={isLoggedIn} 
         handleLanguageChange={handleLanguageChange}  
-        t={t}
         />
       </header>
       <main className="main">
         <Promo />
-        <NavTab subject={"About a project"} />
+        <NavTab subject={t("About a project")} />
         <AboutProject />
-        <NavTab subject={"Technologies"} background={"grey"} />
+        <NavTab subject={t("Technologies")} background={"grey"} />
         <Techs />
-        <NavTab subject={"Student"} />
+        <NavTab subject={t("Developer")} />
         <AboutMe />
         <Portfolio />
       </main>

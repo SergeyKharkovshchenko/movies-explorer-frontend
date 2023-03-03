@@ -1,8 +1,12 @@
 import React from "react";
 import { useMediaQuery } from "react-responsive";
+import { useTranslation } from "react-i18next";
 import "./Button.css";
 
 export const Button = ({ name, color, isActive, onClick }) => {
+
+  const { t } = useTranslation();
+
   function styleChoice(param) {
     switch (param) {
       case "green":
@@ -149,7 +153,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
       onClick={onClick}
       type="submit"
     >
-      {name}
+      {t(name)}
     </button>
   );
 };

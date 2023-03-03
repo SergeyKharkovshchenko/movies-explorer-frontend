@@ -1,14 +1,17 @@
 import React from "react";
 import "./Techs.css";
 import { TechItems } from "../TechItems";
+import { useTranslation } from "react-i18next";
 
 export const Techs = () => {
+
+  const { t } = useTranslation();
+
   return (
     <section className="techs">
-      <h2 className="techs__title">7 technologies</h2>
+      <h2 className="techs__title">{t('7 technologies')}</h2>
       <p className="techs__text">
-        On Web development courses i have learned technologies, some of them
-        have been used in this web site.
+      {t('On Web development')}
       </p>
       <ul className="techs__tech-list">
         <TechItems subject={"HTML"} />

@@ -3,9 +3,10 @@ import logoImage from "../../images/logo__COLOR_main-1.svg";
 import { Button } from "../Button";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "../Input";
-import "./Popup.css";
-
 import { main } from "../../utils/config";
+import { useTranslation } from "react-i18next";
+import { useLocalStorage } from "../../utils/use_localstorage";
+import "./Popup.css";
 
 export const Popup = ({
   mode,
@@ -22,11 +23,13 @@ export const Popup = ({
   onChangeProfile,
   isLoading,
 }) => {
+
   const [emailError, setEmailError] = useState("");
   const [nameError, setNameError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [initialName, setInitialName] = useState(name);
   const [initialEmail, setInitialEmail] = useState(email);
+  const [language, setLanguage] = useLocalStorage('language', 'en');
 
   const [userData, setUserData] = useState({
     name: name,
@@ -63,7 +66,11 @@ export const Popup = ({
       switch (name) {
         case "name": {
           if (value.length < 6) {
-            setNameError("Name should be more then 5 letter.");
+            if (language=='en') {
+              setNameError("Name should be more then 5 letter.");              
+            } else {
+              setNameError("Имя должно быть длиннее 5 символов");
+            }
           } else {
             setNameError("");
           }
@@ -73,7 +80,11 @@ export const Popup = ({
           const re =
             /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
           if (!re.test(String(value).toLowerCase())) {
-            setEmailError("Email is incorrect");
+            if (language=='en') {
+              setEmailError("Email is incorrect");
+            } else {
+              setEmailError("Неверно введет емейл");
+            }
           } else {
             setEmailError("");
           }
@@ -81,7 +92,11 @@ export const Popup = ({
         }
         case "password": {
           if (value.length < 5) {
-            setPasswordError("Password should me more then 5 signs.");
+            if (language=='en') {
+              setPasswordError("Password should me more then 5 signs.");
+            } else {
+              setPasswordError("Пароль должен быть длиннее чем 5 символов.");
+            }
           } else {
             setPasswordError("");
           }
@@ -101,6 +116,8 @@ export const Popup = ({
     onChangeProfile(userData);
   }
 
+  const { t } = useTranslation();
+
   return (
     <section className="popup">
       {(mode == "signup" || mode == "signin") && (
@@ -115,7 +132,7 @@ export const Popup = ({
       <h2
         className={mode == "profile" ? "popup__title_profile" : "popup__title"}
       >
-        {greeting}
+        {t(`${greeting}`)}
       </h2>
 
       <form
@@ -165,9 +182,9 @@ export const Popup = ({
               isActive={nameError + emailError + passwordError == ""}
             />
             <div className="popup__lowerLine">
-              <p className="popup__buttonsComment">{buttonsText}</p>
+              <p className="popup__buttonsComment">{t(`${buttonsText}`)}</p>
               <Link to={linkTo} className="popup__smallButton">
-                {smallButton}
+                {t(`${smallButton}`)}
               </Link>
             </div>
           </nav>
@@ -176,7 +193,7 @@ export const Popup = ({
           <nav className="popup__buttons_profile">
             <div>
               <Button
-                name={"Edit"}
+                name={t("Edit")}
                 onClick={(e) => cbChangeProfile(e)}
                 color={"white"}
                 isActive={
@@ -188,7 +205,7 @@ export const Popup = ({
             </div>
             <Link to="/movies">
               <Button
-                name={"Log out"}
+                name={t("Log out")}
                 onClick={logout}
                 color={"red"}
                 isActive="true"

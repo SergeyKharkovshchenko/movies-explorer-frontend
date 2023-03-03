@@ -2,6 +2,8 @@ import React, { useState, useEffect, useContext, useCallback } from "react";
 import likePic1 from "../../images/save9green.svg";
 import likePic2 from "../../images/d9.svg";
 import notLikePic from "../../images/save9d.svg";
+import { useLocalStorage } from "../../utils/use_localstorage"
+import { useTranslation } from "react-i18next";
 import "./MoviesCard.css";
 
 export const MoviesCard = ({
@@ -13,14 +15,17 @@ export const MoviesCard = ({
 }) => {
   const [isLiked, setisLiked] = useState(false);
   const [id, setId] = useState("");
+  const [language, setLanguage] = useLocalStorage('language', 'en');
+
+  const { t } = useTranslation();
 
   function handleDuration(minutes) {
     let mins = minutes % 60;
     let hours = Math.floor(minutes / 60);
     if (hours > 0) {
-      return hours + " h. " + mins + " min.";
+      return `${hours} ${t('h')} ${mins} ${t('min')}`;
     } else {
-      return minutes + " min.";
+      return `${minutes} ${t('min')}`;
     }
   }
 
@@ -53,7 +58,9 @@ export const MoviesCard = ({
       <li className="moviesCard">
         <div className="moviesCard__top">
           <div className="moviesCard__description">
-            <h2 className="moviesCard__title">{card.nameEN}</h2>
+            <h2 className="moviesCard__title">
+            {(language=='en')?card.nameEN:card.nameRU}
+            </h2>
             <h3 className="moviesCard__subtitle">
               {handleDuration(card.duration)}
             </h3>

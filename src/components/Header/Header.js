@@ -17,7 +17,7 @@ import { useLocalStorage } from "../../utils/use_localstorage";
 import i18n from "../../utils/i18n";
 
 export const Header = ({ mode, isLoggedIn
-  // , handleLanguageChange, t 
+  // , handleLanguageChange
 }) => {
   const mainStyle = {};
   const moviesStyle = {

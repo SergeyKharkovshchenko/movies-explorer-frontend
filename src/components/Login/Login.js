@@ -2,9 +2,13 @@ import React, { useCallback, useState } from "react";
 import { Popup } from "../Popup";
 import { signup, signin } from "../../utils/config";
 import { Navigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "./Login.css";
 
 export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
+
+  const { t } = useTranslation();
+
   const [userData, setUserData] = useState({
     password: "",
     email: "",
@@ -41,10 +45,10 @@ export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
     <div className="login">
       <Popup
         mode={"signin"}
-        greeting={"Glad to see you!"}
-        greenButton={signin.name}
-        smallButton={signup.name}
-        buttonsText={"Not registered yet?"}
+        greeting={t("Glad to see you!")}
+        greenButton={t(signin.name)}
+        smallButton={t(signup.name)}
+        buttonsText={t("Not registered yet?")}
         linkTo={signup.link}
         onSubmit={(e) => cbSubmit(e)}
         onChange={(e) => cbChange(e)}

@@ -118,7 +118,7 @@ export const App = () => {
       }
       setCurrentUser(res);
       setInfoTooltipPopupOpen(true);
-      setTooltipMessage("Profile was succesfully changed");
+      setTooltipMessage("Profile was successfully changed");
     } catch (error) {
       console.log(`Ошибка: ${error}`);
       setInfoTooltipPopupOpen(true);
@@ -162,7 +162,6 @@ export const App = () => {
                   <Main 
                   isLoggedIn={loggedIn} 
                   handleLanguageChange={handleLanguageChange}
-                  t={t}  
                   />
                 </ProtectedRoutesMain>
               }

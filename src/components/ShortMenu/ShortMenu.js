@@ -2,11 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "./ShortMenu.css";
 import { Button } from "../Button";
-
+import { useTranslation } from "react-i18next";
 import { main, profile, movies, savedMovies } from "../../utils/config";
 
 export const ShortMenu = ({ width320 }) => {
   const items = [main, movies, savedMovies];
+  const { t } = useTranslation();
 
   return (
     <section className="shortmenu">
@@ -15,7 +16,7 @@ export const ShortMenu = ({ width320 }) => {
           {items.map((item) => (
             <li key={item.id} className="shortmenu__link-wrapper">
               <Link to={`${item.link}`} className="shortmenu__link">
-                {item.name}
+                {t(item.name)}
               </Link>
             </li>
           ))}

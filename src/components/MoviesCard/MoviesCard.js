@@ -4,6 +4,10 @@ import likePic2 from "../../images/d9.svg";
 import notLikePic from "../../images/save9d.svg";
 import { useLocalStorage } from "../../utils/use_localstorage"
 import { useTranslation } from "react-i18next";
+import { GameBuy } from '../game-buy'
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { setCurrentGame } from "../../redux/games/reducer";
 import "./MoviesCard.css";
 
 export const MoviesCard = ({
@@ -16,8 +20,16 @@ export const MoviesCard = ({
   const [isLiked, setisLiked] = useState(false);
   const [id, setId] = useState("");
   const [language, setLanguage] = useLocalStorage('language', 'en');
-
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const handlePictureClick = () => {
+    dispatch(setCurrentGame(card));
+      navigate('`/${card.nameEN}`');
+      navigate('movie-page');
+  }
 
   function handleDuration(minutes) {
     let mins = minutes % 60;
@@ -65,6 +77,11 @@ export const MoviesCard = ({
               {handleDuration(card.duration)}
             </h3>
           </div>
+          
+          <div className="moviesCard__rigt">
+          <div className="moviesCard__buy">
+            <GameBuy game={card}/>
+          </div>
           <button
             className="moviesCard__likeButton"
             type="button"
@@ -78,13 +95,8 @@ export const MoviesCard = ({
               <img src={mode == "all" ? notLikePic : likePic2} />
             )}
           </button>
+          </div>
         </div>
-        <a
-          href={card.trailerLink}
-          className="portfolioLink__linkblock"
-          target="_blank"
-          rel="noreferrer"
-        >
           <img
             src={
               mode == "all"
@@ -93,8 +105,9 @@ export const MoviesCard = ({
             }
             className="moviesCard__foto"
             alt={`foto ${card.nameEN}`}
+            onClick={handlePictureClick}
           />
-        </a>
+        {/* </a> */}
       </li>
     </section>
   );

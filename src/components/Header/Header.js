@@ -3,6 +3,7 @@ import logoImage from "../../images/logo__COLOR_main-1.svg";
 import { Button } from "../Button";
 import { NavLink } from "react-router-dom";
 import { Burger } from "../Burger";
+import { CartBlock } from '../cart-block'
 import "./Header.css";
 import {
   main,
@@ -81,6 +82,7 @@ export const Header = ({ mode, isLoggedIn
       ) : (
         <>
           <div className="header__nav">
+          
             <NavLink
               className={(navData) =>
                 navData.isActive
@@ -124,10 +126,19 @@ export const Header = ({ mode, isLoggedIn
                 color={"lightgrey"}
               />
             </NavLink>
+
+<div>
+            <div className="header__cart">
+            <CartBlock />
+            </div>
+
+
           </div>
           <div className="header__burger">
-            <Burger />
+            <Burger mode={mode}/>
           </div>
+</div>
+        
         </>
       )}
     </section>

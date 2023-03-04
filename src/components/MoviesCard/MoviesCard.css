@@ -80,7 +80,7 @@
   overflow: hidden;
   -o-text-overflow: clip;
      text-overflow: clip;
-  max-width: 280px;
+  max-width: 150px;
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 500;
@@ -99,11 +99,22 @@
   color: #a0a0a0;
 }
 
-.moviesCard__likeButton {
+.moviesCard__buy {
   margin: auto 0;
+}
+
+.moviesCard__likeButton {
+  margin: 9px 0 auto 5px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   border: none;
+  background-color: #a0a0a0;
   padding: 0;
+}
+
+.moviesCard__rigt {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }

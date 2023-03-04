@@ -4,7 +4,7 @@ import { useMediaQuery } from "react-responsive";
 import { Navigation } from "../Navigation";
 import "./Burger.css";
 
-export const Burger = ({ isClosed }) => {
+export const Burger = ({ isClosed, mode }) => {
   const [isOpen, setIsOpen] = useState(isClosed);
   const [isInNavigation, setIsInNavigation] = useState(false);
 
@@ -25,10 +25,10 @@ export const Burger = ({ isClosed }) => {
   return (
     <>
       <div
-        className={isOpen == true ? "burger open" : "burger"}
+        className={isOpen == true ? "burger open" : "burger" }
         onClick={useMediaQuery({ minWidth: 321 }) ? handleClickL : handleClickS}
       >
-        <div className="burger_btn"></div>
+        <div className={mode == "white" ? "burger_btn" : "burger_btn burger__dark"}></div>
         {isInNavigation && <Navigation />}
       </div>
     </>

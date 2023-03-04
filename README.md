@@ -2,7 +2,7 @@
 
 ## Decription
 
-Movies Browser is a service, that allows to find a movie by request and to save it in your personal account.
+Movies Browser is a service, that allows to find a movie by request, save it in your personal account or purchase.
 
 ## Functionality
 
@@ -10,6 +10,7 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 - all interactive elements have animation 
 - user registration and authorization 
 - the type of the header changes depending on the authorization 
+- adding/removing movies to cart
 - the user receives a message in case of any error 
 - when searching, the query text, found movies and the state of the shorts switcher are saved in the storage 
 - form fields are blocked while sending requests, and the user is not able to send a new request until the previous one is completed 
@@ -34,9 +35,10 @@ Movies Browser is a service, that allows to find a movie by request and to save 
 ## Technologies
 
 - React
+- Redux
 - React Router
 - Hooks (useState, useEffect, useContext)
-- custom hooks (validation, screen width checking)
+- custom hooks (validation, screen width checking, etc.)
 - local storage and cookies
 - asynch API
 - HOC-components

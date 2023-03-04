@@ -69,6 +69,10 @@
   }
 }
 
+.header__cart {
+  margin: 2px 0 10px 25px;
+}
+
 .header__linkToMovies {
   @include font_M;
   color: black;

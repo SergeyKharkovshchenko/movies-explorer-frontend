@@ -68,8 +68,7 @@
   justify-content: flex-end;
   overflow: hidden;
   text-overflow: clip;
-  max-width: 280px;
-
+  max-width: 150px;
   @include font_MML;
 }
 
@@ -80,11 +79,20 @@
   color: #a0a0a0;
 }
 
-.moviesCard__likeButton {
+.moviesCard__buy{
   margin: auto 0;
+}
+
+.moviesCard__likeButton {
+  margin: 9px 0 auto 5px;
   border-radius: 50%;
   width: 30px;
   height: 30px;
   border: none;
+  background-color: $color_med_grey;
   padding: 0;
 }
+
+.moviesCard__rigt{
+  display: flex;
+  }

@@ -12,7 +12,7 @@ export const Error404 = () => {
       <h1 className="error404__title">404</h1>
       <h2 className="error404__subtitle">{t('Page not found')}</h2>
       <p onClick={() => navigate(-1)} className="error404__return">
-        Назад
+      {t('Back')}
       </p>
     </div>
   );

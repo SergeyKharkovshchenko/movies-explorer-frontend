@@ -1,7 +1,7 @@
 .cart-menu {
     position: absolute;
-    top: 30px;
-    left: -300px;
+    top: 50px;
+    left: -400px;
     background-color: rgb(36, 37, 41);
     width: 400px;
     padding: 10px 20px;
@@ -22,3 +22,6 @@
     margin-bottom: 15px;
 }
 
+.cart-menu__games-list{
+    width: auto;
+}

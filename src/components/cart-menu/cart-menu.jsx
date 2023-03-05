@@ -15,7 +15,6 @@ export const CartMenu = ({ items, onClick }) => {
 
   return (
     <div className="cart-menu">
-      {language}
       <div className="cart-menu__games-list">
         {items.length > 0 ? items.map((game) => <CartItem  
         key={game.title} 

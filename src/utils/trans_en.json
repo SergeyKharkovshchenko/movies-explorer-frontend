@@ -50,6 +50,12 @@
    "min":"min",
    "h":"h",
    "Main":"Main",
-   "Back":"Back"
+   "Back":"Back",
+   "Purchase":"Purchase",
+   "Total" : "Total",
+   "Cart is empty": "Cart is empty",
+   "Remove from cart" : "Remove from cart",
+   "Add to cart":"Add to cart",
+   "items with total": "items with total"
 } 
 

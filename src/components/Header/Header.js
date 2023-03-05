@@ -129,7 +129,7 @@ export const Header = ({ mode, isLoggedIn
 
 <div>
             <div className="header__cart">
-            <CartBlock />
+            <CartBlock mode={mode}/>
             </div>
 
 

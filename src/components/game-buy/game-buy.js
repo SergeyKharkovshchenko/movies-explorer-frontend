@@ -2,12 +2,16 @@ import React from "react";
 // импортим реакт-редаксовый хук useDispatch
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../button2";
-import "./game-buy.css";
+import { useTranslation } from "react-i18next";
 import { setItemInCart, deleteItemFromCart } from '../../redux/cart/reducer'
+import "./game-buy.css";
 
 // передаем целую игру, тк она дальше пойдет в корзину
 export const GameBuy = ({ game }) => {
-//чтобы использовать хук делаем переменную
+
+  const { t } = useTranslation();
+
+  //чтобы использовать хук делаем переменную
 const dispatch = useDispatch();
 // ЮС-ом загрузили сте
 const items = useSelector (state => state.cart.itemsInCart)
@@ -39,7 +43,7 @@ const handleClick = (e) => {
 /* в комп Button передадим обработку онклик */
             onClick={handleClick}
           >
-         {isItemInCart ? 'Remove from cart' : 'Add to cart'}            
+         {isItemInCart ? t('Remove from cart') : t('Add to cart')}            
           </Button>
           </div>
     <span className="game-buy__price">{game.duration} USD.</span>

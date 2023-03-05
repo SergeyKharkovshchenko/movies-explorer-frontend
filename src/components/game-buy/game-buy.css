@@ -16,7 +16,7 @@
 }
 
 .game-buy__button{
-    margin: 0;
+    margin: 0 0 0 5px;
     height: 38px;
     display: flex;
     flex-direction: column;
@@ -24,6 +24,7 @@
     overflow: hidden;
     text-overflow: clip;
     max-width: 280px;
+    width: max-content;
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 500;

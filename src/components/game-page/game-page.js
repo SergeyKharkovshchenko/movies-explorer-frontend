@@ -5,12 +5,14 @@ import { GameCover } from "../game-cover";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
+import { useLocalStorage } from "../../utils/use_localstorage";
 import "./game-page.css";
 
 export const GamePage = () => {
 
   const navigate = useNavigate();
   const { t } = useTranslation();
+  const [language, setLanguage] = useLocalStorage('language', 'en');
 
 //достаем из ридакса эту игру
 // идем в глобальный стейт, идем в наш редьюсер game и там забираем current game
@@ -19,8 +21,11 @@ export const GamePage = () => {
   if(!game) return null;
 
   return (
+    
     <div className="game-page">
-      <h1 className="game-page__title">{ game.nameEN }</h1>
+      <h1 className="game-page__title">
+      {language=='en'? game.nameEN : game.nameRU }
+      </h1>
       <div className="game-page__content">
         <div className="game-page__left">
           <iframe

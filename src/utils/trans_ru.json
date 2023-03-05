@@ -50,6 +50,12 @@
    "min":"мин",
    "h":"ч",
    "Main":"Главная",
-   "Back":"Назад"
+   "Back":"Назад",
+   "Purchase":"Купить",
+   "Total" : "Итого",
+   "Cart is empty": "Корзина пуста",
+   "Remove from cart" : "Удалить из корзины",
+   "Add to cart": "Добавить в корзину",
+   "items with total": " товаров на сумму "
 } 
 

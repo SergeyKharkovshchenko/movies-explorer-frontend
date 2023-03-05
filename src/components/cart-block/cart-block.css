@@ -1,23 +1,33 @@
 .cart-block {
-    display: flex;
-    align-items: center;
-    position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
 }
 
 @media (max-width: 768px) {
-    .cart-block {
-        margin-top: 3px;
-        margin-right: 20px;
-    }
+  .cart-block {
+    margin-top: 3px;
+    margin-right: 20px;
+  }
 }
-
 .cart-block__total-price {
-    margin-left: 15px;
-    font-size: 18px;
-    font-weight: bold;
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  margin-left: 15px;
 }
 
 .cart-block__icon {
-    cursor: pointer;
-    position: relative;
+  cursor: pointer;
+  position: relative;
+}
+
+.white {
+  color: white;
 }

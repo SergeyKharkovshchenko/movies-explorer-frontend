@@ -1,0 +1,28 @@
+@import "../../scss/_vars";
+
+.cart-block {
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .cart-block {
+        margin-top: 3px;
+        margin-right: 20px;
+    }
+}
+
+.cart-block__total-price {
+    @include font_M;
+    margin-left: 15px;
+}
+
+.cart-block__icon {
+    cursor: pointer;
+    position: relative;
+}
+
+.white {
+    color: white;
+}

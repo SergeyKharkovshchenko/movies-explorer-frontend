@@ -2,10 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import { GameCover } from '../game-cover/game-cover';
-import './order-item.css';
 import { deleteItemFromCart } from '../../store/cart/reducer';
+import { useLocalStorage } from "../../utils/use_localstorage";
+import './order-item.css';
 
 export const OrderItem = ({ game }) => {
+
+const [language, setLanguage] = useLocalStorage('language', 'en');
 
     const dispatch = useDispatch ();
 
@@ -19,7 +22,9 @@ export const OrderItem = ({ game }) => {
                 <GameCover image={`https://api.nomoreparties.co/${game.image.url}`} />
             </div>
             <div className="order-item__title">
-                <span>{game.nameEN}</span>
+                <span>
+                { language == 'en'? game.nameEN : game.nameRU}
+                </span>
             </div>
             <div className="order-item__price">
                 <span>{game.duration} USD.</span>

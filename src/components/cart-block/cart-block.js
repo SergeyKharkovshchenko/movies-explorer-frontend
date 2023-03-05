@@ -3,7 +3,8 @@ import React, { useState, useCallback } from "react";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 // импорт либы с иконками - для иконки корзины
-import { BiCartAlt } from "react-icons/bi";
+// import { BiCartAlt } from "react-icons/bi";
+import { BiCart } from "react-icons/bi";
 // выплывает при нажатии на корзину
 import { CartMenu } from "../cart-menu";
 // импортируем массив ItemsInCart, чтобы получить позже его длину и тотал прайс
@@ -12,7 +13,7 @@ import { ItemsInCart } from "../items-in-cart";
 import { calcTotalPrice } from '../../utils/utils';
 import "./cart-block.css";
 
-export const CartBlock = () => {
+export const CartBlock = ( { mode } ) => {
 // стейт отвечает за вcплытие CartMenu
   const [isCartMenuVisible, setIsCartMenuVisible] = React.useState(false)
 // в переменную items запишем юзселектор
@@ -35,10 +36,14 @@ const handleClick = useCallback(() => {
 {/* красный кружок с длиной текущего массива*/}
     <ItemsInCart quantity={items.length} />
 {/*чтобы иконка корзины отобразилась используем ее как комп. И при клике на BiCartAlt скрываем*/}
-      <BiCartAlt size={35} className="cart-block__icon" onClick={() => setIsCartMenuVisible(!isCartMenuVisible)}/> 
+      <BiCart size={35} 
+      className={ mode=='main'? "cart-block__icon white" : "cart-block__icon" }
+      onClick={() => setIsCartMenuVisible(!isCartMenuVisible)}/> 
              {totalPrice > 0 ? (
 // отобразим цену, если она не ноль
-         <span className="cart-block__total-price">{totalPrice} USD.</span>
+         <span 
+         className={ mode=='main'? "cart-block__total-price white" : "cart-block__total-price" }
+         >{totalPrice} USD.</span>
        ) : null}
 {/* выплывающее CartMenu*/}
          {isCartMenuVisible && <CartMenu items = {items} onClick={ handleClick } /> }

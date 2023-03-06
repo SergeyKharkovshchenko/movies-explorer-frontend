@@ -2,6 +2,7 @@
 
 .order-item {
     display: flex;
+    margin-top: 20px;
     margin-bottom: 30px;
 }
 
@@ -13,10 +14,14 @@
 .order-item__title {
     @include font_ML;
     margin-left: 20px;
+    display: flex;
+    align-items: center;
 }
 
 .order-item__price {
     @include font_ML;
     margin-left: auto;
+    display: flex;
+    align-items: center;
 }
 

@@ -15,7 +15,7 @@ export const SavedMovies = () => {
       ? JSON.parse(localStorage.getItem("searchResultSaved"))
       : []
   );
-  const [allMovies, setAllMovies] = useState([]);
+  const [savedMovies, setSavedMovies] = useState([]);
   const [isSwitched, setIsSwitched] = useState(
     JSON.parse(localStorage.getItem("isSwitchedSaved"))
   );
@@ -66,7 +66,7 @@ export const SavedMovies = () => {
         throw new Error("Error");
       }
       JSON.stringify(movies);
-      setAllMovies(movies);
+      setSavedMovies(movies);
       const searchResult = SearchUtil.Search(
         movies,
         searchWord.toLowerCase(),
@@ -127,7 +127,7 @@ export const SavedMovies = () => {
 
         <MoviesCardList
           cards={cards}
-          savedMovies={allMovies}
+          savedMovies={savedMovies}
           onCardLike={handleCardRemove}
           mode="saved"
           onCardDelete={handleCardRemove}

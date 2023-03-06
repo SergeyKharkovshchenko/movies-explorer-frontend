@@ -58,6 +58,7 @@ export const handleLike = (card) => {
       movieId: card.id,
       nameRU: card.nameRU,
       nameEN: card.nameEN,
+      id: card.id,
     }),
   }).then((res) => getResponse(res));
 };

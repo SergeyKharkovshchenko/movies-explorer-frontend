@@ -80,7 +80,7 @@ export const MoviesCard = ({
           
           <div className="moviesCard__rigt">
           <div className="moviesCard__buy">
-            <GameBuy game={card}/>
+            <GameBuy game={card} />
           </div>
           <button
             className="moviesCard__likeButton"
@@ -107,7 +107,6 @@ export const MoviesCard = ({
             alt={`foto ${card.nameEN}`}
             onClick={handlePictureClick}
           />
-        {/* </a> */}
       </li>
     </section>
   );

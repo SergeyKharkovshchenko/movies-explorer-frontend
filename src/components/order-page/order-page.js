@@ -32,7 +32,7 @@ export const OrderPage = () => {
         </div>
       </div>
 
-      <div className="movies__morebutton">
+      <div className="order-page__morebutton">
         <Button
           color={"bigLightgrey"}
           onClick={() => navigate(-1)}

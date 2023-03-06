@@ -12,6 +12,7 @@
 
 .order-item__title {
     @include font_ML;
+    margin-left: 20px;
 }
 
 .order-item__price {

@@ -1,4 +1,9 @@
 .order-page {
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 15px;
+  background-color: rgb(36, 37, 41);
+  color: rgba(255, 255, 255, 0.4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -12,13 +17,26 @@
 }
 
 .order-page__left {
-  width: 70%;
+  width: 80%;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 
 .order-page__right {
-  width: 27%;
-  font-size: 18px;
-  font-weight: bold;
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 80%;
+  -ms-flex-item-align: center;
+      align-self: center;
 }
 
 .order-page__total_price {
@@ -28,4 +46,10 @@
   font-size: 22px;
   line-height: 27px;
   letter-spacing: -0.04em;
+  color: white;
+}
+
+.order-page__morebutton {
+  text-align: center;
+  margin: 20px auto;
 }

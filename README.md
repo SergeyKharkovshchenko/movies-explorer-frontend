@@ -1,6 +1,11 @@
 # Movies Browser - work example of Sergey Kharkovshchenko
 
 ## Decription
+For ease of use you can use
+login: test111@test.ru 
+password: test111
+
+## Decription
 
 Movies Browser is a service, that allows to find a movie by request, save it in your personal account or purchase.
 

@@ -1,0 +1,37 @@
+.movie-page {
+  width: 80%;
+  max-width: 1140px;
+  margin: 10px auto;
+}
+
+.movie-page__title {
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+}
+
+.movie-page__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.movie-page__left {
+  width: 70%;
+}
+
+.movie-page__right {
+  width: 30%;
+}
+
+.movie-page__buy-movie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin-top: 20px;
+}

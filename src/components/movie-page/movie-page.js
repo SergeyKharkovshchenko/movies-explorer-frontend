@@ -1,47 +1,49 @@
 import React from "react";
 import { useSelector} from 'react-redux';
-import { GameBuy } from "../game-buy";
-import { GameCover } from "../game-cover";
+import { ProductBuy } from "../product-buy";
+import { Header } from "../Header";
+import { MovieCover } from "../movie-cover";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Button } from "../Button";
 import { useLocalStorage } from "../../utils/use_localstorage";
-import "./game-page.css";
+import "./movie-page.css";
 
-export const GamePage = () => {
+export const MoviePage = () => {
 
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'en');
 
 //достаем из ридакса эту игру
-// идем в глобальный стейт, идем в наш редьюсер game и там забираем current game
-  const game = useSelector(state => state.games.currentGame);
+// идем в глобальный стейт, идем в наш редьюсер movie и там забираем current movie
+  const movie = useSelector(state => state.movies.currentMovie);
 
-  if(!game) return null;
+  if(!movie) return null;
 
   return (
-    
-    <div className="game-page">
-      <h1 className="game-page__title">
-      {language=='en'? game.nameEN : game.nameRU }
+    <>
+      <Header mode="white"/>
+    <div className="movie-page">
+      <h1 className="movie-page__title">
+      {language=='en'? movie.nameEN : movie.nameRU }
       </h1>
-      <div className="game-page__content">
-        <div className="game-page__left">
+      <div className="movie-page__content">
+        <div className="movie-page__left">
           <iframe
             width="90%"
             height="400px"
-            src={game.trailerLink}
+            src={movie.trailerLink}
             title="YouTube video player"
             frameBorder="0"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           ></iframe>
         </div>
-        <div className="game-page__right">
-          <GameCover image={`https://api.nomoreparties.co/${game.image.url}`} />
-          <p>{game.description}</p>
-          <div className="game-page__buy-game">
-            <GameBuy game={game} />
+        <div className="movie-page__right">
+          <MovieCover movie={movie} />
+          <p>{movie.description}</p>
+          <div className="movie-page__buy-movie">
+            <ProductBuy movie={movie} />
           </div>
         </div>
       </div>
@@ -50,5 +52,6 @@ export const GamePage = () => {
       </div>
 
     </div>
+    </>
   );
 };

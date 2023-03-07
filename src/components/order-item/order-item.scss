@@ -2,8 +2,8 @@
 
 .order-item {
     display: flex;
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin: 20px auto 30px auto;
+    max-width: 700px;
 }
 
 .order-item__cover {
@@ -13,7 +13,6 @@
 
 .order-item__title {
     @include font_ML;
-    margin-left: 20px;
     display: flex;
     align-items: center;
 }

@@ -4,10 +4,10 @@ import likePic2 from "../../images/d9.svg";
 import notLikePic from "../../images/save9d.svg";
 import { useLocalStorage } from "../../utils/use_localstorage"
 import { useTranslation } from "react-i18next";
-import { GameBuy } from '../game-buy'
+import { ProductBuy } from '../product-buy'
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentGame } from "../../redux/games/reducer";
+import { setCurrentMovie } from "../../redux/movies/reducer";
 import "./MoviesCard.css";
 
 export const MoviesCard = ({
@@ -26,7 +26,7 @@ export const MoviesCard = ({
   const dispatch = useDispatch();
 
   const handlePictureClick = () => {
-    dispatch(setCurrentGame(card));
+    dispatch(setCurrentMovie(card));
       navigate('`/${card.nameEN}`');
       navigate('movie-page');
   }
@@ -80,7 +80,7 @@ export const MoviesCard = ({
           
           <div className="moviesCard__rigt">
           <div className="moviesCard__buy">
-            <GameBuy game={card} />
+            <ProductBuy movie={card} />
           </div>
           <button
             className="moviesCard__likeButton"

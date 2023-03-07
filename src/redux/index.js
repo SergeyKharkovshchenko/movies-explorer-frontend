@@ -1,12 +1,12 @@
 // создаем стор (configureStore раньше назывался create store)
 import  {configureStore} from '@reduxjs/toolkit'
 import cartReducer from './cart/reducer'
-import gamesReducer from './games/reducer'
+import moviesReducer from './movies/reducer'
 
 export const store = configureStore ({
     reducer: {
         cart: cartReducer,
-        games: gamesReducer,
+        movies: moviesReducer,
     }
 })
 

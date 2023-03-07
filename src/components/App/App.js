@@ -12,7 +12,7 @@ import { Login } from "../Login";
 import { Register } from "../Register";
 import { Error404 } from "../Error404";
 import { Preloader } from "../Preloader";
-import { GamePage } from '../game-page';
+import { MoviePage } from '../movie-page';
 import { ProtectedRoutes } from "../ProtectedRoutes";
 import { ProtectedRoutesMain } from "../ProtectedRoutes copy";
 import * as mainApi from "../../utils/MainApi";
@@ -211,8 +211,8 @@ export const App = () => {
               }
             />
 
-            <Route path="movies/movie-page" element={<GamePage />} />
-            <Route path="saved-movies/movie-page" element={<GamePage />} />
+            <Route path="movies/movie-page" element={<MoviePage />} />
+            <Route path="saved-movies/movie-page" element={<MoviePage />} />
             <Route  path="/order" element={<OrderPage />} />
 
             <Route

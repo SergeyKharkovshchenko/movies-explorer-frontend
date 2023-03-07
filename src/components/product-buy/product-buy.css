@@ -1,21 +1,20 @@
-.game-buy__price {
+.product-buy__price {
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 500;
     font-size: 11px;
     line-height: 13px;
-    font-weight: 400;
     margin: 7.5px auto 7.5px 0;
     color: #a0a0a0;
 }
 
-.game-buy{
+.product-buy{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-.game-buy__button{
+.product-buy__button{
     margin: 0 0 0 5px;
     height: 38px;
     display: flex;
@@ -25,6 +24,7 @@
     text-overflow: clip;
     max-width: 280px;
     width: max-content;
+ 
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 500;

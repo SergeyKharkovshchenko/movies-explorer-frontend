@@ -23,7 +23,7 @@ export const SearchForm = ({
 
   useEffect(() => {
     if (!state) {
-      setErrorName('Please enter search key');
+      setErrorName(t('Please enter search key'));
       setIsActive(false);
     } else {
       setIsActive(true);
@@ -55,6 +55,10 @@ export const SearchForm = ({
           }
           disabled={!isActive}
         >
+        <span className="searchForm__submitline searchForm__submitline--top"></span>
+        <span className="searchForm__submitline searchForm__submitline--right"></span>
+        <span className="searchForm__submitline searchForm__submitline--bottom"></span>
+        <span className="searchForm__submitline searchForm__submitline--left"></span>
           {t('Search')}
         </button>
       </form>

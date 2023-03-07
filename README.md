@@ -48,8 +48,7 @@ Movies Browser is a service, that allows to find a movie by request, save it in 
 - the user is shown a notification about a successful request to the server when saving the profile 
 - if the information entered on the profile editing page corresponds to the current user data, the "Save" button is disabled and it is not possible to send a save request 
 - the preloader is spinning while the movie request is being executed 
-
-- some interactive elements have animation 
+- some animation - burger on clock, search button on hover
 - when you try to go to a non-existent page, a redirect to the "404" page occurs 
 
 ## Technologies

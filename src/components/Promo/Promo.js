@@ -9,8 +9,14 @@ export const Promo = () => {
 
   return (
     <section className="promo">
-      <h2 className="promo__title">{t('text9')}</h2>
+      <div className="promo__title">
+      <div className="promo__title_front"><span>{t('text9')}</span></div>
+      <div className="promo__title_back"><span>{t('text9alt')}</span></div>
+      </div>
+      {/* <h2 className="promo__title">{t('text9')}</h2> */}
+      <div className="promo__image_wrapper">
       <img src={`${promoImage}`} alt="stylish rings" className="promo__image" />
+      </div>
     </section>
   );
 };

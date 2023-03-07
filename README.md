@@ -38,6 +38,9 @@ Movies Browser is a service, that allows to find a movie by request, save it in 
 - switch language 
 
 <img src="./src/images/language.jpg"></img>
+- return to homepage 
+
+<img src="./src/images/home_page.jpg"></img>
 - when you try to go to any protected route, a redirect to the main one occurs 
 - if the user was authorized and closed the tab, he can immediately return to any page of the application at the URL 
 - the user receives a message in case of any error 
@@ -48,7 +51,7 @@ Movies Browser is a service, that allows to find a movie by request, save it in 
 - the user is shown a notification about a successful request to the server when saving the profile 
 - if the information entered on the profile editing page corresponds to the current user data, the "Save" button is disabled and it is not possible to send a save request 
 - the preloader is spinning while the movie request is being executed 
-- some animation - burger on clock, search button on hover
+- some animation - burger on clock, search button on hover, title rotation
 - when you try to go to a non-existent page, a redirect to the "404" page occurs 
 
 ## Technologies

@@ -11,17 +11,7 @@ import * as moviesApi from "../../utils/MoviesApi";
 import * as SearchUtil from "../../utils/SearchUtil";
 import "./Movies.css";
 import { useTranslation } from "react-i18next";
-
-import {
-  windowWidthS,
-  windowWidthL,
-  additionalColsS,
-  additionalColsM,
-  additionalColsL,
-  totalCardsS,
-  totalCardsM,
-  totalCardsL,
- } from "../../utils/config";
+import { updWidth } from "../../utils/updateWidth";
 
 export const Movies = () => {
 
@@ -39,20 +29,10 @@ export const Movies = () => {
   const [savedMovies, setSavedMovies] = useState([]);
  
   const updateWidth = () => {
-    if (window.innerWidth<windowWidthS) {
-      setAdditional(additionalColsS);
-      setTotalNumber(totalCardsS)
-    }
-    if (window.innerWidth>windowWidthS && window.innerWidth<windowWidthL) {
-      setAdditional(additionalColsM);
-      setTotalNumber(totalCardsM)
-    }
-    if (window.innerWidth>windowWidthL) {
-      setAdditional(additionalColsL);
-      setTotalNumber(totalCardsL)
-    }
+      setAdditional(updWidth(window.innerWidth).additional);
+      setTotalNumber(updWidth(window.innerWidth).totalNumber);
   };
-
+ 
   useEffect(() => {   
   updateWidth();
 },[]);
@@ -87,14 +67,12 @@ const handleCardLike = useCallback(async (card) => {
   }
 
   function refreshSearchResult(movie,searchWord,isSwitched ){
-
     const searchResult = SearchUtil.Search(movie, searchWord.toLowerCase(),isSwitched);
     setCards(searchResult);
     if (searchResult.length==0) {
       setInfoTooltipPopupOpen(true);
       setTooltipMessage("Ничего не найдено");
     }
-
   }
 
    const  handleClick = useCallback(async (searchWord) => {

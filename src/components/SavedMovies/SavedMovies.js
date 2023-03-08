@@ -25,41 +25,14 @@ export const SavedMovies = () => {
       : ""
   );
   const [loading, setLoading] = useState(false);
-  const [additional, setAdditional] = useState(0);
-  const [totalNumber, setTotalNumber] = useState(0);
   // const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
   // const [tooltipMessage, setTooltipMessage] = useState("");
-
-  const updateWidth = () => {
-    if (window.innerWidth < 860) {
-      setAdditional(2);
-      setTotalNumber(5);
-    }
-    if (window.innerWidth > 860 && window.innerWidth < 1280) {
-      setAdditional(2);
-      setTotalNumber(8);
-    }
-    if (window.innerWidth > 1280) {
-      setAdditional(3);
-      setTotalNumber(12);
-    }
-  };
-
-  useEffect(() => {
-    updateWidth();
-  }, []);
 
   useEffect(() => {
     handleClick(searchKey);
   }, [isSwitched]);
 
-  useEffect(() => {
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);
-  });
-
   const handleClick = useCallback(async (searchWord) => {
-    updateWidth();
     try {
       const movies = await moviesApi.getSavedMovies();
       if (!movies) {

@@ -1,0 +1,199 @@
+@import "../../scss/_vars";
+
+.popup {
+  margin: 70px auto;
+  width: 396px;
+
+  @include respond(large) {
+    margin: 232px auto;
+    max-width: 80vw;
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+    margin: 56px auto;
+    text-align: center;
+   }
+  @include respond(xsmall) {
+
+   }
+}
+
+.popup__form {
+  height: 266px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+    margin: 0 auto;
+    text-align: left;
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+
+   }
+}
+
+.popup__logo {
+  margin-bottom: 35px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+    margin-bottom: 45px;
+   }
+  @include respond(xsmall) {
+
+   }
+}
+
+
+.popup__title {
+  margin: 0 auto 40px 0;
+  @include font_MLL;
+  font-weight: 500;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+    margin: 0 auto 80px auto;
+   }
+  @include respond(xsmall) {
+
+   }
+}
+
+.popup__buttons {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+
+.popup__buttons_signin{
+  margin-top: 195px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin: 155px auto 30px auto;
+   }
+}
+
+
+.popup__buttons_signup{
+  margin-top: 145px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin: 85px auto 30px auto;
+   }
+}
+
+.popup__buttonsComment {
+  margin-right: 6px;
+  margin-top: 0;
+  @include font_M;
+  color: #a0a0a0;
+}
+
+.popup__lowerLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.popup__smallButton {
+  text-decoration: none;
+  color: #2be080;
+ @include font_M;
+}
+
+.popup__title_profile {
+  text-align: center;
+  margin: 74px auto 0 auto;
+  @include font_SL;
+  font-weight: 500;
+
+  @include respond(large) {
+    margin-top: 200px;
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin-top: 35px;
+   }
+}
+
+.popup__form_profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 115px auto 205px auto;
+  width: 410px;
+
+  @include respond(large) {
+    margin: 80px auto 190px auto;
+    max-width: 80vw;
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin: 62px auto 355px auto;
+   }
+}
+
+.popup__buttons_profile {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin-top: 180px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin-bottom: 40px;
+   }
+}

@@ -62,6 +62,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
           background: "rgba(249, 249, 249, 1)",
           color: "black",
           height: "32px",
+          marginRight: "15px",
           borderRadius: "20px",
         };
       case "bigLightgrey":
@@ -120,7 +121,7 @@ export const Button = ({ name, color, isActive, onClick }) => {
             background: "rgba(92, 92, 92, 1)",
             color: "white",
             marginRight: "0",
-            width: "54px",
+            width: "auto",
             height: "26px",
             fontSize: "12px",
             marginBottom: "5px",

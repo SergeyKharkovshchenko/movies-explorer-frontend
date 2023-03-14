@@ -4,22 +4,23 @@
   padding: 110px 70px 0 70px;
   margin: 0 auto;
   max-width: 1140px;
-}
 
-@media (max-width: 1279px) {
-  .navTab {
+  @include respond(large) {
     padding: 90px 50px 0 50px;
     width: auto;
     max-width: 1180px;
-  }
-}
+   }
+  @include respond(medium) {
 
-@media (max-width: 320px) {
-  .navTab {
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
     padding: 90px 18px 0 18px;
     width: auto;
     max-width: 1040px;
-  }
+   }
 }
 
 .navTab__title {
@@ -28,10 +29,18 @@
   margin: 0 0 23px 0;
   height: 27px;
   width: 70vw;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    @include font_SML;
+   }
 }
 
-@media (max-width: 320px) {
-  .navTab__title {
-  @include font_SML;
-  }
-}

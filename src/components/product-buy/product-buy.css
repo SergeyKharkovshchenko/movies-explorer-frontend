@@ -1,33 +1,49 @@
 .product-buy__price {
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 11px;
-    line-height: 13px;
-    margin: 7.5px auto 7.5px 0;
-    color: #a0a0a0;
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  margin: 7.5px auto 7.5px 0;
+  color: #a0a0a0;
 }
 
-.product-buy{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+.product-buy {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.product-buy__button{
-    margin: 0 0 0 5px;
-    height: 38px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    overflow: hidden;
-    text-overflow: clip;
-    max-width: 280px;
-    width: max-content;
- 
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 18px;
+.product-buy__button {
+  margin: 0 0 0 5px;
+  height: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  overflow: hidden;
+  -o-text-overflow: clip;
+     text-overflow: clip;
+  max-width: 280px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-family: "Inter", "Times", "serif";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
 }

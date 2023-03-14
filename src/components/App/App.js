@@ -17,10 +17,10 @@ import { ProtectedRoutes } from "../ProtectedRoutes";
 import { ProtectedRoutesMain } from "../ProtectedRoutes copy";
 import * as mainApi from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import "./App.css";
 import { useTranslation } from "react-i18next";
 import { useLocalStorage } from "../../utils/use_localstorage";
 import i18n from "../../utils/i18n";
+import "./App.css";
 
 export const App = () => {
   const [loggedIn, setLoggedIn] = useState(false);

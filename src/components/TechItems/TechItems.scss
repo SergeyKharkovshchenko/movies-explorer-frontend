@@ -1,0 +1,38 @@
+@import "../../scss/_vars";
+
+.techitems__tech-wrapper {
+  display: inline-block;
+  height: 60px;
+  width: 90px;
+  background: #e8e8e8;
+  border-radius: 10px;
+  margin-right: 0;
+  margin-bottom: 10px;
+  vertical-align: middle;
+
+  @include respond(large) {
+    height: 57px;
+    width: 84px;
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin-top: 10px;
+  @include font_S;
+   }
+}
+
+.techitems__tech-wrapper:not(:last-child) {
+  margin-right: 10px;
+}
+
+.techitems__tech {
+  @include font_M;
+  text-align: center;
+  letter-spacing: -0.04em;
+  margin: 21px auto;
+}

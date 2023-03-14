@@ -15,9 +15,9 @@ export const Techs = () => {
       </p>
       <ul className="techs__tech-list">
         <TechItems subject={"HTML"} />
-        <TechItems subject={"CSS"} />
-        <TechItems subject={"JS"} />
-        <TechItems subject={"React"} />
+        <TechItems subject={"SASS"} />
+        <TechItems subject={"Redux"} />
+        <TechItems subject={"React.js"} />
         <TechItems subject={"Git"} />
         <TechItems subject={"Express.js"} />
         <TechItems subject={"mongoDB"} />

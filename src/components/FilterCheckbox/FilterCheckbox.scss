@@ -5,12 +5,19 @@
   margin-top: 23px;
   align-items: center;
   margin-bottom: 50px;
-}
 
-@media (max-width: 320px) {
-  .filterCheckbox {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
     margin-bottom: 70px;
-  }
+   }
 }
 
 .filterCheckbox__submit {

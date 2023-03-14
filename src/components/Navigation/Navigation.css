@@ -7,12 +7,6 @@
   z-index: 1;
   background: rgba(0, 0, 0, 0.3);
 }
-/* 
-.navigation__burger {
-  padding: 0;
-  margin: 0 25px 95px 365px;
-  width: 40px;
-} */
 
 .navigation {
   position: fixed;
@@ -25,8 +19,6 @@
   padding: 40px 0 90px 0;
   z-index: 2;
 }
-
-
 @media (max-width: 320px) {
   .navigation {
     width: 100vw;

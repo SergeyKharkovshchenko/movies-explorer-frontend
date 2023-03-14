@@ -1,0 +1,39 @@
+@import "../../scss/_vars";
+
+.portfolioLink__linkblock {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  text-decoration: none;
+  margin: 20px auto 19px 0;
+}
+
+
+.portfolioLink__subtitle {
+  @include font_MLL;
+  color: #000000;
+  margin: 0;
+  height: auto;
+  max-width: 880px;
+  text-decoration: none;
+  vertical-align: middle;
+  display: inline-block;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+    @include font_SML;
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+
+   }
+}
+
+.portfolioLink__arrow {
+  margin: auto 0;
+  object-fit: scale-down;
+}

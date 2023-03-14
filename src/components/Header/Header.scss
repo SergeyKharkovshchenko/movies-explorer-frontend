@@ -9,20 +9,20 @@
   background: $color_grey;
   max-width: 1140px;
   height: 74px;
-
   font-weight: 500;
-}
 
-@media (max-width: 768px) {
-  .header {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
     padding: 18px 30px;
-  }
-}
+   }
+  @include respond(small) {
 
-@media (max-width: 320px) {
-  .header {
+   }
+  @include respond(xsmall) {
     padding: 18px 14px;
-  }
+   }
 }
 
 .header__logo {
@@ -55,44 +55,56 @@
   width: auto;
 }
 
+@media (max-width: 350px) {
+  .header__lang {
+    margin: 0;
+  }
+}
+
 .header__nav {
   margin: 0;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-}
 
-@media (max-width: 550px) {
-  .header__nav {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
     flex-direction: column;
-  }
+   }
+  @include respond(xsmall) {
+
+   }
 }
 
-@media (max-width: 890px) {
+
+@media (max-width: $breakpoint-tablet) {
   .header__link_light {
     display: none;
   }
 }
 
+
 .header__burger {
   display: none;
-}
 
-@media (max-width: 890px) {
-  .header__burger {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
     display: block;
     margin-left: 5px;
-  }
-}
+   }
+  @include respond(small) {
 
-// @media (max-width: 500px) {
-//   .header__burger {
-//     margin: 0;
-//   }
-// }
+   }
+  @include respond(xsmall) {
 
-.header__cart {
-
+   }
 }
 
 .header__linkToMovies {

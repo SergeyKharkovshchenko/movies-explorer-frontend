@@ -4,7 +4,6 @@
   margin: 0 auto;
   max-width: 1140px;
 }
-
 @media (max-width: 320px) {
   .underline {
     margin: 1px auto;

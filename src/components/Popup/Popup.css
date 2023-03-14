@@ -2,80 +2,69 @@
   margin: 70px auto;
   width: 396px;
 }
-
 @media (max-width: 1279px) {
   .popup {
     margin: 232px auto;
     max-width: 80vw;
   }
 }
-
-@media (max-width: 415px) {
+@media (max-width: 440px) {
   .popup {
     margin: 56px auto;
     text-align: center;
   }
 }
-
 .popup__form {
   height: 266px;
 }
-
-@media (max-width: 415px) {
+@media (max-width: 768px) {
   .popup__form {
     margin: 0 auto;
-    /* width: 80%; */
     text-align: left;
   }
 }
-
 .popup__logo {
   margin-bottom: 35px;
 }
-
-@media (max-width: 415px) {
+@media (max-width: 440px) {
   .popup__logo {
     margin-bottom: 45px;
   }
 }
-
 .popup__title {
   margin: 0 auto 40px 0;
-
   font-family: "Inter", "Times", "serif";
   font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 36px;
+  letter-spacing: -0.04em;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
 }
-
-@media (max-width: 415px) {
+@media (max-width: 440px) {
   .popup__title {
     margin: 0 auto 80px auto;
   }
 }
-
 .popup__buttons {
   margin-bottom: 70px;
   text-align: center;
 }
 
-.popup__buttons_signin{
+.popup__buttons_signin {
   margin-top: 195px;
 }
-
 @media (max-width: 320px) {
-  .popup__buttons_signin{
+  .popup__buttons_signin {
     margin: 155px auto 30px auto;
   }
 }
 
-.popup__buttons_signup{
+.popup__buttons_signup {
   margin-top: 145px;
 }
-
 @media (max-width: 320px) {
-  .popup__buttons_signup{
+  .popup__buttons_signup {
     margin: 85px auto 30px auto;
   }
 }
@@ -83,53 +72,54 @@
 .popup__buttonsComment {
   margin-right: 6px;
   margin-top: 0;
-
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
+  line-height: 18px;
   color: #a0a0a0;
 }
 
 .popup__lowerLine {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 16px;
 }
 
 .popup__smallButton {
   text-decoration: none;
   color: #2be080;
-
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 17px;
-}
-
-.popup_profile {
+  line-height: 18px;
 }
 
 .popup__title_profile {
   text-align: center;
   margin: 74px auto 0 auto;
-
   font-family: "Inter", "Times", "serif";
   font-style: normal;
+  font-weight: 400;
+  font-size: 22px;
+  line-height: 27px;
+  letter-spacing: -0.04em;
   font-weight: 500;
-  font-size: 24px;
-  line-height: 29px;
 }
-
 @media (max-width: 1279px) {
   .popup__title_profile {
     margin-top: 200px;
   }
 }
-
 @media (max-width: 320px) {
   .popup__title_profile {
     margin-top: 35px;
@@ -137,20 +127,25 @@
 }
 
 .popup__form_profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 115px auto 205px auto;
   width: 410px;
 }
-
 @media (max-width: 1279px) {
   .popup__form_profile {
     margin: 80px auto 190px auto;
     max-width: 80vw;
   }
 }
-
 @media (max-width: 320px) {
   .popup__form_profile {
     margin: 62px auto 355px auto;
@@ -158,12 +153,16 @@
 }
 
 .popup__buttons_profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   text-align: center;
   margin-top: 180px;
 }
-
 @media (max-width: 320px) {
   .popup__buttons_profile {
     margin-bottom: 40px;

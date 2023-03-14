@@ -1,0 +1,27 @@
+@import "../../scss/_vars";
+
+.product-buy__price {
+    @include font_XS_bold;
+    margin: 7.5px auto 7.5px 0;
+    color: #a0a0a0;
+}
+
+.product-buy{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product-buy__button{
+    margin: 0 0 0 5px;
+    height: 38px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    overflow: hidden;
+    text-overflow: clip;
+    max-width: 280px;
+    width: max-content;
+ 
+    @include font_MML;
+}

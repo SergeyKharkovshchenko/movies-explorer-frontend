@@ -1,0 +1,50 @@
+@import "../../scss/_vars";
+
+.moviesCardList {
+  margin: 0 auto 50px auto;
+  width: calc(100vw - 100px);
+  margin: 0 50px 50px 50px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+    width: calc(100vw - 60px);
+    margin: 0 30px 50px 30px;
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    width: calc(100vw - 20px);
+    margin: 0 10px 20px 30px;
+   }
+}
+
+.moviesCardList__cards {
+  width: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 364px);
+  gap: 30px 24px;
+  justify-content: center;
+  overflow-y: hidden;
+
+  @include respond(large) {
+    grid-template-columns: repeat(2, 339px);
+    gap: 36px 30px;
+   }
+  @include respond(large_medium) {
+    grid-template-columns: repeat(1, 364px);
+   }
+  @include respond(small) {
+    grid-template-columns: repeat(1, 300px);
+    gap: 16px 0;
+   }
+  @include respond(xsmall) {
+
+   }
+}
+

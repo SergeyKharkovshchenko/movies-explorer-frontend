@@ -2,7 +2,29 @@ $color_grey: #5c5c5c;
 $color_green: rgba(43, 224, 128, 1);
 $color_light_grey: rgba(242, 242, 242, 1);
 $color_med_grey: #a0a0a0;
+$mediaMaxWidth1279: 1279px;
+$breakpoint-tablet: 768px;
+$mediaMaxWidth730: 730px;
+$mediaMaxWidth440: 440px;
+$mediaMaxWidth320: 320px;
 
+@mixin respond($breakpoint) {
+  @if($breakpoint == large)  {
+    @media (max-width: 1279px) { @content }
+  }
+  @if($breakpoint == large_medium)  {
+    @media (max-width: 860px) { @content }
+  }
+  @if($breakpoint == medium)  {
+    @media (max-width: 768px) { @content }
+  }
+  @if($breakpoint == small)  {
+    @media (max-width: 440px) { @content }
+  }
+  @if($breakpoint == xsmall)  {
+    @media (max-width: 320px) { @content }
+  }
+}
 
 @mixin font_XXXS {
     font-family: "Inter", "Times", "serif";
@@ -12,7 +34,6 @@ $color_med_grey: #a0a0a0;
     line-height: 10px;
   }
   
-
 @mixin font_XXS {
   font-family: "Inter", "Times", "serif";
   font-style: normal;
@@ -88,7 +109,7 @@ $color_med_grey: #a0a0a0;
 }
 
 @mixin font_SL {
-    font-family: "Inter";
+    font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
     font-size: 22px;
@@ -129,3 +150,4 @@ $color_med_grey: #a0a0a0;
   font-size: 140px;
   line-height: 169px;
 }
+

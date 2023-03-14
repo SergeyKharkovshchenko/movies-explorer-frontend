@@ -1,10 +1,18 @@
 .burger {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 40px;
   height: 40px;
   cursor: pointer;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   padding: 0;
   background-color: transparent;
@@ -17,20 +25,20 @@
   height: 3px;
   border-radius: 2px;
   background: black;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   padding: 0;
   z-index: 100;
 }
-
-.burger__dark{
-  background: white;
-}
-
-
 @media (max-width: 320px) {
   .burger_btn {
     width: 23px;
   }
+}
+
+.burger__dark {
+  background: white;
 }
 
 .burger_btn::after,
@@ -41,6 +49,8 @@
   height: 3px;
   border-radius: 2px;
   background: black;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
 }
 
@@ -55,26 +65,35 @@
     width: 23px;
   }
 }
-
 .burger_btn::before {
-  transform: translateY(-9px);
+  -webkit-transform: translateY(-9px);
+      -ms-transform: translateY(-9px);
+          transform: translateY(-9px);
 }
 
 .burger_btn::after {
-  transform: translateY(9px);
+  -webkit-transform: translateY(9px);
+      -ms-transform: translateY(9px);
+          transform: translateY(9px);
 }
 
 .burger.open .burger_btn {
-  transform: translateX(-50px);
+  -webkit-transform: translateX(-50px);
+      -ms-transform: translateX(-50px);
+          transform: translateX(-50px);
   background: transparent;
 }
 
 .burger.open .burger_btn::before {
-  transform: rotate(45deg) translate(35px, -35px);
+  -webkit-transform: rotate(45deg) translate(35px, -35px);
+      -ms-transform: rotate(45deg) translate(35px, -35px);
+          transform: rotate(45deg) translate(35px, -35px);
   background: black;
 }
 
 .burger.open .burger_btn::after {
-  transform: rotate(-45deg) translate(35px, 35px);
+  -webkit-transform: rotate(-45deg) translate(35px, 35px);
+      -ms-transform: rotate(-45deg) translate(35px, 35px);
+          transform: rotate(-45deg) translate(35px, 35px);
   background: black;
 }

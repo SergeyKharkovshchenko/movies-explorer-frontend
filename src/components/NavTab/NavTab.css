@@ -3,7 +3,6 @@
   margin: 0 auto;
   max-width: 1140px;
 }
-
 @media (max-width: 1279px) {
   .navTab {
     padding: 90px 50px 0 50px;
@@ -18,8 +17,9 @@
     max-width: 1040px;
   }
 }
+
 .navTab__title {
-  font-family: "Inter";
+  font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 22px;
@@ -30,7 +30,6 @@
   height: 27px;
   width: 70vw;
 }
-
 @media (max-width: 320px) {
   .navTab__title {
     font-family: "Inter";

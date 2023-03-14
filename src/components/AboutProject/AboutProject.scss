@@ -1,0 +1,42 @@
+@import "../../scss/_vars";
+
+.aboutProject {
+  margin: 70px auto 100px auto;
+  width: calc(100vw - 140px);
+  max-width: 1140px;
+
+  @include respond(large) {
+    padding: 0 50px;
+    width: calc(100vw - 100px);
+    max-width: 1180px;
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+    margin: 60px auto 60px auto;
+    padding: 0;
+   }
+  @include respond(xsmall) {
+    width: calc(100vw - 36px);
+   }
+}
+
+.aboutProject__description {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+    flex-direction: column;
+   }
+  @include respond(xsmall) {
+
+   }
+}

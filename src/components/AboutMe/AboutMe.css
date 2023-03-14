@@ -12,25 +12,26 @@
   margin: 66px auto 100px auto;
   max-width: 1140px;
 }
-
 @media (max-width: 1279px) {
   .aboutMe {
     margin: 66px 50px 85px 50px;
   }
 }
-@media (max-width: 730px) {
+@media (max-width: 768px) {
   .aboutMe {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
+    margin: 66px 50px 55px 50px;
   }
 }
 @media (max-width: 320px) {
   .aboutMe {
-    margin: 66px 14px 70px 14px;
+    margin: 66px 14px 60px 14px;
   }
 }
+
 .aboutMe__left {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -42,8 +43,7 @@
   max-width: 600px;
   margin-right: 50px;
 }
-
-@media (max-width: 730px) {
+@media (max-width: 768px) {
   .aboutMe__left {
     width: calc(96vw - 100px);
   }
@@ -54,6 +54,7 @@
     margin-right: auto;
   }
 }
+
 .aboutMe__title {
   margin: 0 0 18px 0;
   font-family: "Inter", "Times", "serif";
@@ -63,21 +64,9 @@
   line-height: 58px;
   letter-spacing: -0.04em;
 }
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .aboutMe__title {
     margin: 0 0 16px 0;
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 40px;
-    letter-spacing: -0.04em;
-  }
-}
-@media (max-width: 320px) {
-  .aboutMe__title {
-    margin: 30px 0 20px 0;
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
@@ -86,41 +75,43 @@
     letter-spacing: -0.04em;
   }
 }
-.aboutMe__subtitle {
-  margin: 0 0 26px 0;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 20px;
+@media (max-width: 320px) {
+  .aboutMe__title {
+    margin: 30px 0 20px 0;
+  }
 }
 
+.aboutMe__subtitle {
+  margin: 0 0 26px 0;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
 @media (max-width: 768px) {
   .aboutMe__subtitle {
     margin: 0 0 20px 0;
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
   }
 }
+
 .aboutMe__text {
-  margin: 0 0 100px 0;
+  margin: 0 0 80px 0;
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
-  line-height: 22px;
+  line-height: 18px;
 }
-
-@media (max-width: 800px) {
+@media (max-width: 768px) {
   .aboutMe__text {
-    margin: 0 0 87px 0;
+    margin: 0 0 40px 0;
     font-family: "Inter", "Times", "serif";
     font-style: normal;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 13px;
     line-height: 18px;
   }
 }
@@ -134,6 +125,7 @@
     line-height: 16px;
   }
 }
+
 .aboutMe__gitlink {
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
@@ -142,8 +134,8 @@
   font-family: "Inter", "Times", "serif";
   font-style: normal;
   font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  font-size: 11px;
+  line-height: 13px;
 }
 
 .aboutMe__foto {
@@ -153,16 +145,9 @@
   height: 327px;
   width: 270px;
 }
-
 @media (max-width: 768px) {
   .aboutMe__foto {
-    height: 307px;
-    width: 255px;
-  }
-}
-@media (max-width: 730px) {
-  .aboutMe__foto {
-    width: calc(96vw - 100px);
+    width: calc(96vw - 80px);
     height: auto;
   }
 }

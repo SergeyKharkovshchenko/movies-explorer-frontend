@@ -1,15 +1,21 @@
 .items-in-cart {
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: tomato;
-    border-radius: 15px;
-    font-size: 15px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    z-index: 1;
-    left: 15px;
-    top: -10px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: tomato;
+  border-radius: 15px;
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+  z-index: 1;
+  left: 15px;
+  top: -10px;
 }

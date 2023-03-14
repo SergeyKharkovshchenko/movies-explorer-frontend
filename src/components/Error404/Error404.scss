@@ -5,46 +5,61 @@
 }
 
 .error404__title {
-  margin: 246px auto 0 auto;
+  margin: 100px auto 0 auto;
   @include font_XXL;
-}
 
-@media (max-width: 1279px) {
-  .error404__title {
-    margin-top: 408px;
-  }
-}
+  @include respond(large) {
+    
+   }
+  @include respond(medium) {
 
-@media (max-width: 320px) {
-  .error404__title {
-    margin-top: 329px;
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
     margin-bottom: 10px;
     @include XL;
-  }
+   }
 }
 
 .error404__subtitle {
   margin-top: 0;
   text-align: center;
   @include font_M_bold;
-}
 
-@media (max-width: 320px) {
-  .error404__subtitle {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
     @include font_S;
-  }
+   }
 }
 
 .error404__return {
   margin-top: 184px;
   color: #2be080;
   @include font_M;
-}
 
-@media (max-width: 320px) {
-  .error404__return {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
     margin-top: 284px;
     margin-bottom: 30px;
     @include font_S;
-  }
+   }
 }
+

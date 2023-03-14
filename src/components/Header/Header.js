@@ -17,9 +17,7 @@ import { useTranslation } from "react-i18next";
 import { useLocalStorage } from "../../utils/use_localstorage";
 import i18n from "../../utils/i18n";
 
-export const Header = ({ mode, isLoggedIn
-  // , handleLanguageChange
-}) => {
+export const Header = ({ mode, isLoggedIn}) => {
   const mainStyle = {};
   const moviesStyle = {
     background: "rgba(255, 255, 255, 1)",

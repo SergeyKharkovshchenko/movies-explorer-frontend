@@ -10,12 +10,19 @@
   color: #a0a0a0;
   margin-bottom: 5px;
   margin-top: 3px;
-}
 
-@media (max-width: 415px) {
-  .input__label_type_popup {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
     margin-left: 0;
-  }
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+
+   }
 }
 
 .input__inputblock_type_popup {
@@ -38,14 +45,21 @@
   width: 410px;
   height: 25px;
   padding: 0;
-}
 
-@media (max-width: 440px) {
-  .input__input_type_profile {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
     width: auto;
     margin: 15px 30px 5px 30px;
     height: 16px;
-  }
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+
+   }
 }
 
 .input__label_type_profile {
@@ -65,7 +79,7 @@
 
 }
 
-@media (max-width: 420px) {
+@media (max-width: $mediaMaxWidth440) {
   .input__Name_type_profile,
   .input__Email_type_profile{
     width: auto;
@@ -76,13 +90,20 @@
   color: red;
   width: 30px;
   @include font_XXXS; 
-}
 
-@media (max-width: 440px) {
-  .input__error {
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
     width: 200px;
     margin-left: 30px;
-  }
+   }
+  @include respond(xsmall) {
+
+   }
 }
 
 .input__inputblock_type_profile {

@@ -1,9 +1,9 @@
 .movie-cover {
-    height: 170px;
-    width: 100%;
-    background-position: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-    background-size: contain;
-    background-repeat: no-repeat;
+  height: 170px;
+  width: 100%;
+  background-position: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }

@@ -6,14 +6,12 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  margin-bottom: 110px;
   width: 1140px;
   height: -webkit-fit-content;
   height: -moz-fit-content;
   height: fit-content;
   margin-bottom: 80px;
 }
-
 @media (max-width: 1279px) {
   .aboutProjectDetails {
     width: auto;
@@ -36,7 +34,6 @@
   line-height: 24px;
   letter-spacing: -0.04em;
 }
-
 @media (max-width: 1279px) {
   .aboutProjectDetails_title {
     width: calc((95vw - 115px) / 2);
@@ -54,6 +51,7 @@
     width: calc(100vw - 36px);
   }
 }
+
 .aboutProjectDetails_text {
   width: 550px;
   height: auto;
@@ -65,7 +63,6 @@
   font-size: 14px;
   line-height: 18px;
 }
-
 @media (max-width: 1279px) {
   .aboutProjectDetails_text {
     width: calc((95vw - 115px) / 2);

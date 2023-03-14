@@ -1,0 +1,47 @@
+@import "../../scss/_vars";
+
+
+.cart-menu {
+    position: absolute;
+    top: 50px;
+    left: -400px;
+    background-color: rgb(36, 37, 41);
+    width: 400px;
+    padding: 10px 20px;
+    z-index: 2;
+    border-radius: 15px;
+    color:rgba(255, 255, 255, 0.4);
+
+    @include respond(large) {
+  
+     }
+    @include respond(medium) {
+        left: -250px;
+        width: 350px;  
+     }
+    @include respond(small) {
+        left: -165px;
+        width: 230px;  
+     }
+    @include respond(xsmall) {
+        left: -130px;
+        width: 150px;  
+     }
+  }
+
+
+.cart-menu__arrange {
+    margin-top: 20px;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.cart-menu__total-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.cart-menu__movies-list{
+    width: auto;
+}

@@ -8,12 +8,12 @@
           align-items: center;
   margin-bottom: 50px;
 }
-
 @media (max-width: 320px) {
   .filterCheckbox {
     margin-bottom: 70px;
   }
 }
+
 .filterCheckbox__submit {
   margin-left: max(0px, (100vw - 1140px) / 2 - 70px);
   padding: 2px;

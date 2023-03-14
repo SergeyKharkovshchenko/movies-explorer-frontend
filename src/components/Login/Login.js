@@ -3,7 +3,6 @@ import { Popup } from "../Popup";
 import { signup, signin } from "../../utils/config";
 import { Navigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import "./Login.css";
 
 export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
 

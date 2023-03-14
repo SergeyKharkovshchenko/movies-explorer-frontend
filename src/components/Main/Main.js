@@ -7,7 +7,6 @@ import { AboutMe } from "../AboutMe";
 import { Portfolio } from "../Portfolio";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
-import "./Main.css";
 import { useTranslation } from "react-i18next";
 
 export const Main = ({ isLoggedIn, handleLanguageChange }) => {

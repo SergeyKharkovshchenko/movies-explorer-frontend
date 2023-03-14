@@ -1,0 +1,23 @@
+@import "../../scss/_vars";
+
+.underline {
+  height: 1px;
+  width: inherit;
+  margin: 0 auto;
+  max-width: 1140px;
+
+  @include respond(large) {
+
+   }
+  @include respond(medium) {
+
+   }
+  @include respond(small) {
+
+   }
+  @include respond(xsmall) {
+    margin: 1px auto;
+    max-width: 260px;
+   }
+}
+

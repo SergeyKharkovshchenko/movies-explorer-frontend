@@ -6,24 +6,17 @@
   justify-content: space-between;
   margin: 66px auto 100px auto;
   max-width: 1140px;
-}
 
-@media (max-width: 1279px) {
-  .aboutMe {
+  @include respond(large) {
     margin: 66px 50px 85px 50px;
-  }
-}
-
-@media (max-width: 730px) {
-  .aboutMe {
+   }
+  @include respond(medium) {
     flex-direction: column-reverse;
-  }
-}
-
-@media (max-width: 320px) {
-  .aboutMe {
-    margin: 66px 14px 70px 14px;
-  }
+    margin: 66px 50px 55px 50px;
+   }
+  @include respond(xsmall) {
+    margin: 66px 14px 60px 14px;
+   }
 }
 
 .aboutMe__left {
@@ -31,118 +24,62 @@
   flex-direction: column;
   max-width: 600px;
   margin-right: 50px;
-}
-
-@media (max-width: 730px) {
-  .aboutMe__left {
+  @include respond(medium) {
     width: calc(96vw - 100px);
-  }
-}
-
-@media (max-width: 320px) {
-  .aboutMe__left {
+   }
+  @include respond(xsmall) {
     width: calc(100vw - 28px);
     margin-right: auto;
-  }
+   }
 }
 
 .aboutMe__title {
   margin: 0 0 18px 0;
   @include font_L;
-}
-
-@media (max-width: 800px) {
-  .aboutMe__title {
+  @include respond(medium) {
     margin: 0 0 16px 0;
-
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 40px;
-    letter-spacing: -0.04em;
-  }
-}
-
-@media (max-width: 320px) {
-  .aboutMe__title {
+    @include font_MLL;
+   }
+  @include respond(xsmall) {
     margin: 30px 0 20px 0;
-
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 30px;
-    line-height: 36px;
-    letter-spacing: -0.04em;
-  }
+   }
 }
 
 .aboutMe__subtitle {
   margin: 0 0 26px 0;
-
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
+  @include font_SML;
   font-weight: 500;
-  font-size: 18px;
-  line-height: 20px;
-}
-
-@media (max-width: 768px) {
-  .aboutMe__subtitle {
+  @include respond(medium) {
     margin: 0 0 20px 0;
-
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 18px;
-  }
+   }
 }
 
 .aboutMe__text {
-  margin: 0 0 100px 0;
+  margin: 0 0 80px 0;
+  @include font_M;
 
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 22px;
-}
+  @include respond(large) {
 
-@media (max-width: 800px) {
-  .aboutMe__text {
-    margin: 0 0 87px 0;
-
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 12px;
-    line-height: 18px;
-  }
-}
-
-@media (max-width: 320px) {
-  .aboutMe__text {
+   }
+  @include respond(medium) {
     margin: 0 0 40px 0;
+    @include font_S;
+   }
+  @include respond(small) {
 
-    font-family: "Inter", "Times", "serif";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 11px;
-    line-height: 16px;
-  }
+   }
+  @include respond(xsmall) {
+    margin: 0 0 40px 0;
+    @include font_XS;
+   }
 }
+
 
 .aboutMe__gitlink {
   text-overflow: ellipsis;
   overflow: hidden;
-
   text-decoration: none;
-  font-family: "Inter", "Times", "serif";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17px;
+  @include font_XS_bold;
 }
 
 .aboutMe__foto {
@@ -150,25 +87,20 @@
   border-radius: 10px;
   height: 327px;
   width: 270px;
-}
 
-@media (max-width: 768px) {
-  .aboutMe__foto {
-    height: 307px;
-    width: 255px;
-  }
-}
+  @include respond(large) {
 
-@media (max-width: 730px) {
-  .aboutMe__foto {
-    width: calc(96vw - 100px);
+   }
+  @include respond(medium) {
+    width: calc(96vw - 80px);
     height: auto;
-  }
-}
+   }
+  @include respond(small) {
 
-@media (max-width: 320px) {
-  .aboutMe__foto {
+   }
+  @include respond(xsmall) {
     width: calc(100vw - 36px);
     height: 352px;
-  }
+   }
 }
+

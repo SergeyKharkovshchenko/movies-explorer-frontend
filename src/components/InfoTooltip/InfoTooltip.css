@@ -1,29 +1,30 @@
-  .tooltip__overlay{
-    display: none;
-    position: fixed;
-    backdrop-filter: blur(1px);
-    height: 100vh;
-    width: 100vw;
-    top: 0;
-    left: 0;
-    z-index: 1;
-  }
-  
-  .tooltip_opened {
-    display: block;
-  }
+.tooltip__overlay {
+  display: none;
+  position: fixed;
+  -webkit-backdrop-filter: blur(1px);
+          backdrop-filter: blur(1px);
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
 
-  .tooltip {
-    position: fixed;
-    top: 25%;
-    left: calc((100vw - 420px) / 2);
-    background: white;
-    height: 250px;
-    width: 420px;
-    z-index: 2;
-  }
+.tooltip_opened {
+  display: block;
+}
 
-  .tooltip__title{
-    margin-bottom: 100px;
-    max-width: 100vw;
-  }
+.tooltip {
+  position: fixed;
+  top: 25%;
+  left: calc((100vw - 420px) / 2);
+  background: white;
+  height: 250px;
+  width: 420px;
+  z-index: 2;
+}
+
+.tooltip__title {
+  margin-bottom: 100px;
+  max-width: 100vw;
+}

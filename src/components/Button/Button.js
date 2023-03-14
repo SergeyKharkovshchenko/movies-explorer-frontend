@@ -30,6 +30,15 @@ export const Button = ({ name, color, isActive, onClick }) => {
           color: "white",
           marginRight: "20px",
         };
+        case "smallGrey":
+          return {
+            background: "rgba(92, 92, 92, 1)",
+            color: "white",
+            marginRight: "0",
+            width: "76px",
+            marginRight: "5px",
+            marginBottom: "5px",
+          };
       case "bigGrey":
         return {
           background: "rgba(92, 92, 92, 1)",

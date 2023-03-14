@@ -13,6 +13,13 @@
     }
 }
 
+@media (max-width: 400px) {
+    .cart-block {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
 .cart-block__total-price {
     @include font_M;
     margin-left: 15px;

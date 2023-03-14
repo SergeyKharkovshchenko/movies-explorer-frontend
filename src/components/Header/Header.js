@@ -62,10 +62,10 @@ export const Header = ({ mode, isLoggedIn
       )
       }
       </div>
-      </div>
+      
       
 
-      {mode == "main" && !isLoggedIn ? (
+      {/* {mode == "main" && !isLoggedIn ? ( */}
         <div className="header__nav">
           <NavLink
             className={(navData) =>
@@ -73,16 +73,20 @@ export const Header = ({ mode, isLoggedIn
             }
             to={signup.link}
           >
-            <Button name={signup.name} color={"grey"} isActive={"true"} />
+            <Button name={signup.name} 
+            color={"smallGrey"} 
+            isActive={"true"} />
           </NavLink>
           <NavLink className="link" to={signin.link}>
             <Button name={signin.name} color={"green"} isActive={"true"} />
           </NavLink>
         </div>
-      ) : (
-        <>
-          <div className="header__nav">
-          
+      
+</div>
+<div className='header__right'>
+      {/* ) : ( */}
+        {/* <> */}
+          {/* <div className="header__nav"> */}      
             <NavLink
               className={(navData) =>
                 navData.isActive
@@ -95,7 +99,8 @@ export const Header = ({ mode, isLoggedIn
                 // name={movies.name}
                 name={t(`${movies.name}`)} 
                 isActive={"true"}
-                color={isLoggedIn ? "grey" : ""}
+                // color={isLoggedIn ? "grey" : ""}
+                color={mode == "white" ? "" : "bigGrey"}
               />
             </NavLink>
             <NavLink
@@ -109,7 +114,8 @@ export const Header = ({ mode, isLoggedIn
               <Button
                 name={t(`${savedMovies.name}`)}
                 isActive={"true"}
-                color={isLoggedIn ? "bigGrey" : ""}
+                // color={isLoggedIn ? "bigGrey" : ""}
+                color={mode == "white" ? "" : "bigGrey"}
               />
             </NavLink>
             <NavLink
@@ -127,20 +133,23 @@ export const Header = ({ mode, isLoggedIn
               />
             </NavLink>
 
-<div>
             <div className="header__cart">
             <CartBlock mode={mode}/>
             </div>
 
-
-          </div>
-          <div className="header__burger">
+            <div>
+          
+            <div className="header__burger">
             <Burger mode={mode}/>
           </div>
-</div>
+          
+          </div>
+
+</div>          
+{/* // </div> */}
         
-        </>
-      )}
+        {/* </> */}
+      {/* )} */}
     </section>
   );
 };

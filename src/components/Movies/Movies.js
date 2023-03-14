@@ -43,7 +43,7 @@ handleClick(searchKey);
 
   useEffect(() => {   
     window.addEventListener("resize", updateWidth);
-      return () => window.removeEventListener("resize", updateWidth);      
+    return () => window.removeEventListener("resize", updateWidth);      
   });
   
 const handleCardLike = useCallback(async (card) => {
@@ -76,10 +76,8 @@ const handleCardLike = useCallback(async (card) => {
   }
 
    const  handleClick = useCallback(async (searchWord) => {
-    updateWidth();
     try {
       setLoading(true);
-
       if (allMovies.length==0) {
         const movies = await moviesApi.getInitialMovies();
         if (!movies) {

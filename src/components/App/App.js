@@ -160,21 +160,21 @@ export const App = () => {
             <Route
               path="/"
               element={
-                <ProtectedRoutesMain isLoggedIn={loggedIn}>
+                // <ProtectedRoutesMain isLoggedIn={loggedIn}>
                   <Main 
                   isLoggedIn={loggedIn} 
                   handleLanguageChange={handleLanguageChange}
                   />
-                </ProtectedRoutesMain>
+                // </ProtectedRoutesMain>
               }
             />
 
             <Route
               path="/movies"
               element={
-                <ProtectedRoutes isLoggedIn={loggedIn}>
+                // <ProtectedRoutes isLoggedIn={loggedIn}>
                   <Movies />
-                </ProtectedRoutes>
+                // </ProtectedRoutes>
               }
             />
 
@@ -190,13 +190,13 @@ export const App = () => {
             <Route
               path="/profile"
               element={
-                <ProtectedRoutes isLoggedIn={loggedIn}>
+                // <ProtectedRoutes isLoggedIn={loggedIn}>
                   <Profile
                     logOut={cbLogout}
                     changeProfile={cbChangeProfile}
                     isLoading={isLoading}
                   />
-                </ProtectedRoutes>
+                // </ProtectedRoutes>
               }
             />
 
@@ -229,9 +229,9 @@ export const App = () => {
             <Route
               path="/menu"
               element={
-                <ProtectedRoutes isLoggedIn={loggedIn}>
+                // <ProtectedRoutes isLoggedIn={loggedIn}>
                   <Menu320 />
-                </ProtectedRoutes>
+                // </ProtectedRoutes>
               }
             />
 

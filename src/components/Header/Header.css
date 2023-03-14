@@ -48,6 +48,22 @@
           justify-content: space-between;
 }
 
+.header__right {
+  background-color: transparent;
+  height: 38px;
+  border: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
 .header__lang {
   font-family: "Inter", "Times", "serif";
   font-style: normal;
@@ -55,7 +71,7 @@
   font-size: 20px;
   line-height: 24px;
   letter-spacing: -0.04em;
-  margin: 0 0 0 10px;
+  margin: 0 10px;
   background-color: transparent;
   width: auto;
 }
@@ -74,7 +90,15 @@
           justify-content: space-between;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 550px) {
+  .header__nav {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+@media (max-width: 890px) {
   .header__link_light {
     display: none;
   }
@@ -83,15 +107,26 @@
   display: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 890px) {
   .header__burger {
     display: block;
+    margin-left: 25px;
+  }
+}
+@media (max-width: 500px) {
+  .header__burger {
+    margin: 0;
   }
 }
 .header__cart {
   margin: 2px 0 10px 25px;
 }
 
+@media (max-width: 450px) {
+  .header__cart {
+    margin: 0;
+  }
+}
 .header__linkToMovies {
   font-family: "Inter", "Times", "serif";
   font-style: normal;

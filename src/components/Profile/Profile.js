@@ -43,7 +43,7 @@ export const Profile = ({ logOut, changeProfile, isLoading }) => {
     // <CurrentUserContext.Provider value={currentUser}>
     <section className="profile">
       <header>
-        <Header mode={"white"} />
+        <Header mode={"white"} isLoggedIn={isLoggedIn}/>
       </header>
       <main>
         <Popup

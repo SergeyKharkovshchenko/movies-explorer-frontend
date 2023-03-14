@@ -10,6 +10,27 @@
     color:rgba(255, 255, 255, 0.4)
 }
 
+@media (max-width: 620px) {
+    .cart-menu {
+        left: -250px;
+        width: 350px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .cart-menu {
+        left: -200px;
+        width: 70vw;
+    }
+  }
+
+  @media (max-width: 320px) {
+    .cart-menu {
+        left: -100px;
+        width: 60vw;
+    }
+  }
+
 .cart-menu__arrange {
     margin-top: 20px;
     padding: 20px 0;

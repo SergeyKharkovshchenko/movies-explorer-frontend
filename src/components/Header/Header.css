@@ -110,21 +110,7 @@
 @media (max-width: 890px) {
   .header__burger {
     display: block;
-    margin-left: 25px;
-  }
-}
-@media (max-width: 500px) {
-  .header__burger {
-    margin: 0;
-  }
-}
-.header__cart {
-  margin: 2px 0 10px 25px;
-}
-
-@media (max-width: 450px) {
-  .header__cart {
-    margin: 0;
+    margin-left: 5px;
   }
 }
 .header__linkToMovies {

@@ -7,8 +7,7 @@ import "./InfoTooltip.css";
 export const InfoTooltip = ({ isOpen, message, onClick }) => {
 
   const { t } = useTranslation();
-  const [open, setOpen] = useState({ isOpen });
-
+  
   function cbClick() {
     onClick();
   }
@@ -16,7 +15,7 @@ export const InfoTooltip = ({ isOpen, message, onClick }) => {
   return (
     <section
       className={`${
-        open ? "tooltip__overlay tooltip_opened" : "tooltip__overlay"
+        isOpen ? "tooltip__overlay tooltip_opened" : "tooltip__overlay"
       }`}
       onClick={cbClick}
     >

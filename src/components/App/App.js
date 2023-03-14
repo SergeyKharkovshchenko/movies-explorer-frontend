@@ -17,7 +17,6 @@ import { ProtectedRoutes } from "../ProtectedRoutes";
 import { ProtectedRoutesMain } from "../ProtectedRoutes copy";
 import * as mainApi from "../../utils/MainApi";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-import { Menu320 } from "../Menu320";
 import "./App.css";
 import { useTranslation } from "react-i18next";
 import { useLocalStorage } from "../../utils/use_localstorage";
@@ -172,9 +171,7 @@ export const App = () => {
             <Route
               path="/movies"
               element={
-                // <ProtectedRoutes isLoggedIn={loggedIn}>
-                  <Movies />
-                // </ProtectedRoutes>
+                  <Movies isLoggedIn={loggedIn}/>
               }
             />
 
@@ -182,7 +179,7 @@ export const App = () => {
               path="/saved-movies"
               element={
                 <ProtectedRoutes isLoggedIn={loggedIn}>
-                  <SavedMovies />
+                  <SavedMovies isLoggedIn={loggedIn}/>
                 </ProtectedRoutes>
               }
             />
@@ -190,13 +187,13 @@ export const App = () => {
             <Route
               path="/profile"
               element={
-                // <ProtectedRoutes isLoggedIn={loggedIn}>
+                <ProtectedRoutes isLoggedIn={loggedIn}>
                   <Profile
                     logOut={cbLogout}
                     changeProfile={cbChangeProfile}
                     isLoading={isLoading}
                   />
-                // </ProtectedRoutes>
+                </ProtectedRoutes>
               }
             />
 
@@ -226,16 +223,7 @@ export const App = () => {
               }
             />
 
-            <Route
-              path="/menu"
-              element={
-                // <ProtectedRoutes isLoggedIn={loggedIn}>
-                  <Menu320 />
-                // </ProtectedRoutes>
-              }
-            />
-
-            <Route path="*" element={<Error404 />} />
+          <Route path="*" element={<Error404 />} />
           </Routes>
 
           {isInfoTooltipPopupOpen && (

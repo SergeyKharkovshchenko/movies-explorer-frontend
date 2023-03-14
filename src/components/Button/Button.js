@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import "./Button.css";
 
 export const Button = ({ name, color, isActive, onClick }) => {
-
   const { t } = useTranslation();
 
   function styleChoice(param) {
@@ -14,6 +13,8 @@ export const Button = ({ name, color, isActive, onClick }) => {
           background: "rgba(43, 224, 128, 1)",
           color: "black",
           width: "76px",
+          marginRight: "5px",
+          marginBottom: "5px",
         };
       case "bigGreen":
         return {
@@ -30,15 +31,18 @@ export const Button = ({ name, color, isActive, onClick }) => {
           color: "white",
           marginRight: "20px",
         };
-        case "smallGrey":
-          return {
-            background: "rgba(92, 92, 92, 1)",
-            color: "white",
-            marginRight: "0",
-            width: "76px",
-            marginRight: "5px",
-            marginBottom: "5px",
-          };
+      case "smallGrey":
+        return {
+          background: "rgba(92, 92, 92, 1)",
+          color: "white",
+          marginRight: "0",
+          width: "auto",
+          // marginRight: "10px",
+          // marginLeft: "10px",
+          // marginBottom: "5px",
+          paddingLeft: "13px",
+          paddingRight: "13px"
+        };
       case "bigGrey":
         return {
           background: "rgba(92, 92, 92, 1)",
@@ -111,6 +115,16 @@ export const Button = ({ name, color, isActive, onClick }) => {
           height: "26px",
           fontSize: "10px",
         };
+        case "smallGrey":
+          return {
+            background: "rgba(92, 92, 92, 1)",
+            color: "white",
+            marginRight: "0",
+            width: "54px",
+            height: "26px",
+            fontSize: "12px",
+            marginBottom: "5px",
+          };
       case "red":
         return {
           color: "red",

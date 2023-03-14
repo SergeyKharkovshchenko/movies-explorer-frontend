@@ -26,7 +26,7 @@ export const Burger = ({ isClosed, mode }) => {
     <>
       <div
         className={isOpen == true ? "burger open" : "burger" }
-        onClick={useMediaQuery({ minWidth: 321 }) ? handleClickL : handleClickS}
+        onClick={useMediaQuery({ minWidth: 20 }) ? handleClickL : handleClickS}
       >
         <div className={mode == "white" ? "burger_btn" : "burger_btn burger__dark"}></div>
         {isInNavigation && <Navigation />}

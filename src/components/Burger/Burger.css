@@ -9,6 +9,7 @@
   padding: 0;
   background-color: transparent;
   margin-right: 0;
+  z-index: 100;
 }
 
 .burger_btn {
@@ -18,6 +19,7 @@
   background: black;
   transition: all 0.5s ease-in-out;
   padding: 0;
+  z-index: 100;
 }
 
 .burger__dark{

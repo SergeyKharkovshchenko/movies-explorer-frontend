@@ -9,7 +9,7 @@
     justify-content: center;
     align-items: center;
     color: white;
-    z-index: 2;
+    z-index: 1;
     left: 15px;
     top: -10px;
 }

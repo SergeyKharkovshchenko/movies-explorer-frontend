@@ -7,21 +7,28 @@
   z-index: 1;
   background: rgba(0, 0, 0, 0.3);
 }
-
+/* 
 .navigation__burger {
   padding: 0;
   margin: 0 25px 95px 365px;
   width: 40px;
-}
+} */
 
 .navigation {
   position: fixed;
   height: 100vh;
-  width: 340px;
+  width: 320px;
   top: 0;
   right: 0;
   color: black;
   background-color: white;
-  padding: 15px 90px 90px 90px;
+  padding: 40px 0 90px 0;
   z-index: 2;
+}
+
+
+@media (max-width: 320px) {
+  .navigation {
+    width: 100vw;
+  }
 }

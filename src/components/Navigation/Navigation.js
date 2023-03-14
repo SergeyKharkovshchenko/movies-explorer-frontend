@@ -18,9 +18,6 @@ export const Navigation = () => {
           className={!isOpen ? "navigation" : "navigation menu__closed"}
           onClick={handleClick}
         >
-          <div className="navigation__burger">
-            <Burger />
-          </div>
           <ShortMenu width320={false} />
         </div>
       </div>

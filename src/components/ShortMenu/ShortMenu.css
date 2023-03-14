@@ -6,20 +6,13 @@
   position: absolute;
   height: calc(100vh - 195px);
   max-width: 340px;
-  width: calc(100vw - 20px);
+  /* width: calc(100vw - 20px); */
+  width: 100vw;
   display: flex;
   flex-direction: column;
   align-content: center;
   margin: 0;
-
   justify-content: space-between;
-}
-
-@media (max-width: 320px) {
-  .shortmenu__content {
-    position: absolute;
-    right: 0;
-  }
 }
 
 .shortmenu__menu {

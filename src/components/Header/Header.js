@@ -54,7 +54,7 @@ export const Header = ({ mode, isLoggedIn
       <div className='header__lang'>
       {mode == "main" ? (
         <Button name={language === 'ru' ? t('english'):t('russian')} 
-        color={"bigGrey"} isActive={"true"} onClick={handleLanguageChange} />
+        color={"smallGrey"} isActive={"true"} onClick={handleLanguageChange} />
 
       ):(
         <Button name={language === 'ru' ? t('english'):t('russian')} 
@@ -63,10 +63,11 @@ export const Header = ({ mode, isLoggedIn
       }
       </div>
       
+      { !isLoggedIn && <div className="header__nav">
       
-
-      {/* {mode == "main" && !isLoggedIn ? ( */}
-        <div className="header__nav">
+          <NavLink className="link" to={signin.link}>
+            <Button name={signin.name} color={"green"} isActive={"true"} />
+          </NavLink>
           <NavLink
             className={(navData) =>
               navData.isActive ? "header__active header__link" : "header__link"
@@ -77,16 +78,11 @@ export const Header = ({ mode, isLoggedIn
             color={"smallGrey"} 
             isActive={"true"} />
           </NavLink>
-          <NavLink className="link" to={signin.link}>
-            <Button name={signin.name} color={"green"} isActive={"true"} />
-          </NavLink>
         </div>
+      }
       
 </div>
 <div className='header__right'>
-      {/* ) : ( */}
-        {/* <> */}
-          {/* <div className="header__nav"> */}      
             <NavLink
               className={(navData) =>
                 navData.isActive
@@ -96,10 +92,8 @@ export const Header = ({ mode, isLoggedIn
               to={movies.link}
             >
               <Button
-                // name={movies.name}
                 name={t(`${movies.name}`)} 
                 isActive={"true"}
-                // color={isLoggedIn ? "grey" : ""}
                 color={mode == "white" ? "" : "bigGrey"}
               />
             </NavLink>
@@ -114,11 +108,10 @@ export const Header = ({ mode, isLoggedIn
               <Button
                 name={t(`${savedMovies.name}`)}
                 isActive={"true"}
-                // color={isLoggedIn ? "bigGrey" : ""}
                 color={mode == "white" ? "" : "bigGrey"}
               />
             </NavLink>
-            <NavLink
+            { isLoggedIn && <NavLink
               className={(navData) =>
                 navData.isActive
                   ? "header__active header__link header__link_light"
@@ -132,7 +125,7 @@ export const Header = ({ mode, isLoggedIn
                 color={"lightgrey"}
               />
             </NavLink>
-
+            }
             <div className="header__cart">
             <CartBlock mode={mode}/>
             </div>
@@ -144,12 +137,7 @@ export const Header = ({ mode, isLoggedIn
           </div>
           
           </div>
-
 </div>          
-{/* // </div> */}
-        
-        {/* </> */}
-      {/* )} */}
     </section>
   );
 };

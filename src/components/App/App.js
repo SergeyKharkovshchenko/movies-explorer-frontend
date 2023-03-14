@@ -148,8 +148,6 @@ export const App = () => {
     return <Preloader />;
   }
 
-
-
   return (
     <CurrentUserContext.Provider value={currentUser}>
        <Provider store={store}>
@@ -192,6 +190,7 @@ export const App = () => {
                     logOut={cbLogout}
                     changeProfile={cbChangeProfile}
                     isLoading={isLoading}
+                    isLoggedIn={loggedIn}
                   />
                 </ProtectedRoutes>
               }

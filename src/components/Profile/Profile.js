@@ -5,7 +5,7 @@ import { Popup } from "../Popup";
 import { Preloader } from "../Preloader";
 import { useTranslation } from "react-i18next";
 
-export const Profile = ({ logOut, changeProfile, isLoading }) => {
+export const Profile = ({ isLoggedIn, logOut, changeProfile, isLoading }) => {
 
   const { t } = useTranslation();
 

@@ -1,16 +1,18 @@
-import React, { useContext, useCallback, useState } from "react";
-import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import React, { useCallback, useState } from "react";
+import { useSelector } from "react-redux";
 import { Header } from "../Header";
 import { Popup } from "../Popup";
 import { Preloader } from "../Preloader";
 import { useTranslation } from "react-i18next";
 
-export const Profile = ({ isLoggedIn, logOut, changeProfile, isLoading }) => {
-
+export const Profile = ({ logOut, changeProfile, isLoading }) => {
   const { t } = useTranslation();
 
+  //достаем из ридакса юзера
+  // идем в глобальный стейт, идем в наш редьюсер user и там забираем currentUser
+  const currentUser = useSelector((state) => state.user.currentUser);
+
   const [loading, setLoading] = useState(false);
-  const currentUser = useContext(CurrentUserContext);
 
   const [userData, setUserData] = React.useState({
     name: currentUser.name,
@@ -40,15 +42,14 @@ export const Profile = ({ isLoggedIn, logOut, changeProfile, isLoading }) => {
   }
 
   return (
-    // <CurrentUserContext.Provider value={currentUser}>
     <section className="profile">
       <header>
-        <Header mode={"white"} isLoggedIn={isLoggedIn}/>
+        <Header mode={"white"} />
       </header>
       <main>
         <Popup
           mode={"profile"}
-          greeting={t('Hi') + ", " + userData.name}
+          greeting={t("Hi") + ", " + userData.name}
           name={`${userData.name}`}
           email={`${userData.email}`}
           greenButton={"Edit"}
@@ -62,6 +63,5 @@ export const Profile = ({ isLoggedIn, logOut, changeProfile, isLoading }) => {
         />
       </main>
     </section>
-    //  </CurrentUserContext.Provider>
   );
 };

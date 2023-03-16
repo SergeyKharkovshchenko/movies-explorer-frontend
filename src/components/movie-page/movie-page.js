@@ -15,7 +15,7 @@ export const MoviePage = () => {
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'en');
 
-//достаем из ридакса эту игру
+//достаем из ридакса этот фильм
 // идем в глобальный стейт, идем в наш редьюсер movie и там забираем current movie
   const movie = useSelector(state => state.movies.currentMovie);
 

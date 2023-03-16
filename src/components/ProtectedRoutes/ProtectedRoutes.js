@@ -1,12 +1,13 @@
 import React, {useState} from "react";
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import {InfoTooltip} from "../InfoTooltip";
 import { useTranslation } from "react-i18next";
 
-export const ProtectedRoutes = ({ isLoggedIn, children }) => {
-
+export const ProtectedRoutes = ({ children }) => {
+  const currentUser = useSelector((state) => state.user.currentUser);
   const { t } = useTranslation();
-  const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(!isLoggedIn)
+  const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(!currentUser)
   const [nav, setNav] = useState(false)
 
   const closeTooltip = () => {
@@ -14,7 +15,7 @@ export const ProtectedRoutes = ({ isLoggedIn, children }) => {
     setNav(true)
   };
 
-  if (isLoggedIn) {
+  if (currentUser) {
      return children;
   }
 

@@ -1,14 +1,17 @@
 import React, { useCallback, useState } from "react";
-import { Popup } from "../Popup";
-import { signin, signup } from "../../utils/config";
+import { useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { signin, signup } from "../../utils/config";
+import { Popup } from "../Popup";
 
-export const Register = ({ isLoggedIn, onRegister, isLoading }) => {
+
+export const Register = ({ onRegister, isLoading }) => {
   const [formData, setFormData] = useState({
     password: "",
     email: "",
     message: "",
   });
+  const currentUser = useSelector((state) => state.user.currentUser);
 
   const cbChange = useCallback(
     (event) => {
@@ -28,7 +31,7 @@ export const Register = ({ isLoggedIn, onRegister, isLoading }) => {
     [onRegister, formData]
   );
 
-  if (isLoggedIn) {
+  if (currentUser) {
     return <Navigate to="/movies" />;
   }
 

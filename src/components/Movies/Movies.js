@@ -13,7 +13,7 @@ import "./Movies.css";
 import { useTranslation } from "react-i18next";
 import { updWidth } from "../../utils/updateWidth";
 
-export const Movies = ({isLoggedIn}) => {
+export const Movies = () => {
 
   const { t } = useTranslation();
 
@@ -128,7 +128,7 @@ const handleCardLike = useCallback(async (card) => {
   return (
     <section className="movies">
       <header>
-        <Header mode={"white"} isLoggedIn={isLoggedIn}/>
+        <Header mode={"white"} />
       </header>
       <main>
         <SearchForm

@@ -9,7 +9,7 @@ import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { useTranslation } from "react-i18next";
 
-export const Main = ({ isLoggedIn, handleLanguageChange }) => {
+export const Main = ({ handleLanguageChange }) => {
 
   const { t } = useTranslation();
 
@@ -18,7 +18,6 @@ export const Main = ({ isLoggedIn, handleLanguageChange }) => {
       <header>
         <Header 
         mode={"main"} 
-        isLoggedIn={isLoggedIn} 
         handleLanguageChange={handleLanguageChange}  
         />
       </header>

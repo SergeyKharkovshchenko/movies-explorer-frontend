@@ -9,7 +9,7 @@ import * as moviesApi from "../../utils/MoviesApi";
 import * as SearchUtil from "../../utils/SearchUtil";
 import "./SavedMovies.css";
 
-export const SavedMovies = ( {isLoggedIn}) => {
+export const SavedMovies = ( ) => {
   const [cards, setCards] = useState(
     JSON.parse(localStorage.getItem("searchResultSaved"))
       ? JSON.parse(localStorage.getItem("searchResultSaved"))
@@ -87,7 +87,7 @@ export const SavedMovies = ( {isLoggedIn}) => {
   return (
     <section className="movies">
       <header>
-        <Header mode={"white"} isLoggedIn={isLoggedIn}/>
+        <Header mode={"white"} />
       </header>
       <main>
         <SearchForm

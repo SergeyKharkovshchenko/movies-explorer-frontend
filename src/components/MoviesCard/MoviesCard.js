@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { ProductBuy } from '../product-buy'
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { setCurrentMovie } from "../../redux/movies/reducer";
+import { setCurrentMovie } from "../../store/movies/reducer";
 import "./MoviesCard.css";
 
 export const MoviesCard = ({

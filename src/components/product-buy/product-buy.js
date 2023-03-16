@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../button2";
 import { useTranslation } from "react-i18next";
-import { setItemInCart, deleteItemFromCart } from '../../redux/cart/reducer'
+import { setItemInCart, deleteItemFromCart } from '../../store/cart/reducer'
 import "./product-buy.css";
 
 // передаем целую игру, тк она дальше пойдет в корзину

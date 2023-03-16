@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
+import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 import { Popup } from "../Popup";
 import { signup, signin } from "../../utils/config";
-import { Navigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 
-export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
-
+export const Login = ({ onLogin, isLoading }) => {
   const { t } = useTranslation();
-
+  const currentUser = useSelector((state) => state.user.currentUser);
   const [userData, setUserData] = useState({
     password: "",
     email: "",
@@ -36,7 +36,7 @@ export const Login = ({ isLoggedIn, onLogin, isLoading }) => {
     [userData, onLogin]
   );
 
-  if (isLoggedIn) {
+  if (currentUser) {
     return <Navigate to="/movies" />;
   }
 

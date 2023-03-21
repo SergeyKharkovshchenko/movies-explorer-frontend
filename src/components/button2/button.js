@@ -1,5 +1,5 @@
 import React from 'react';
-// либа classNames помогает стилизовтаь кнопку
+// library ClassNames help to stylise a button
 import classNames from 'classnames'
 import './button.css';
 
@@ -9,8 +9,8 @@ export const Button = ({
     children, 
     size = 's' }) => {
 
-// с помощью либы classNames ого принимает обьект с классами
-// комп Button переиспользуемый, поэтому так удобно
+// we use library ClassNames that receives object with classes
+// this component is resuable
         const btnClass = classNames({
             'btn':true,
             'btn--secondary': type === 'secondary',

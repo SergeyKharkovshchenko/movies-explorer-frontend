@@ -1,46 +1,46 @@
 import React from "react";
-// импортим реакт-редаксовый хук useDispatch
+// we import react-redux hook useDispatch
 import { useDispatch, useSelector } from "react-redux";
 import { Button } from "../button2";
 import { useTranslation } from "react-i18next";
 import { setItemInCart, deleteItemFromCart } from '../../store/cart/reducer'
 import "./product-buy.css";
 
-// передаем целую игру, тк она дальше пойдет в корзину
+// we give whole movie, as it will go to cart next
 export const ProductBuy = ({ movie }) => {
   if (!movie.id) movie.id=movie.movieId;
   const { t } = useTranslation();
 
-  //чтобы использовать хук делаем переменную
+// to use hook we create a variable
 const dispatch = useDispatch();
   
 const handleClick = (e) => {
-// отменяем всплытие клика
+// stop click propagation
   e.stopPropagation();
-// передаем экшен в редьюсер (диспатч экшена)
+// we transfer(dispatch) action to reducer
   if (isItemInCart) {
-// диспатчим экшен делит
+// we transfer(dispatch) delete action
     dispatch(deleteItemFromCart(movie.id));  
   } else {
-// при нажатии на кнопку передаем экшен добавления в корзину (вызываем экшен)
-// в пейлоад передаем игру
-// и там игра добавится в массив через push 
+// after button was clicked we dipatch action of adding to cart
+// we put movie into payload
+// and there we add movie into array using push
     dispatch(setItemInCart(movie));
   }  
 }
 
-// юзселектором загрузили стейт
+// we load state using useSelector
 const items = useSelector (state => state.cart.itemsInCart)
-// проверка есть ли фильм из пропса movie в корзине
+// checking if movie from props is in cart
 const isItemInCart = items.some(item => item.id === movie.id)
 
  return (
     <div className="product-buy">
-{/* если игра есть в корз, то в комп Button передадим secondary итам поменяется стиль */}
+{/* if movie is in cart, then we transfer 'secondary' styke to Button */}
           <div className="product-buy__button">
           <Button 
             type={isItemInCart ? "secondary" : "primary" }
-/* в комп Button передадим обработку онклик */
+/* we put click handler into Button */
             onClick={handleClick}
           >
          {isItemInCart ? t('Remove from cart') : t('Add to cart')}            

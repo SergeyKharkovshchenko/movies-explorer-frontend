@@ -1,166 +1,164 @@
-import React from "react";
-import { useMediaQuery } from "react-responsive";
-import { useTranslation } from "react-i18next";
-import "./Button.css";
+import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+import { useTranslation } from 'react-i18next';
+import './Button.css';
 
-export const Button = ({ name, color, isActive, onClick }) => {
+export default function Button({ name, color, isActive, onClick }) {
   const { t } = useTranslation();
 
   function styleChoice(param) {
+    const newLocal = 'bigGrey';
     switch (param) {
-      case "green":
+      case 'green':
         return {
-          background: "rgba(43, 224, 128, 1)",
-          color: "black",
-          width: "76px",
-          marginRight: "5px",
-          marginBottom: "5px",
+          background: 'rgba(43, 224, 128, 1)',
+          color: 'black',
+          width: '76px',
+          marginRight: '5px',
+          marginBottom: '5px',
         };
-      case "bigGreen":
+      case 'bigGreen':
         return {
-          background: "rgba(43, 224, 128, 1)",
-          color: "white",
-          maxWidth: "396px",
-          width: "100%",
-          height: "45px",
-          margin: "0",
+          background: 'rgba(43, 224, 128, 1)',
+          color: 'white',
+          maxWidth: '396px',
+          width: '100%',
+          height: '45px',
+          margin: '0',
         };
-      case "grey":
+      case 'grey':
         return {
-          background: "rgba(92, 92, 92, 1)",
-          color: "white",
-          marginRight: "20px",
+          background: 'rgba(92, 92, 92, 1)',
+          color: 'white',
+          marginRight: '20px',
         };
-      case "smallGrey":
+      case 'smallGrey':
         return {
-          background: "rgba(92, 92, 92, 1)",
-          color: "white",
-          marginRight: "0",
-          width: "auto",
-          // marginRight: "10px",
-          // marginLeft: "10px",
-          // marginBottom: "5px",
-          paddingLeft: "13px",
-          paddingRight: "13px"
+          background: 'rgba(92, 92, 92, 1)',
+          color: 'white',
+          marginRight: '0',
+          width: 'auto',
+          paddingLeft: '13px',
+          paddingRight: '13px',
         };
-      case "bigGrey":
+      case newLocal:
         return {
-          background: "rgba(92, 92, 92, 1)",
-          color: "white",
-          marginRight: "20px",
-          width: "auto",
+          background: 'rgba(92, 92, 92, 1)',
+          color: 'white',
+          marginRight: '20px',
+          width: 'auto',
         };
-      case "red":
+      case 'red':
         return {
-          color: "red",
-          margin: "0 auto",
-          width: "auto",
-          background: "white",
+          color: 'red',
+          margin: '0 auto',
+          width: 'auto',
+          background: 'white',
         };
-      case "lightgrey":
+      case 'lightgrey':
         return {
-          background: "rgba(249, 249, 249, 1)",
-          color: "black",
-          height: "32px",
-          marginRight: "15px",
-          borderRadius: "20px",
+          background: 'rgba(249, 249, 249, 1)',
+          color: 'black',
+          height: '32px',
+          marginRight: '15px',
+          borderRadius: '20px',
         };
-      case "bigLightgrey":
+      case 'bigLightgrey':
         return {
-          background: "rgba(249, 249, 249, 1)",
-          color: "black",
-          width: "240px",
-          height: "36px",
-          borderRadius: "6px",
+          background: 'rgba(249, 249, 249, 1)',
+          color: 'black',
+          width: '240px',
+          height: '36px',
+          borderRadius: '6px',
         };
-      case "white":
+      case 'white':
         return {
-          background: "rgba(255, 255, 255, 1)",
-          color: "black",
-          width: "auto",
+          background: 'rgba(255, 255, 255, 1)',
+          color: 'black',
+          width: 'auto',
         };
 
       default:
         return {
-          background: "rgba(255, 255, 255, 1)",
-          color: "black",
-          width: "auto",
-          marginRight: "45px",
+          background: 'rgba(255, 255, 255, 1)',
+          color: 'black',
+          width: 'auto',
+          marginRight: '45px',
         };
     }
   }
 
   function styleChoiceSmall(param) {
     switch (param) {
-      case "green":
+      case 'green':
         return {
-          background: "rgba(43, 224, 128, 1)",
-          color: "black",
-          width: "54px",
-          height: "26px",
-          fontSize: "12px",
+          background: 'rgba(43, 224, 128, 1)',
+          color: 'black',
+          width: '54px',
+          height: '26px',
+          fontSize: '12px',
         };
-      case "bigGreen":
+      case 'bigGreen':
         return {
-          background: "rgba(43, 224, 128, 1)",
-          color: "white",
-          width: "100%",
-          height: "45px",
-          marginLeft: "0",
+          background: 'rgba(43, 224, 128, 1)',
+          color: 'white',
+          width: '100%',
+          height: '45px',
+          marginLeft: '0',
         };
-      case "grey":
+      case 'grey':
         return {
-          background: "rgba(92, 92, 92, 1)",
-          color: "white",
-          marginRight: "0",
-          height: "26px",
-          fontSize: "10px",
+          background: 'rgba(92, 92, 92, 1)',
+          color: 'white',
+          marginRight: '0',
+          height: '26px',
+          fontSize: '10px',
         };
-        case "smallGrey":
+        case 'smallGrey':
           return {
-            background: "rgba(92, 92, 92, 1)",
-            color: "white",
-            marginRight: "0",
-            width: "auto",
-            height: "26px",
-            fontSize: "12px",
-            marginBottom: "5px",
+            background: 'rgba(92, 92, 92, 1)',
+            color: 'white',
+            marginRight: '0',
+            width: 'auto',
+            height: '26px',
+            fontSize: '12px',
+            marginBottom: '5px',
           };
-      case "red":
+      case 'red':
         return {
-          color: "red",
-          margin: "0 auto",
-          width: "auto",
-          background: "white",
+          color: 'red',
+          margin: '0 auto',
+          width: 'auto',
+          background: 'white',
         };
-      case "lightgrey":
+      case 'lightgrey':
         return {
-          background: "rgba(249, 249, 249, 1)",
-          color: "black",
-          height: "32px",
-          borderRadius: "20px",
+          background: 'rgba(249, 249, 249, 1)',
+          color: 'black',
+          height: '32px',
+          borderRadius: '20px',
         };
-      case "bigLightgrey":
+      case 'bigLightgrey':
         return {
-          background: "rgba(249, 249, 249, 1)",
-          color: "black",
-          width: "calc(100vw - 20px)",
-          height: "36px",
-          borderRadius: "6px",
+          background: 'rgba(249, 249, 249, 1)',
+          color: 'black',
+          width: 'calc(100vw - 20px)',
+          height: '36px',
+          borderRadius: '6px',
         };
-      case "white":
+      case 'white':
         return {
-          background: "rgba(255, 255, 255, 1)",
-          color: "black",
-          width: "auto",
+          background: 'rgba(255, 255, 255, 1)',
+          color: 'black',
+          width: 'auto',
         };
 
       default:
         return {
-          background: "rgba(255, 255, 255, 1)",
-          color: "black",
-          width: "auto",
-          marginRight: "45px",
+          background: 'rgba(255, 255, 255, 1)',
+          color: 'black',
+          width: 'auto',
+          marginRight: '45px',
         };
     }
   }
@@ -180,4 +178,4 @@ export const Button = ({ name, color, isActive, onClick }) => {
       {t(name)}
     </button>
   );
-};
+}

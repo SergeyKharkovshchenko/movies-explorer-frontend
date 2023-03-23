@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./ShortMenu.css";
-import { Button } from "../Button";
+import Button from "../Button";
 import { useTranslation } from "react-i18next";
 import { main, profile, movies, savedMovies } from "../../utils/config";
 

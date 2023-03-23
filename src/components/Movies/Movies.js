@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { SearchForm } from "../SearchForm";
 import { MoviesCardList } from "../MoviesCardList";
 import { Preloader } from "../Preloader";
-import { Button } from "../Button";
+import Button from "../Button";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import { InfoTooltip } from "../InfoTooltip";

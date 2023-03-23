@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useMediaQuery } from "react-responsive";
-import { Navigation } from "../Navigation";
-import "./Burger.css";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useMediaQuery } from 'react-responsive';
+import { Navigation } from '../Navigation';
+import './Burger.css';
 
-export const Burger = ({ isClosed, mode }) => {
+export default Burger = function ({ isClosed, mode }) {
   const [isOpen, setIsOpen] = useState(isClosed);
   const [isInNavigation, setIsInNavigation] = useState(false);
 

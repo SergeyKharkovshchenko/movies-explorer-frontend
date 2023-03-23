@@ -1,16 +1,13 @@
-import React from "react";
+import { useTranslation } from 'react-i18next';
+import SKFotoImage from '../../images/SKFoto.jpg';
 import './AboutMe.css';
-import SKFotoImage from "../../images/SKFoto.jpg";
-import { useTranslation } from "react-i18next";
 
-export const AboutMe = () => {
-
+function AboutMe() {
   const { t } = useTranslation();
-  
   return (
     <section className="aboutMe">
       <div className="aboutMe__left">
-        <h2 className="aboutMe__title" data-testid='aboutMe__title'>{t('Sergey')}</h2>
+        <h2 className="aboutMe__title" data-testid="aboutMe__title">{t('Sergey')}</h2>
         <h3 className="aboutMe__subtitle">{t('Web-developer')}</h3>
         <p className="aboutMe__text">
           {t('I was born im Moscow')}
@@ -29,4 +26,6 @@ export const AboutMe = () => {
       </div>
     </section>
   );
-};
+}
+
+export default AboutMe;

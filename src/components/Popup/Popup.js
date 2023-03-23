@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
 import logoImage from "../../images/logo__COLOR_main-1.svg";
-import { Button } from "../Button";
+import Button from "../Button";
 import { Link, NavLink } from "react-router-dom";
 import { Input } from "../Input";
 import { main } from "../../utils/config";

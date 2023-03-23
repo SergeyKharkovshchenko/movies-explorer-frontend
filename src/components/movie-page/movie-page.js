@@ -5,7 +5,7 @@ import { Header } from "../Header";
 import { MovieCover } from "../movie-cover";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button } from "../Button";
+import Button from "../Button";
 import { useLocalStorage } from "../../utils/use_localstorage";
 import "./movie-page.css";
 

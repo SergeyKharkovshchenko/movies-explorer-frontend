@@ -3,7 +3,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-import { Button } from "../Button";
+import Button from "../Button";
 import { Burger } from "../Burger";
 import { CartBlock } from "../cart-block";
 import { useLocalStorage } from "../../utils/use_localstorage";

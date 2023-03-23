@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { ItemsInCart } from "../items-in-cart";
 import { OrderItem } from "../order-item";
-import { Button } from "../Button";
+import Button from "../Button";
 import { Header } from "../Header";
 import { calcTotalPrice, enumerate } from "../../utils/utils";
 import { useTranslation } from "react-i18next";

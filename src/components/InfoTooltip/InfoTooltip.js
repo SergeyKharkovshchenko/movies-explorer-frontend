@@ -1,6 +1,6 @@
 import { useState } from "react";
 import logoImage from "../../images/logo__COLOR_main-1.svg";
-import { Button } from "../Button";
+import Button from "../Button";
 import { useTranslation } from 'react-i18next'
 import "./InfoTooltip.css";
 

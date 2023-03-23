@@ -1,16 +1,16 @@
-import { render, fireEvent } from "@testing-library/react";
-import { AboutMe } from "./AboutMe.js";
-import "@testing-library/jest-dom";
+import { render } from '@testing-library/react';
+import { AboutMe } from './AboutMe';
+import '@testing-library/jest-dom';
 
-describe("AboutMe", () => {
+describe('AboutMe', () => {
   const { getByTestId } = render(<AboutMe />);
-  const aboutMe__title = getByTestId("aboutMe__title");
+  const aboutMe__title = getByTestId('aboutMe__title');
 
-  test("aboutMe__title test to exist", () => {
+  test('aboutMe__title test to exist', () => {
     expect(aboutMe__title).toBeInTheDocument();
   });
 
-  test("aboutMe__title test to have correct name", () => {
-    expect(aboutMe__title.textContent).toEqual("Sergey");
+  test('aboutMe__title test to have correct name', () => {
+    expect(aboutMe__title.textContent).toEqual('Sergey');
   });
 });

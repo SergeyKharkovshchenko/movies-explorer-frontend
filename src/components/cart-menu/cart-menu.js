@@ -1,25 +1,24 @@
 // import { getTimeMeasureUtils } from "@reduxjs/toolkit/dist/utils";
-import React from "react";
-import { useSelector } from "react-redux";
-import { Button } from "../button2";
-import { CartItem } from "../cart-item";
-import { calcTotalPrice } from "../../utils/utils";
-import { useTranslation } from "react-i18next";
-import { useLocalStorage } from "../../utils/use_localstorage";
-import "./cart-menu.css";
+import React from 'react';
+import { useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
+import { Button } from '../button2';
+import { CartItem } from '../cart-item';
+import { calcTotalPrice } from '../../utils/utils';
+import { useLocalStorage } from '../../utils/use_localstorage';
+import './cart-menu.css';
 
 export const CartMenu = ({ items, onClick }) => {
-
   const { t } = useTranslation();
   const [language, setLanguage] = useLocalStorage('language', 'en');
 
   return (
     <div className="cart-menu">
       <div className="cart-menu__movies-list">
-        {items.length > 0 ? items.map((movie) => <CartItem  
-        key={movie.title} 
-        price ={movie.duration} 
-        title={language == 'ru' ? movie.nameEN : movie.nameRU} 
+        {items.length > 0 ? items.map((movie) => <CartItem
+        key={movie.title}
+        price ={movie.duration}
+        title={language == 'ru' ? movie.nameEN : movie.nameRU}
         id={movie.id}/>) : t('Cart is empty')}
       </div>
       {items.length > 0 ? (
@@ -36,4 +35,3 @@ export const CartMenu = ({ items, onClick }) => {
     </div>
   );
 };
-

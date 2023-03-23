@@ -1,21 +1,20 @@
-const text1 = "Creating this example has included 5 stages";
-const text2 =
-  "Building a plan, working on backend, layout, adding functionality and finishing.";
-const text3 = "Working on it took 4 weeks";
-const text4 = "Every stage ahd soft and hard deadlines.";
-const text5 = "1 week";
-const text6 = "3 weeks";
-const text7 = "Back-end";
-const text8 = "Front-end";
+const text1 = 'Creating this example has included 5 stages';
+const text2 = 'Building a plan, working on backend, layout, adding functionality and finishing.';
+const text3 = 'Working on it took 4 weeks';
+const text4 = 'Every stage ahd soft and hard deadlines.';
+const text5 = '1 week';
+const text6 = '3 weeks';
+const text7 = 'Back-end';
+const text8 = 'Front-end';
 
-const main = { name: "Main", link: "/", id: 1 };
-const signup = { name: "Sign up", link: "/signup", id: 2 };
-const signin = { name: "Sign in", link: "/signin", id: 3 };
-const profile = { name: "Account", link: "/profile", id: 4 };
-const movies = { name: "Movies", link: "/movies", id: 5 };
+const main = { name: 'Main', link: '/', id: 1 };
+const signup = { name: 'Sign up', link: '/signup', id: 2 };
+const signin = { name: 'Sign in', link: '/signin', id: 3 };
+const profile = { name: 'Account', link: '/profile', id: 4 };
+const movies = { name: 'Movies', link: '/movies', id: 5 };
 const savedMovies = {
-  name: "Saved movies",
-  link: "/saved-movies",
+  name: 'Saved movies',
+  link: '/saved-movies',
   id: 6,
 };
 
@@ -30,10 +29,9 @@ const totalCardsL = 12;
 
 const shortsDuration = 40;
 
-const baseUrlMoviesApi = "https://api.nomoreparties.co/beatfilm-movies";
-const baseUrlMyApi = "https://fierce-cap-worm.cyclic.app";
-const baseUrlMyFrontend = "https://movies-explorer-frontend-ivory.vercel.app";
-
+const baseUrlMoviesApi = 'https://api.nomoreparties.co/beatfilm-movies';
+const baseUrlMyApi = 'https://fierce-cap-worm.cyclic.app';
+const baseUrlMyFrontend = 'https://movies-explorer-frontend-ivory.vercel.app';
 
 module.exports = {
   text1,

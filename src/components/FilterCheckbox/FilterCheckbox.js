@@ -1,9 +1,8 @@
-import React from "react";
-import "./FilterCheckbox.css";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import './FilterCheckbox.css';
+import { useTranslation } from 'react-i18next';
 
 export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
-
   const { t } = useTranslation();
 
   function handleSwitch(e) {
@@ -21,8 +20,8 @@ export const FilterCheckbox = ({ isSwitched, handleSwitcher }) => {
         <div
           className={
             isSwitched == true
-              ? "filterCheckbox__submitCircleOn filterCheckbox__submitCircle"
-              : "filterCheckbox__submitCircle"
+              ? 'filterCheckbox__submitCircleOn filterCheckbox__submitCircle'
+              : 'filterCheckbox__submitCircle'
           }
         ></div>
       </button>

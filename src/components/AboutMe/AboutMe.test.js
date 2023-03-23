@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import { render } from '@testing-library/react';
 import { AboutMe } from './AboutMe';
 import '@testing-library/jest-dom';

@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import SKFotoImage from '../../images/SKFoto.jpg';
 import './AboutMe.css';
 
-function AboutMe() {
+export function AboutMe() {
   const { t } = useTranslation();
   return (
     <section className="aboutMe">
@@ -27,5 +27,3 @@ function AboutMe() {
     </section>
   );
 }
-
-export default AboutMe;

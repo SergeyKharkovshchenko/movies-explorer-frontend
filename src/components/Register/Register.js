@@ -1,15 +1,14 @@
-import React, { useCallback, useState } from "react";
-import { useSelector } from "react-redux";
-import { Navigate } from "react-router-dom";
-import { signin, signup } from "../../utils/config";
-import { Popup } from "../Popup";
-
+import React, { useCallback, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
+import { signin, signup } from '../../utils/config';
+import { Popup } from '../Popup';
 
 export const Register = ({ onRegister, isLoading }) => {
   const [formData, setFormData] = useState({
-    password: "",
-    email: "",
-    message: "",
+    password: '',
+    email: '',
+    message: '',
   });
   const currentUser = useSelector((state) => state.user.currentUser);
 
@@ -21,14 +20,14 @@ export const Register = ({ onRegister, isLoading }) => {
         [name]: value,
       });
     },
-    [formData]
+    [formData],
   );
 
   const cbSubmit = useCallback(
     (event) => {
       onRegister(formData.Name, formData.Email, formData.Password);
     },
-    [onRegister, formData]
+    [onRegister, formData],
   );
 
   if (currentUser) {
@@ -38,11 +37,11 @@ export const Register = ({ onRegister, isLoading }) => {
   return (
     <section className="register">
       <Popup
-        mode={"signup"}
-        greeting={"Welcome!"}
+        mode={'signup'}
+        greeting={'Welcome!'}
         greenButton={signup.name}
         smallButton={signin.name}
-        buttonsText={"Signed up?"}
+        buttonsText={'Signed up?'}
         linkTo={signin.link}
         onSubmit={(e) => cbSubmit(e)}
         onChange={(e) => cbChange(e)}

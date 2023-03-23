@@ -1,9 +1,11 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import "./ShortMenu.css";
-import Button from "../Button";
-import { useTranslation } from "react-i18next";
-import { main, profile, movies, savedMovies } from "../../utils/config";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import './ShortMenu.css';
+import { useTranslation } from 'react-i18next';
+import { Button } from '../Button';
+import {
+  main, profile, movies, savedMovies,
+} from '../../utils/config';
 
 export const ShortMenu = ({ width320 }) => {
   const items = [main, movies, savedMovies];
@@ -24,10 +26,10 @@ export const ShortMenu = ({ width320 }) => {
         <Link
           to={profile.link}
           className={
-            width320 ? "shortmenu__footer_short" : "shortmenu__footer_long"
+            width320 ? 'shortmenu__footer_short' : 'shortmenu__footer_long'
           }
         >
-          <Button name={profile.name} color={"lightgrey"} isActive="true" />
+          <Button name={profile.name} color={'lightgrey'} isActive="true" />
         </Link>
       </nav>
     </section>

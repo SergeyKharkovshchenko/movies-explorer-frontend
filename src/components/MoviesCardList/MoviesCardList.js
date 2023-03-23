@@ -1,6 +1,6 @@
-import React from "react";
-import { MoviesCard } from "../MoviesCard";
-import "./MoviesCardList.css";
+import React from 'react';
+import { MoviesCard } from '../MoviesCard';
+import './MoviesCardList.css';
 
 export const MoviesCardList = ({
   cards,
@@ -8,8 +8,7 @@ export const MoviesCardList = ({
   onCardLike,
   mode,
   onCardDelete,
-}) => {
-  return (
+}) => (
     <section className="moviesCardList">
       <ul className="moviesCardList__cards">
         {cards.map((card) => (
@@ -28,5 +27,4 @@ export const MoviesCardList = ({
         ))}
       </ul>
     </section>
-  );
-};
+);

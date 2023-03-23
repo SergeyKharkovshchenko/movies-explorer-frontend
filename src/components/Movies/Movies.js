@@ -1,109 +1,107 @@
-import React, { useEffect, useState, useCallback } from "react";
-import { SearchForm } from "../SearchForm";
-import { MoviesCardList } from "../MoviesCardList";
-import { Preloader } from "../Preloader";
-import Button from "../Button";
-import { Header } from "../Header";
-import { Footer } from "../Footer";
-import { InfoTooltip } from "../InfoTooltip";
-import { logOut } from "../../utils/MainApi";
-import * as moviesApi from "../../utils/MoviesApi";
-import * as SearchUtil from "../../utils/SearchUtil";
-import "./Movies.css";
-import { useTranslation } from "react-i18next";
-import { updWidth } from "../../utils/updateWidth";
+import { useTranslation } from 'react-i18next';
+import React, { useEffect, useState, useCallback } from 'react';
+import { SearchForm } from '../SearchForm';
+import { MoviesCardList } from '../MoviesCardList';
+import { Preloader } from '../Preloader';
+import { Button } from '../Button';
+import { Header } from '../Header';
+import { Footer } from '../Footer';
+import { InfoTooltip } from '../InfoTooltip';
+import { logOut } from '../../utils/MainApi';
+import * as moviesApi from '../../utils/MoviesApi';
+import * as SearchUtil from '../../utils/SearchUtil';
+import { updWidth } from '../../utils/updateWidth';
+import './Movies.css';
 
 export const Movies = () => {
-
   const { t } = useTranslation();
 
-  const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResult'))?JSON.parse(localStorage.getItem('searchResult')):[]);
+  const [cards, setCards] = useState(JSON.parse(localStorage.getItem('searchResult')) ? JSON.parse(localStorage.getItem('searchResult')) : []);
   const [allMovies, setAllMovies] = useState([]);
   const [isSwitched, setIsSwitched] = useState(JSON.parse(localStorage.getItem('isSwitched')));
-  const [searchKey , setSearchKey ] = useState(localStorage.getItem('searchKey')?localStorage.getItem('searchKey'):'');
+  const [searchKey, setSearchKey] = useState(localStorage.getItem('searchKey') ? localStorage.getItem('searchKey') : '');
   const [loading, setLoading] = useState(false);
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
-  const [tooltipMessage, setTooltipMessage] = useState("");
+  const [tooltipMessage, setTooltipMessage] = useState('');
   const [additional, setAdditional] = useState(0);
   const [totalNumber, setTotalNumber] = useState(0);
   const [savedMovies, setSavedMovies] = useState([]);
- 
+
   const updateWidth = () => {
-      setAdditional(updWidth(window.innerWidth).additional);
-      setTotalNumber(updWidth(window.innerWidth).totalNumber);
+    setAdditional(updWidth(window.innerWidth).additional);
+    setTotalNumber(updWidth(window.innerWidth).totalNumber);
   };
- 
-  useEffect(() => {   
-  updateWidth();
-},[]);
 
-useEffect(() => {   
-handleClick(searchKey);
-},[isSwitched]);
+  useEffect(() => {
+    updateWidth();
+  }, []);
 
-  useEffect(() => {   
-    window.addEventListener("resize", updateWidth);
-    return () => window.removeEventListener("resize", updateWidth);      
+  useEffect(() => {
+    handleClick(searchKey);
+  }, [isSwitched]);
+
+  useEffect(() => {
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
   });
-  
-const handleCardLike = useCallback(async (card) => {
-  try {
+
+  const handleCardLike = useCallback(async (card) => {
+    try {
       const res = await moviesApi.handleLike(card);
-      card._id=res._id;
+      card._id = res._id;
       if (!res) {
-        throw new Error("Error");
+        throw new Error('Error');
       }
       const saved = await moviesApi.getSavedMovies();
       JSON.stringify(saved);
-      setSavedMovies(saved)
+      setSavedMovies(saved);
     } catch (error) {
-      console.log(`Error: ${error}`)
+      console.log(`Error: ${error}`);
       if (error.status == 401) logOut();
     }
-});
+  });
 
   function handleMore() {
-      setTotalNumber((totalNumber) => totalNumber + additional);
+    setTotalNumber((totalNumber) => totalNumber + additional);
   }
 
-  function refreshSearchResult(movie,searchWord,isSwitched ){
-    const searchResult = SearchUtil.Search(movie, searchWord.toLowerCase(),isSwitched);
+  function refreshSearchResult(movie, searchWord, isSwitched) {
+    const searchResult = SearchUtil.Search(movie, searchWord.toLowerCase(), isSwitched);
     setCards(searchResult);
-    if (searchResult.length==0) {
+    if (searchResult.length == 0) {
       setInfoTooltipPopupOpen(true);
-      setTooltipMessage("Ничего не найдено");
+      setTooltipMessage('Ничего не найдено');
     }
   }
 
-   const  handleClick = useCallback(async (searchWord) => {
+  const handleClick = useCallback(async (searchWord) => {
     try {
       setLoading(true);
-      if (allMovies.length==0) {
+      if (allMovies.length == 0) {
         const movies = await moviesApi.getInitialMovies();
         if (!movies) {
-          throw new Error("Error");
+          throw new Error('Error');
         }
         JSON.stringify(movies);
         setAllMovies(movies);
-        refreshSearchResult(movies, searchWord,isSwitched)
+        refreshSearchResult(movies, searchWord, isSwitched);
       } else {
-        refreshSearchResult(allMovies, searchWord, isSwitched)
+        refreshSearchResult(allMovies, searchWord, isSwitched);
       }
       const saved = await moviesApi.getSavedMovies();
-      setSavedMovies(saved)  
-    localStorage.setItem('searchKey', searchWord.toLowerCase());
-    setSearchKey(searchWord.toLowerCase());
-    localStorage.setItem('isSwitched', JSON.stringify(isSwitched));
-    localStorage.setItem('searchResult', JSON.stringify(cards));
-    } catch (error) {console.log(`Ошибка: ${error}`)}
-         finally {
+      setSavedMovies(saved);
+      localStorage.setItem('searchKey', searchWord.toLowerCase());
+      setSearchKey(searchWord.toLowerCase());
+      localStorage.setItem('isSwitched', JSON.stringify(isSwitched));
+      localStorage.setItem('searchResult', JSON.stringify(cards));
+    } catch (error) { console.log(`Ошибка: ${error}`); } finally {
       setLoading(false);
     }
   });
 
   const closeTooltip = () => {
     setInfoTooltipPopupOpen(!isInfoTooltipPopupOpen);
-  }
+  };
 
   function handleSwitcher() {
     setIsSwitched(!isSwitched);
@@ -111,14 +109,14 @@ const handleCardLike = useCallback(async (card) => {
 
   const handleCardRemove = useCallback(async (_id) => {
     try {
-        const res = await moviesApi.removeFromSavedMovies(_id);
-        if (!res) {
-          throw new Error("Error");
-        }
-        const saved = await moviesApi.getSavedMovies();
-        JSON.stringify(saved);
-        setSavedMovies(saved)
-      } catch (error) {console.log(`Error: ${error}`)}
+      const res = await moviesApi.removeFromSavedMovies(_id);
+      if (!res) {
+        throw new Error('Error');
+      }
+      const saved = await moviesApi.getSavedMovies();
+      JSON.stringify(saved);
+      setSavedMovies(saved);
+    } catch (error) { console.log(`Error: ${error}`); }
   });
 
   if (loading) {
@@ -128,16 +126,16 @@ const handleCardLike = useCallback(async (card) => {
   return (
     <section className="movies">
       <header>
-        <Header mode={"white"} />
+        <Header mode={'white'} />
       </header>
       <main>
         <SearchForm
-          clickHandler={(e)=>handleClick(e.target.inp.value)}
+          clickHandler={(e) => handleClick(e.target.inp.value)}
           switcherHandler={handleSwitcher}
           isSwitched={isSwitched}
           search={searchKey}
         />
-        {(cards.length!=0)&&<MoviesCardList
+        {(cards.length != 0) && <MoviesCardList
           cards={cards.slice(0, totalNumber)}
           onCardLike={handleCardLike}
           onCardDelete={handleCardRemove}
@@ -145,16 +143,15 @@ const handleCardLike = useCallback(async (card) => {
           mode='all'
         />
         }
-        {(cards.length>totalNumber)
-        &&
-        <div className="movies__morebutton" >
-          <Button color={"bigLightgrey"} onClick={handleMore} name={t('More')} isActive={true}/>
+        {(cards.length > totalNumber)
+        && <div className="movies__morebutton" >
+          <Button color={'bigLightgrey'} onClick={handleMore} name={t('More')} isActive={true}/>
         </div>}
       </main>
       <footer>
         <Footer />
       </footer>
-      {isInfoTooltipPopupOpen&&<InfoTooltip
+      {isInfoTooltipPopupOpen && <InfoTooltip
           isOpen={isInfoTooltipPopupOpen}
           message={tooltipMessage}
           onClick={closeTooltip}

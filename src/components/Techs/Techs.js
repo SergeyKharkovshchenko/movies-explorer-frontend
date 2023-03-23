@@ -1,10 +1,9 @@
-import React from "react";
-import "./Techs.css";
-import { TechItems } from "../TechItems";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import './Techs.css';
+import { useTranslation } from 'react-i18next';
+import { TechItems } from '../TechItems';
 
 export const Techs = () => {
-
   const { t } = useTranslation();
 
   return (
@@ -14,13 +13,13 @@ export const Techs = () => {
       {t('On Web development')}
       </p>
       <ul className="techs__tech-list">
-        <TechItems subject={"HTML"} />
-        <TechItems subject={"SASS"} />
-        <TechItems subject={"Redux"} />
-        <TechItems subject={"React.js"} />
-        <TechItems subject={"Git"} />
-        <TechItems subject={"Express.js"} />
-        <TechItems subject={"mongoDB"} />
+        <TechItems subject={'HTML'} />
+        <TechItems subject={'SASS'} />
+        <TechItems subject={'Redux'} />
+        <TechItems subject={'React.js'} />
+        <TechItems subject={'Git'} />
+        <TechItems subject={'Express.js'} />
+        <TechItems subject={'mongoDB'} />
       </ul>
     </section>
   );

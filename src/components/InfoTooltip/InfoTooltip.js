@@ -1,13 +1,12 @@
-import { useState } from "react";
-import logoImage from "../../images/logo__COLOR_main-1.svg";
-import Button from "../Button";
-import { useTranslation } from 'react-i18next'
-import "./InfoTooltip.css";
+import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
+import logoImage from '../../images/logo__COLOR_main-1.svg';
+import { Button } from '../Button';
+import './InfoTooltip.css';
 
 export const InfoTooltip = ({ isOpen, message, onClick }) => {
-
   const { t } = useTranslation();
-  
+
   function cbClick() {
     onClick();
   }
@@ -15,7 +14,7 @@ export const InfoTooltip = ({ isOpen, message, onClick }) => {
   return (
     <section
       className={`${
-        isOpen ? "tooltip__overlay tooltip_opened" : "tooltip__overlay"
+        isOpen ? 'tooltip__overlay tooltip_opened' : 'tooltip__overlay'
       }`}
       onClick={cbClick}
     >
@@ -25,11 +24,11 @@ export const InfoTooltip = ({ isOpen, message, onClick }) => {
           alt="Logo - green donut"
           className="popup__logo"
         />
-        <h2 className={"popup__title tooltip__title"}>{t(message)}</h2>
+        <h2 className={'popup__title tooltip__title'}>{t(message)}</h2>
         <Button
-          name={"OK"}
+          name={'OK'}
           onClick={cbClick}
-          color={"bigGreen"}
+          color={'bigGreen'}
           isActive={true}
         />
       </div>

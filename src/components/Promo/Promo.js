@@ -1,10 +1,9 @@
-import React from "react";
-import promoImage from "../../images/text__COLOR_landing-logo.svg";
-import "./Promo.css";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import React from 'react';
+import promoImage from '../../images/text__COLOR_landing-logo.svg';
+import './Promo.css';
 
 export const Promo = () => {
-
   const { t } = useTranslation();
 
   return (

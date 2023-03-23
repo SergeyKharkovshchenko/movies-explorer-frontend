@@ -3,7 +3,9 @@ import { useMediaQuery } from 'react-responsive';
 import { useTranslation } from 'react-i18next';
 import './Button.css';
 
-export default function Button({ name, color, isActive, onClick }) {
+export const Button = ({
+  name, color, isActive, onClick,
+}) => {
   const { t } = useTranslation();
 
   function styleChoice(param) {
@@ -114,16 +116,16 @@ export default function Button({ name, color, isActive, onClick }) {
           height: '26px',
           fontSize: '10px',
         };
-        case 'smallGrey':
-          return {
-            background: 'rgba(92, 92, 92, 1)',
-            color: 'white',
-            marginRight: '0',
-            width: 'auto',
-            height: '26px',
-            fontSize: '12px',
-            marginBottom: '5px',
-          };
+      case 'smallGrey':
+        return {
+          background: 'rgba(92, 92, 92, 1)',
+          color: 'white',
+          marginRight: '0',
+          width: 'auto',
+          height: '26px',
+          fontSize: '12px',
+          marginBottom: '5px',
+        };
       case 'red':
         return {
           color: 'red',
@@ -178,4 +180,4 @@ export default function Button({ name, color, isActive, onClick }) {
       {t(name)}
     </button>
   );
-}
+};

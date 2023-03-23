@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { FilterCheckbox } from "../FilterCheckbox";
-import { Underline } from "../Underline";
-import { useTranslation } from "react-i18next";
-import "./SearchForm.css";
+import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { FilterCheckbox } from '../FilterCheckbox';
+import { Underline } from '../Underline';
+import './SearchForm.css';
 
 export const SearchForm = ({
   clickHandler,
@@ -10,11 +10,10 @@ export const SearchForm = ({
   isSwitched,
   search,
 }) => {
-
   const { t } = useTranslation();
 
   const [state, setState] = useState(search);
-  const [errorName, setErrorName] = useState("");
+  const [errorName, setErrorName] = useState('');
   const [isActive, setIsActive] = useState(true);
 
   function onChange(e) {
@@ -43,15 +42,15 @@ export const SearchForm = ({
             onChange={(e) => onChange(e)}
           />
           {!isActive && (
-            <span className={`searchForm__error`}>{t(errorName)}</span>
+            <span className={'searchForm__error'}>{t(errorName)}</span>
           )}
         </div>
         <button
           type="submit"
           className={
             isActive
-              ? "searchForm__submit"
-              : "searchForm__submit searchForm__disabled"
+              ? 'searchForm__submit'
+              : 'searchForm__submit searchForm__disabled'
           }
           disabled={!isActive}
         >
@@ -66,7 +65,7 @@ export const SearchForm = ({
         isSwitched={isSwitched}
         handleSwitcher={switcherHandler}
       />
-      <Underline mode={"greyStyle"} />
+      <Underline mode={'greyStyle'} />
     </section>
   );
 };

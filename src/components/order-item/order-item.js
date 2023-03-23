@@ -1,15 +1,14 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { AiOutlineCloseCircle } from "react-icons/ai";
-import { MovieCover } from "../movie-cover";
-import { deleteItemFromCart } from "../../store/cart/reducer";
-import { useLocalStorage } from "../../utils/use_localstorage";
-import "./order-item.css";
-import { composeInitialProps } from "react-i18next";
+import { composeInitialProps } from 'react-i18next';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { AiOutlineCloseCircle } from 'react-icons/ai';
+import { MovieCover } from '../movie-cover';
+import { deleteItemFromCart } from '../../store/cart/reducer';
+import { useLocalStorage } from '../../utils/use_localstorage';
+import './order-item.css';
 
 export const OrderItem = ({ movie }) => {
-
-  const [language, setLanguage] = useLocalStorage("language", "en");
+  const [language, setLanguage] = useLocalStorage('language', 'en');
   const dispatch = useDispatch();
   const handleClick = () => {
     dispatch(deleteItemFromCart(movie.id));
@@ -21,7 +20,7 @@ export const OrderItem = ({ movie }) => {
         <MovieCover movie={movie} />
       </div>
       <div className="order-item__title">
-        <span>{language == "en" ? movie.nameEN : movie.nameRU}</span>
+        <span>{language == 'en' ? movie.nameEN : movie.nameRU}</span>
       </div>
       <div className="order-item__price">
         <span>{movie.duration} USD</span>

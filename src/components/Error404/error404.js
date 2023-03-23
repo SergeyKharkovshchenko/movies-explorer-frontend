@@ -1,8 +1,7 @@
-import React from "react";
-import "./Error404.css";
-import { useNavigate } from "react-router-dom";
-import { useTranslation } from "react-i18next";
-
+import React from 'react';
+import './Error404.css';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 export const Error404 = () => {
   const navigate = useNavigate();

@@ -1,0 +1,21 @@
+{
+  "extends": "airbnb-base",
+  "parser": "@babel/eslint-parser",
+ "rules": {
+  "import/prefer-default-export": "off",
+  "no-underscore-dangle": ["error", { "allow": ["_id"]}],
+  "eqeqeq": "off",
+  "import/no-extraneous-dependencies": "off",
+  "linebreak-style": "off",
+  "no-param-reassign": "off",
+  "no-unused-vars": "off",
+  "no-unused-expressions": "off",
+  "no-undef": "off",
+  "no-return-assign": "off",
+  "no-nested-ternary": "off",
+  "no-use-before-define": "off",
+  "no-shadow": "off"
+  // "react/jsx-filename-extenion": [2, { "extensions": [".js", ".jsx", ".tsx", ".ts"] }]
+ }
+}
+

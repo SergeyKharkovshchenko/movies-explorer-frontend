@@ -1,11 +1,10 @@
-import React from "react";
-import "./AboutProject.css";
-import { AboutProjectData } from "../AboutProjectData";
-import { AboutProjectDetails } from "../AboutProjectDetails";
-import { useTranslation } from "react-i18next";
+import React from 'react';
+import './AboutProject.css';
+import { useTranslation } from 'react-i18next';
+import { AboutProjectData } from '../AboutProjectData';
+import { AboutProjectDetails } from '../AboutProjectDetails';
 
 export const AboutProject = () => {
-
   const { t } = useTranslation();
 
   return (

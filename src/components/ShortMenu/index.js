@@ -1,1 +1,1 @@
-export * from './ShortMenu'
+export * from './ShortMenu';

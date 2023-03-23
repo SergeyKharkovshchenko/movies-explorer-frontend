@@ -1,7 +1,7 @@
-import React from "react";
-import { Underline } from "../Underline";
-import { useTranslation } from "react-i18next";
-import "./Input.css";
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Underline } from '../Underline';
+import './Input.css';
 
 export const Input = ({
   mode,
@@ -11,9 +11,8 @@ export const Input = ({
   userData,
   errorName,
   placeholder,
-  isLoading
+  isLoading,
 }) => {
-
   const { t } = useTranslation();
 
   function change(e) {
@@ -27,10 +26,10 @@ export const Input = ({
         <p className={`input__label_type_${mode}`}>{t(`${label}`)}</p>
         <input
           name={name}
-          type={(name=='Password')?"password":"text"}
+          type={(name == 'Password') ? 'password' : 'text'}
           id={`edit-${name}`}
           className={`input__input_type_${mode} input__${name}_type_${mode}`}
-          value={userData || ""}
+          value={userData || ''}
           onChange={(e) => change(e)}
           placeholder={t(`${placeholder}`)}
           disabled={isLoading}
@@ -38,7 +37,7 @@ export const Input = ({
       </div>
       <Underline />
       {`bad${name}In` && (
-        <span className={`input__error`}>{errorName}</span>
+        <span className={'input__error'}>{errorName}</span>
       )}
     </div>
   );

@@ -24,6 +24,15 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
+    <script>
+      // проверяем поддержку сервис-воркеров
+      if ('serviceWorker' in navigator) {
+        // ожидаем полной загрузки страницы
+        window.addEventListener('load', () => {
+          navigator.serviceWorker?.register('sw.js');
+        });
+      }
+    </script>
     <title>Sergey Kharkovshchenko ReactJS Example</title>
   </head>
   <body>

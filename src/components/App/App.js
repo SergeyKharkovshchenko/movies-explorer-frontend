@@ -27,6 +27,7 @@ export const App = () => {
   const [isInfoTooltipPopupOpen, setInfoTooltipPopupOpen] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState('');
   const [language, setLanguage] = useLocalStorage('language', 'en');
+
   const dispatch = useDispatch();
   // get user from redux
   // from global state go to reducer user and get currentUser

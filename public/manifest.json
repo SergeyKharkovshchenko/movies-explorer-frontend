@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "SK App",
+  "name": "Sergey Kharkovshchenko example App",
   "icons": [
     {
       "src": "favicon.ico",
@@ -26,6 +26,12 @@
   ],
   "start_url": "/",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#FF0000",
+  "background_color": "#FF0000",
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://movies-explorer-frontend-ivory.vercel.app/manifest.json"
+    }
+ ]
 }

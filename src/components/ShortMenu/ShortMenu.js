@@ -46,11 +46,11 @@ export const ShortMenu = ({ width320 }) => {
               </Link>
             </li>
           ))}
-          <li onClick={promptToInstall} className="shortmenu__link">
+          <li onClick={promptToInstall} className="shortmenu__link-wrapper">
         {!isAppInstalled ? (
-          <div>{t('Add to Home Screen')}</div>
+          <div className="shortmenu__link">{t('Add to Home Screen')}</div>
         ) : (
-          <div>{t('Thanks for installing our app')}</div>
+          <div className="shortmenu__link">{t('Thanks for installing our app')}</div>
         )}
           </li>
         </ul>

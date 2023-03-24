@@ -46,7 +46,7 @@ export const ShortMenu = ({ width320 }) => {
               </Link>
             </li>
           ))}
-          <li onClick={promptToInstall} className="shortmenu__link-wrapper">
+          <li onClick={promptToInstall} className="shortmenu__link">
         {!isAppInstalled ? (
           <div>{t('Add to Home Screen')}</div>
         ) : (

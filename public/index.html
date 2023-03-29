@@ -29,7 +29,7 @@
       if ('serviceWorker' in navigator) {
         // ожидаем полной загрузки страницы
         window.addEventListener('load', () => {
-          navigator.serviceWorker?.register('sw.js');
+          navigator.serviceWorker?.register('/sw.js', { scope: '/' });
         });
       }
     </script>

@@ -19,9 +19,7 @@ export function useAddToHomescreenPrompt() {
       e.preventDefault();
       setState(e);
     };
-
     window.addEventListener('beforeinstallprompt', ready);
-
     return () => {
       window.removeEventListener('beforeinstallprompt', ready);
     };

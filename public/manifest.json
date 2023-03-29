@@ -27,11 +27,5 @@
   "start_url": "/",
   "display": "standalone",
   "theme_color": "#FF0000",
-  "background_color": "#FF0000",
-  "related_applications": [
-    {
-      "platform": "webapp",
-      "url": "https://movies-explorer-frontend-ivory.vercel.app/manifest.json"
-    }
- ]
+  "background_color": "#FF0000"
 }
